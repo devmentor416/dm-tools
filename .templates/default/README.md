@@ -1,9 +1,3 @@
-![Travis](https://img.shields.io/travis/rajinder-yadav/DM-Tools.svg)
-![Dependencies](https://david-dm.org/rajinder-yadav/DM-Tools.svg)
-![Version](https://img.shields.io/badge/DM-Tools-0.1.2--alpha.21-blue.svg)
-![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/rajinder-yadav/DM-Tools.svg)](https://greenkeeper.io/)
-
 # Dev Mentor Project Creator Tools
 
 Start playing with the demo starter project now, the generated source code is located in the project `src/` sub-folder.
