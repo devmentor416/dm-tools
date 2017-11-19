@@ -9,7 +9,7 @@ cmd
     .version(`${data_types_1.VERSION}`)
     .usage("<command> <project> [options...]")
     .arguments("<command> <project>")
-    .option("-t, --type <type>", "Project types: {default|node|js}")
+    .option("-t, --type <type>", "Project types: ts, node, js")
     .option("--e2e", "End to end testing")
     .option("-w, --web", "Simple static Web setup")
     .action((command, project) => {

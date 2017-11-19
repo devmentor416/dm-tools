@@ -14,7 +14,7 @@ function createNewProject(cmd, options) {
         console.log(`Folder ${options.project} already exists!`);
         return;
     }
-    if (cmd.type === undefined || cmd.type === "ts" || cmd.type === "default") {
+    if (cmd.type === undefined || cmd.type === "ts") {
         console.log("DM-Tools is generating a new default TypeScript project...");
         sh.cp("-r", path.resolve(__dirname, "../../.templates/default/"), `${options.project}`);
     }
