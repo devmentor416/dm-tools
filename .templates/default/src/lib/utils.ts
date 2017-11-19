@@ -1,5 +1,5 @@
 export const hello = (): string => {
-  return "Hello TSCLI!";
+  return "Hello DM-Tools!";
 };
 
 export function goodbye(): string {

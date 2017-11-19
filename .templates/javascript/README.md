@@ -1,19 +1,16 @@
-# TSCLI - JavaScript (ES6) Node generated project
+# DM-Tools - JavaScript (ES6) Node generated project
 
 Start playing with the Node.js demo starter project, the source code is under the project `src/` sub-folder.
 
-If you want to test out JavaScript (ES6) code without the compiler step, this is the fastest way to go. The project will however use Node.js modules as well as Node.js `require` to import files.
+**Important!** If you have Git installed, a Git repository have been created for you along with a development branch **dev** that you have been switched to.
 
 ```sh
-npm install
-npm start
+cd <project-folder>
 ```
-
-_Note_: If you are using _Yarn_, continue to work with _Yarn_.
 
 ## Benefits
 
-Here are the benefits you will enjoy right out of the gate:
+Here are the benefits from the DM-Tools created project.
 
 * Quick start
 * Best practices

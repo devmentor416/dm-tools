@@ -1,33 +1,33 @@
-![Travis](https://img.shields.io/travis/rajinder-yadav/tscli.svg)
-![Dependencies](https://david-dm.org/rajinder-yadav/tscli.svg)
-![Version](https://img.shields.io/badge/TSCLI-0.1.2--alpha.21-blue.svg)
+![Travis](https://img.shields.io/travis/rajinder-yadav/DM-Tools.svg)
+![Dependencies](https://david-dm.org/rajinder-yadav/DM-Tools.svg)
+![Version](https://img.shields.io/badge/DM-Tools-0.1.2--alpha.21-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
-[![Greenkeeper badge](https://badges.greenkeeper.io/rajinder-yadav/tscli.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/rajinder-yadav/DM-Tools.svg)](https://greenkeeper.io/)
 
-# TSCLI - TypeScript Project creator
+# Dev Mentor Project Creator Tools
 
-![Image Logo](img/tscli-2.png)
+![Image Logo](img/dm-tools.png)
 
-The _TSCLI_ project is in the process of becoming a general purpose CLI project generator for TypeScript based code.
+The **DM-Tools** project is in the process of becoming a general purpose CLI project creator for TypeScript and JavaScript code.
 
 Emphasis is put into encouraging the use of best practices and the best tools. I expect things to evolve overtime and settle to something the general practitioner will be happy with.
 
-Currently the _TSCLI_ default project template is being used to solidify concepts and setup.
+Currently the **DM-Tools** default project template is being used to solidify concepts and setup.
 
-TSCLI uses only TypeScript to build the project, I plan to add Webpack support once I am satifisty the basic project templates.
+DM-Tools uses TypeScript and NPM scripts to build the project, I plan to add Webpack support once I am satifisty with the basic project template.
 
 ## Project Types
 
-The following basic project type that can be created using TSCLI are:
+The following basic project type that can be created using DM-Tools are:
 
 1. Default (TypeScript Node.js with static Website)
 1. TypeScript Node.js (Zero web)
 1. Puse JavaScript Node.js (ES6, Zero compile wth static Website)
 
-## Installing TSCLI
+## Installing DM-Tools
 
 ```sh
-npm install -g tscli
+npm install -g devmentor
 ```
 
 ## Creating a Project
@@ -35,11 +35,11 @@ npm install -g tscli
 Start playing with the demo starter project now, the generated source code is located in the project `src/` sub-folder.
 
 ```sh
-cli new demo
+dm new demo
 cd demo
 ```
 
-_Note_: If you are using _Yarn_ over _NPM_, continue to work with _Yarn_, the TSCLI generated project will use Yarn before NPM if it is available on your system.
+_Note_: If you are using _Yarn_ over _NPM_, continue to work with _Yarn_, the DM-Tools generated project will use Yarn before NPM if it is available on your system.
 
 ## Running a Node.js program
 
@@ -156,7 +156,7 @@ It is good practice to format the source code, so it conforms to a uniform struc
 npm run format
 ```
 
-_Note_: When the _TSCLI_ generated project is built, the source code will be automatically formatted. This will also happen before source code is committed to _Git_.
+_Note_: When the _DM-Tools_ generated project is built, the source code will be automatically formatted. This will also happen before source code is committed to _Git_.
 
 ### Linting
 
@@ -249,7 +249,7 @@ If you want to develop in plain JavaScript, or develop a ES6 Node.js based proje
 You will need the latest version of Node.js for ES6 and beyond support, otherwise plain JavaScript will continue to work.
 
 ```sh
-cli new demo --type js
+dm new demo --type js
 npm install
 ```
 
@@ -288,14 +288,17 @@ Add the following two lines under compilerOptions to `tsconfig.json` and `tsconf
 
 ## Contributors wanted
 
-I am open to help and learn from the community. Feel free to create a PR, reach out to me to discuss ideas, and help out with this project.
+Feel free to help improve this great tool, before you start please reach out to me to sync up work and make sure your efforts will be the most prodictive.
 
-If you have never done a commit before, have no idea what a PR is, do not worry. I am open to help first timers :)
+## Coding guideline
+
+Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
 
 ## Where to start
 
 Not sure where to get started. Here are two suggested starting points:
 
+1. Read the Coding guideline.
 1. Start by looking at open issues to fix.
 1. Look at [Launchpad](https://tree.taiga.io/project/rajinder-yadav-launchpad/kanban?kanban-status=1068326) project tasks for things to help out with.
 
@@ -304,7 +307,3 @@ Not sure where to get started. Here are two suggested starting points:
 If you know your way around, look for issues marked, _help wanted_.
 
 If you are someone new to helping out on a Open Source project, look for something really easy to get your feet wet.
-
-## Coding guideline
-
-Read the [coding guideline](https://github.com/rajinder-yadav/tscli/wiki/Coding-guideline) found in the wiki.

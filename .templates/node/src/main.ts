@@ -1,7 +1,7 @@
 import log from "./lib/logger";
 
 const welcome = (): string => {
-  return "Welcome to TSCLI - Node.js demo program is working!";
+  return "Welcome to DM-Tools - Node.js demo program is working!";
 };
 
 log.info( "Entering main" );

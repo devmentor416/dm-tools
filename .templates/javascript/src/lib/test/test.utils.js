@@ -2,7 +2,7 @@ const test = require("ava").test;
 const utils = require("../utils");
 
 test( "hello", t => {
-  t.is( utils.hello(), "Hello TSCLI!" );
+  t.is( utils.hello(), "Hello DM-Tools!" );
 } );
 
 test( "goodbye", t => {

@@ -1,5 +1,5 @@
 exports.hello = () => {
-  return "Hello TSCLI!";
+  return "Hello DM-Tools!";
 };
 
 exports.goodbye = () => {

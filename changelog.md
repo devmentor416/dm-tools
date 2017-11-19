@@ -1,6 +1,13 @@
-# TSCLI Change Log
+# DM-Tools Change Log
 
 All changes to this project will be recorded in this document.
+
+## 0.0.2
+
+* Project renamed from TSCLI to DM-Tools.
+* TypeScript Formatter config updated.
+* TSLint config updated.
+* NPM Packages updated.
 
 ## 0.1.2-alpha-21 (2017-10-12)
 

@@ -1,10 +1,10 @@
 {
-  "name": "tscli",
-  "version": "0.1.2-alpha.21.02",
-  "description": "TypeScript CLI project generator",
+  "name": "devmentor",
+  "version": "0.0.2",
+  "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {
-    "cli": "bin/main.js"
+    "dm": "bin/main.js"
   },
   "config": {
     "doc_folder": "docs/typedoc"
@@ -26,20 +26,24 @@
     "test": "nyc ava --tap \"bin/**/*/test.*.js\"|tap-summary"
   },
   "keywords": [
+    "devmentor",
     "javascript",
     "js",
     "project-creator",
     "starter",
+    "tool",
+    "utility",
     "ts",
     "tscli",
     "typescript",
-    "nodejs"
+    "nodejs",
+    "web"
   ],
   "author": "Rajinder Yadav <devguy.ca@gmail.com> (https://github.com/rajinder-yadav)",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rajinder-yadav/tscli"
+    "url": "https://github.com/devmentor416/devmentor"
   },
   "devDependencies": {
     "@types/commander": "^2.11.0",

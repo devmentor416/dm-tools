@@ -2,13 +2,9 @@ import * as https from "https";
 import * as http from "http";
 import * as fs from "fs";
 
-export const hello = (): string => {
-  return "Hello TSCLI!";
+export const stub_test = (): string => {
+  return "Hello Dm-Tools!";
 };
-
-export function goodbye(): string {
-  return "See you later =)";
-}
 
 /** Download a file over HTTPS
  * @param uri {string} - URL of the file to download.
