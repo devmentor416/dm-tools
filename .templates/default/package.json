@@ -1,7 +1,7 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "TypeScript CLI generated demo project",
+  "description": "DM-Tools generated TypeScript demo project",
   "main": "src/main.ts",
   "config": {
     "main": "build/main.js",
@@ -14,7 +14,6 @@
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
     "lint": "tslint -t codeFrame \"src/**/*.ts\"",
     "clean": "shx rm -rf build",
-    "cy:open": "cypress open",
     "dev": "gazeall --runs-npm \"clean build\" \"src/**/*\"",
     "devwatch": "gazeall --delay 350 --run \"node build/main.js\" \"build/**/*\"",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
@@ -29,7 +28,7 @@
     "preweb": "run-s build webinit",
     "start": "node $npm_package_config_main",
     "test": "npm run ava:coverage",
-    "test:e2e": "nightwatch",
+    "test:e2e": "cypress open",
     "testwatch": "gazeall --delay 350 --runs-npm ava \"build/**/*\"",
     "test:web": "cross-env NODE_ENV=test browserify \"build/**/*/test.*.js\"|tape-run|tap-summary",
     "tsc": "tsc",
@@ -47,7 +46,7 @@
     "nodejs",
     "web"
   ],
-  "author": "[Full name] <email-inside-brackets> (project-github-repo-inside bracker)",
+  "author": "[Fullname] <your-email>",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
@@ -64,7 +63,6 @@
     "cross-var": "^1.0.3",
     "gazeall": "^0.2.5",
     "husky": "^0.14.3",
-    "nightwatch": "^0.9.16",
     "npm-run-all": "^4.1.1",
     "nyc": "^11.0.1",
     "shx": "^0.2.2",
