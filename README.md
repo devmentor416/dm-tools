@@ -2,7 +2,7 @@
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
 ![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.0.2-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.0.3-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
@@ -27,7 +27,7 @@ The following basic project type that can be created using DM-Tools are:
 ## Installing DM-Tools
 
 ```sh
-npm install -g devmentor
+npm install -g dm-tools
 ```
 
 ## Creating a Project
@@ -163,7 +163,7 @@ _Note_: When the _DM-Tools_ generated project is built, the source code will be 
 To validate the project TypeScript source code, use the following command:
 
 ```sh
-npm run check
+npm run lint
 ```
 
 _Note_: The TypeScript source code is run through a linter (_TSLint_) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.
@@ -259,7 +259,7 @@ The following NPM commands are supported:
 
 NPM script|Description
 ----------|-----------
-check|Run code through linter (jslint).|
+lint|Run code through linter (jslint).|
 dev|Run in watch mode.|
 doc|Generate doc files (jsdocs).|
 format|Format the source code.|

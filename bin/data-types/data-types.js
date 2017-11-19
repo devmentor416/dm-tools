@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const sh = require("shelljs");
-// Update for each release
-exports.VERSION = "0.0.2";
+exports.VERSION = "0.0.3";
 exports.YARN = sh.which("yarn");
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGF0YS10eXBlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9kYXRhLXR5cGVzL2RhdGEtdHlwZXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw4QkFBOEI7QUFFOUIsMEJBQTBCO0FBQ2IsUUFBQSxPQUFPLEdBQUcsT0FBTyxDQUFDO0FBRWxCLFFBQUEsSUFBSSxHQUFHLEVBQUUsQ0FBQyxLQUFLLENBQUUsTUFBTSxDQUFFLENBQUMifQ==
+//# sourceMappingURL=data-types.js.map

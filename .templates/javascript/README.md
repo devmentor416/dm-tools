@@ -79,7 +79,7 @@ _Note_: When the code is built and before it is committed to Git, it will be aut
 To validate the JavaScript source code, use the following command:
 
 ```sh
-npm run check
+npm run lint
 ```
 
 _Note_: The JavaScript code is run through the linter before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.

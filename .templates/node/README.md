@@ -129,7 +129,7 @@ _Note_: When the _DM-Tools_ generated project is built, the source code will be 
 To validate the project TypeScript source code, use the following command:
 
 ```sh
-npm run check
+npm run lint
 ```
 
 _Note_: The TypeScript source code is run through a linter (_TSLint_) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.

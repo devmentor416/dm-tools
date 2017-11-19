@@ -36,7 +36,7 @@
     "new-parens": true,
     "no-trailing-whitespace": true,
     "trailing-comma": [
-      true, {"multiline": "always",
+      false, {"multiline": "always",
         "singleline": "never"}
     ],
     "one-variable-per-declaration": [
