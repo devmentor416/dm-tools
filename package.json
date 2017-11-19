@@ -1,6 +1,6 @@
 {
-  "name": "devmentor",
-  "version": "0.0.2",
+  "name": "dm-tools",
+  "version": "0.0.3",
   "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {
@@ -12,14 +12,14 @@
   "scripts": {
     "build": "cross-env NODE_ENV=prod tsc",
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
-    "check": "tslint -t codeFrame \"src/**/*.ts\"",
+    "lint": "tslint -t codeFrame \"src/**/*.ts\"",
     "clean": "shx rm -rf bin",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",
     "node:debug": "node --inspect --debug-brk $npm_package_bin_cli",
     "postbuild": "npm link",
-    "prebuild": "run-s format check clean",
-    "precommit": "run-s format check",
+    "prebuild": "run-s format lint clean",
+    "precommit": "run-s format lint",
     "predoc": "shx rm -rf $npm_package_config_doc_folder && shx mkdir -p $npm_package_config_doc_folder",
     "prepush": "npm run test",
     "pretest": "run-s clean build:test",
@@ -39,11 +39,11 @@
     "nodejs",
     "web"
   ],
-  "author": "Rajinder Yadav <devguy.ca@gmail.com> (https://github.com/rajinder-yadav)",
+  "author": "Rajinder Yadav <devguy.ca@gmail.com>",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/devmentor416/devmentor"
+    "url": "https://github.com/devmentor416/dm-tools"
   },
   "devDependencies": {
     "@types/commander": "^2.11.0",

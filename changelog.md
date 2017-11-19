@@ -2,12 +2,14 @@
 
 All changes to this project will be recorded in this document.
 
-## 0.0.2
+## 0.0.3 (2017-11-19)
 
 * Project renamed from TSCLI to DM-Tools.
 * TypeScript Formatter config updated.
 * TSLint config updated.
 * NPM Packages updated.
+* NPM Linting script renamed to lint from check.
+* New flag '--e2e' installed cypress testing module.
 
 ## 0.1.2-alpha-21 (2017-10-12)
 
