@@ -10,7 +10,6 @@
     "ava": "ava --tap \"src/**/*/test.*.js\"|tap-summary",
     "ava:coverage": "nyc ava --tap \"src/**/*/test.*.js\"|tap-summary",
     "lint": "eslint \"src/**/*.js\"",
-    "cy:open": "cypress open",
     "devwatch": "gazeall --run \"node src/main.js\" \"src/**/*\"",
     "doc": "esdoc",
     "format": "prettier --write \"src/**/*.js\"",
@@ -20,7 +19,7 @@
     "prepush": "npm run test",
     "start": "node $npm_package_config_main",
     "test": "npm run ava:coverage",
-    "test:e2e": "",
+    "test:e2e": "cypress open",
     "testwatch": "gazeall --runs-npm ava \"src/**/*\"",
     "web": "browser-sync start --config bs-config.js"
   },
