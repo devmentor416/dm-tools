@@ -3,7 +3,7 @@ import * as http from "http";
 import * as fs from "fs";
 
 export const stub_test = (): string => {
-  return "Hello Dm-Tools!";
+  return "Hello DM-Tools!";
 };
 
 /** Download a file over HTTPS
