@@ -19,6 +19,12 @@ cmd
   .option( "--e2e", "end to end testing" )
   .option( "-w, --web", "simple static Web setup" )
   .option( "--cpp [items]", "C++ project", source_files, [] )
+  .option( "-D, --debug", "debug build" )
+  .option( "--release", "debug build" )
+  .option( "-M, --make", "Unix Makefile build" )
+  .option( "--xcode", "XCode Makefile" )
+  .option( "--eclipse", "Eclipse CDT4 Makefile" )
+  .option( "-N, --nmake", "Window NMak Makefile" )
   .action( ( command: string, project: string ) => {
     Object.assign( options, { command, project } );
   } )
@@ -27,12 +33,12 @@ cmd
 switch ( options.command ) {
   case "new":
     if ( cmd.cpp ) {
-      console.log( "Creating C++ project" );
+      console.log( "Creating C++ project ..." );
       createCppProject( cmd, options );
     } else {
       createNewProject( cmd, options );
     }
     break;
   default:
-    console.log( "Unknown command, doing nothing!" );
+    console.log( "Unknown Command, doing nothing!" );
 }
