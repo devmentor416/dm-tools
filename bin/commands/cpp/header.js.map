@@ -1,0 +1,1 @@
+{"version":3,"file":"header.js","sourceRoot":"","sources":["../../../src/commands/cpp/header.ts"],"names":[],"mappings":";;AAAA,mBAA2B,IAAY;IACrC,MAAM,YAAY,GAAG,IAAI,CAAC,OAAO,CAAE,KAAK,EAAE,GAAG,CAAE,CAAC;IAChD,MAAM,MAAM,GAAG,YAAa,YAAa;WAChC,YAAa;;;;aAIX,YAAa,KAAK,CAAC;IAC9B,MAAM,CAAC,MAAM,CAAC;AAChB,CAAC;AATD,8BASC"}
