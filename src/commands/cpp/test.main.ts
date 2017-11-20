@@ -1,7 +1,8 @@
-export function getTestMain(): string {
-  const test_main = `
-// Add header to your project here.
+import { getTitle } from "./title";
 
+export function getTestMain(): string {
+  const test_main = `${ getTitle( "test.main.cpp" ) }\n
+// Add header to your project here.
 
 // Required headers for Micro Test.
 #include <cstdlib>
@@ -11,6 +12,8 @@ export function getTestMain(): string {
 #include <sstream>
 #include <functional>
 #include "micro-test.hpp"
+
+// Micro Test Website: https://github.com/rajinder-yadav/micro_test
 
 int main( int argc, char * argv[] )
 {
@@ -50,8 +53,6 @@ int main( int argc, char * argv[] )
    }
 
    return 0;
-}
-`;
-
+}\n`;
   return test_main;
 }

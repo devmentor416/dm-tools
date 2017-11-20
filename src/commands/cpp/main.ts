@@ -1,3 +1,5 @@
+import { getTitle } from "./title";
+
 export function getMain( header_files: string[] ): string {
 
   let headers = "";
@@ -5,7 +7,7 @@ export function getMain( header_files: string[] ): string {
     headers = `${ headers }#include "${ v }"\n`;
   } );
 
-  const main = `
+  const main = `${ getTitle( "main.cpp" ) }\n
 #include <iostream>
 
 // Header files you may require.
@@ -39,7 +41,6 @@ int main( int argc, char* argv[] )
 {
    clog << "Hello World!" << endl;
    return 0;
-}
-`;
+}\n`;
   return main;
 }

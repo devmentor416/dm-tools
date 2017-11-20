@@ -1,5 +1,7 @@
-export function getSource( header: string ): string {
-  const header_file = header.replace( /\.cpp$/i, ".hpp" );
-  const source = `#include "${ header_file }"\n`;
+import { getTitle } from "./title";
+
+export function getSource( filename: string ): string {
+  const header_file = filename.replace( /\.cpp$/i, ".hpp" );
+  const source = `${ getTitle( filename ) }\n\n#include "${ header_file }"\n`;
   return source;
 }

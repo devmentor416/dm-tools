@@ -1,10 +1,13 @@
-export function getHeader( file: string ): string {
-  const header_guard = file.replace( /\./g, "_" );
-  const header = `#ifndef _${ header_guard }_
-#define _${header_guard }_
+import { getTitle } from "./title";
+
+export function getHeader( filename: string ): string {
+  const header_guard = `__${ filename.replace( /\./g, "_" ) }_${ Date.now() }__`;
+  const header = `${ getTitle( filename ) }\n
+#ifndef ${ header_guard }
+#define ${ header_guard }
 
 // TODO: Add your code here
 
-#endif // _${header_guard }_\n`;
+#endif // ${ header_guard }\n`;
   return header;
 }
