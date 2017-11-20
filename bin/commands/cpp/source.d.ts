@@ -1,1 +1,1 @@
-export declare function getSource(header: string): string;
+export declare function getSource(filename: string): string;

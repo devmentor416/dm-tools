@@ -1,1 +1,1 @@
-export declare function getHeader(file: string): string;
+export declare function getHeader(filename: string): string;

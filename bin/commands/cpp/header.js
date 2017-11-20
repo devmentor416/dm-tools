@@ -1,13 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getHeader(file) {
-    const header_guard = file.replace(/\./g, "_");
-    const header = `#ifndef _${header_guard}_
-#define _${header_guard}_
+const title_1 = require("./title");
+function getHeader(filename) {
+    const header_guard = `__${filename.replace(/\./g, "_")}_${Date.now()}__`;
+    const header = `${title_1.getTitle(filename)}\n
+#ifndef ${header_guard}
+#define ${header_guard}
 
 // TODO: Add your code here
 
-#endif // _${header_guard}_\n`;
+#endif // ${header_guard}\n`;
     return header;
 }
 exports.getHeader = getHeader;

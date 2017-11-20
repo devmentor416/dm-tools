@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const title_1 = require("./title");
 function getTestMain() {
-    const test_main = `
+    const test_main = `${title_1.getTitle("test.main.cpp")}\n
 // Add header to your project here.
-
 
 // Required headers for Micro Test.
 #include <cstdlib>
@@ -13,6 +13,8 @@ function getTestMain() {
 #include <sstream>
 #include <functional>
 #include "micro-test.hpp"
+
+// Micro Test Website: https://github.com/rajinder-yadav/micro_test
 
 int main( int argc, char * argv[] )
 {
@@ -52,8 +54,7 @@ int main( int argc, char * argv[] )
    }
 
    return 0;
-}
-`;
+}\n`;
     return test_main;
 }
 exports.getTestMain = getTestMain;

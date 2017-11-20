@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getSource(header) {
-    const header_file = header.replace(/\.cpp$/i, ".hpp");
-    const source = `#include "${header_file}"\n`;
+const title_1 = require("./title");
+function getSource(filename) {
+    const header_file = filename.replace(/\.cpp$/i, ".hpp");
+    const source = `${title_1.getTitle(filename)}\n\n#include "${header_file}"\n`;
     return source;
 }
 exports.getSource = getSource;

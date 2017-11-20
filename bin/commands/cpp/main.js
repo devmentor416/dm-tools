@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const title_1 = require("./title");
 function getMain(header_files) {
     let headers = "";
     header_files.forEach(v => {
         headers = `${headers}#include "${v}"\n`;
     });
-    const main = `
+    const main = `${title_1.getTitle("main.cpp")}\n
 #include <iostream>
 
 // Header files you may require.
@@ -39,8 +40,7 @@ int main( int argc, char* argv[] )
 {
    clog << "Hello World!" << endl;
    return 0;
-}
-`;
+}\n`;
     return main;
 }
 exports.getMain = getMain;

@@ -1,1 +1,1 @@
-export declare function getTitles(filename: string, date: string): string;
+export declare function getTitle(filename: string): string;
