@@ -6,7 +6,7 @@ const fs = require("fs");
 const utils = require("../lib/utils");
 const os = require("os");
 const main_1 = require("./cpp/main");
-const test_main_1 = require("./cpp/test.main");
+const test_main_1 = require("./cpp/test-main");
 const cmakelists_1 = require("./cpp/cmakelists");
 const cmakelists_test_1 = require("./cpp/cmakelists.test");
 const header_1 = require("./cpp/header");
@@ -54,7 +54,7 @@ function createCppProject(cmd, options) {
     sh.mkdir("src/include", "src/test", "src/test/include");
     console.log("Created project folders");
     const header_files = [];
-    cmd.cpp.forEach(file => {
+    cmd.cpp.forEach((file) => {
         const header_file = file.replace(/\.cpp$/i, ".hpp");
         header_files.push(header_file);
         safeCreateHeaderFile(header_file);

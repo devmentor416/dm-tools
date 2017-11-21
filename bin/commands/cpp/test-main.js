@@ -58,4 +58,4 @@ int main( int argc, char * argv[] )
     return test_main;
 }
 exports.getTemplateTestMain = getTemplateTestMain;
-//# sourceMappingURL=test.main.js.map
+//# sourceMappingURL=test-main.js.map

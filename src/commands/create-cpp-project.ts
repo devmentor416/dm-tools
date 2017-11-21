@@ -5,7 +5,7 @@ import * as utils from "../lib/utils";
 import * as os from "os";
 
 import { getTemplateMain } from "./cpp/main";
-import { getTemplateTestMain } from "./cpp/test.main";
+import { getTemplateTestMain } from "./cpp/test-main";
 import { getTemplateCMakeLists } from "./cpp/cmakelists";
 import { getTemplateCMakeListsTest } from "./cpp/cmakelists.test";
 import { getTemplateHeader } from "./cpp/header";
@@ -64,7 +64,7 @@ export function createCppProject( cmd: any, options: any ): void {
 
   const header_files: string[] = [];
 
-  cmd.cpp.forEach( file => {
+  cmd.cpp.forEach( ( file: string ) => {
     const header_file = file.replace( /\.cpp$/i, ".hpp" );
     header_files.push( header_file );
     safeCreateHeaderFile( header_file );
