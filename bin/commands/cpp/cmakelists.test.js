@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getCMakeListsTest(test_project_name, headers, source) {
+function getTemplateCMakeListsTest(test_project_name, headers, source) {
     const header_files = headers.map(v => ` ../${v}`);
     const source_files = source.map(v => ` ../${v}`);
     const cmakelists_test = `
@@ -12,7 +12,7 @@ project( test.${test_project_name} )
 #include_directories( "\${PROJECT_SOURCE_DIR}" "\${PROJECT_SOURCE_DIR}/src/include" "\${PROJECT_SOURCE_DIR}/include" "\${ASIO_INCLUDE}" )
 
 # ASIO with C++11
-#add_definitions( "-DASIO_STANDALONE"
+#add_definitions( "-DASIO_STANDALONE" )
 
 # Define boost path using environment var
 #set( BOOST_INCLUDE "$ENV{BOOST_ROOT}/include/" )
@@ -39,5 +39,5 @@ target_link_libraries( test.${test_project_name} \${LIB_FILES} \${CMAKE_THREAD_L
 `;
     return cmakelists_test;
 }
-exports.getCMakeListsTest = getCMakeListsTest;
+exports.getTemplateCMakeListsTest = getTemplateCMakeListsTest;
 //# sourceMappingURL=cmakelists.test.js.map

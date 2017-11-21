@@ -1,7 +1,8 @@
-import { getTitle } from "./title";
+import { getTemplateTitle } from "./title";
 
-export function getTestMain(): string {
-  const test_main = `${ getTitle( "test.main.cpp" ) }\n
+export function getTemplateTestMain(): string {
+
+  const test_main = `${ getTemplateTitle( "test.main.cpp" ) }\n
 // Add header to your project here.
 
 // Required headers for Micro Test.

@@ -8,7 +8,7 @@ const commit_message = `
 This Project was generated using Dev Mentor Tools (${data_types_1.VERSION}).
 Initial Commit.
 `;
-function createNewProject(cmd, options) {
+function createJSProject(cmd, options) {
     if (fs.existsSync(options.project)) {
         console.log(`Folder ${options.project} already exists!`);
         return;
@@ -48,5 +48,5 @@ function createNewProject(cmd, options) {
     sh.popd();
     console.log(`Project ${options.project} created successfully.`);
 }
-exports.createNewProject = createNewProject;
-//# sourceMappingURL=create-new-project.js.map
+exports.createJSProject = createJSProject;
+//# sourceMappingURL=create-js-project.js.map

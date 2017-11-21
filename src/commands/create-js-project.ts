@@ -10,7 +10,7 @@ This Project was generated using Dev Mentor Tools (${ VERSION }).
 Initial Commit.
 `;
 
-export function createNewProject( cmd: any, options: any ): void {
+export function createJSProject( cmd: any, options: any ): void {
 
   if ( fs.existsSync( options.project ) ) {
     console.log( `Folder ${ options.project } already exists!` );

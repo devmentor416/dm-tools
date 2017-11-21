@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const title_1 = require("./title");
-function getMain(header_files) {
+function getTemplateMain(header_files) {
     let headers = "";
     header_files.forEach(v => {
         headers = `${headers}#include "${v}"\n`;
     });
-    const main = `${title_1.getTitle("main.cpp")}\n
+    const main = `${title_1.getTemplateTitle("main.cpp")}\n
 #include <iostream>
 
 // Header files you may require.
@@ -43,5 +43,5 @@ int main( int argc, char* argv[] )
 }\n`;
     return main;
 }
-exports.getMain = getMain;
+exports.getTemplateMain = getTemplateMain;
 //# sourceMappingURL=main.js.map

@@ -4,12 +4,12 @@ import * as fs from "fs";
 import * as utils from "../lib/utils";
 import * as os from "os";
 
-import { getMain } from "./cpp/main";
-import { getTestMain } from "./cpp/test.main";
-import { getCMakeLists } from "./cpp/cmakelists";
-import { getCMakeListsTest } from "./cpp/cmakelists.test";
-import { getHeader } from "./cpp/header";
-import { getSource } from "./cpp/source";
+import { getTemplateMain } from "./cpp/main";
+import { getTemplateTestMain } from "./cpp/test.main";
+import { getTemplateCMakeLists } from "./cpp/cmakelists";
+import { getTemplateCMakeListsTest } from "./cpp/cmakelists.test";
+import { getTemplateHeader } from "./cpp/header";
+import { getTemplateSource } from "./cpp/source";
 import { VERSION, GIT } from "../data-types/data-types";
 
 const commit_message: string = `
@@ -19,12 +19,12 @@ Initial Commit.
 
 function safeCreateHeaderFile( filename: string ): void {
   if ( fs.existsSync( `./src/${ filename }` ) ) {
+    console.log( "Header file already exist, skipping!" );
     return;
   }
 
-  fs.writeFile( `./src/${ filename }`, getHeader( filename ), err => {
+  fs.writeFile( `./src/${ filename }`, getTemplateHeader( filename ), err => {
     if ( err ) {
-      // log error, exit
       console.log( err.message );
       return;
     }
@@ -34,12 +34,12 @@ function safeCreateHeaderFile( filename: string ): void {
 
 function safeCreateSourceFile( filename: string ): void {
   if ( fs.existsSync( `./src/${ filename }` ) ) {
+    console.log( "Source file already exist, skipping!" );
     return;
   }
 
-  fs.writeFile( `./src/${ filename }`, getSource( filename ), err => {
+  fs.writeFile( `./src/${ filename }`, getTemplateSource( filename ), err => {
     if ( err ) {
-      // log error, exit
       console.log( err.message );
       return;
     }
@@ -50,7 +50,7 @@ function safeCreateSourceFile( filename: string ): void {
 export function createCppProject( cmd: any, options: any ): void {
 
   if ( fs.existsSync( options.project ) ) {
-    console.log( `Folder ${ options.project } already exists!` );
+    console.log( `Folder ${ options.project } already exists, doing nothing!` );
     return;
   }
 
@@ -71,33 +71,33 @@ export function createCppProject( cmd: any, options: any ): void {
     safeCreateSourceFile( file );
   } );
 
-  fs.writeFile( "./src/main.cpp", getMain( header_files ), err => {
+  fs.writeFile( "./src/main.cpp", getTemplateMain( header_files ), err => {
     if ( err ) {
       console.log( err.message );
     }
   } );
   console.log( "Created main.cpp file" );
 
-  fs.writeFile( "./src/CMakeLists.txt", getCMakeLists( options.project, header_files, cmd.cpp ), err => {
+  fs.writeFile( "./src/CMakeLists.txt", getTemplateCMakeLists( options.project, header_files, cmd.cpp ), err => {
     if ( err ) {
       console.log( err.message );
     }
   } );
   console.log( "Created CMakefile file" );
 
-  fs.writeFile( "./src/test/test.main.cpp", getTestMain(), err => {
+  fs.writeFile( "./src/test/test.main.cpp", getTemplateTestMain(), err => {
     if ( err ) {
       console.log( err.message );
     }
   } );
   console.log( "Created test.main.cpp file" );
 
-  fs.writeFile( "./src/test/CMakeLists.txt", getCMakeListsTest( options.project, header_files, cmd.cpp ), err => {
+  fs.writeFile( "./src/test/CMakeLists.txt", getTemplateCMakeListsTest( options.project, header_files, cmd.cpp ), err => {
     if ( err ) {
       console.log( err.message );
     }
   } );
-  console.log( "Created test CMakefile file" );
+  console.log( "Created Unit Test CMakefile file" );
 
   utils.downloadFileHttps(
     "https://bitbucket.org/rajinder_yadav/micro_test/raw/master/src/include/micro-test.hpp",
@@ -123,11 +123,11 @@ export function createCppProject( cmd: any, options: any ): void {
     case "Linux":
       console.log( "Generating Makefiles for Linux" );
       if ( cmd.eclipse ) {
-        console.log( "Creating Linux Eclipse CDT project files" );
         sh.exec( `cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
+        console.log( "Created Linux Eclipse CDT project files" );
       } else {
-        console.log( "Creating Unix Makefiles" );
         sh.exec( `cmake -G "Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
+        console.log( "Created Unix Makefiles" );
       }
       break;
 

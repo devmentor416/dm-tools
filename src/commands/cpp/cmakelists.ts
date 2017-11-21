@@ -1,4 +1,8 @@
-export function getCMakeLists( project_name: string, header_files: string[], source_files: string[] ): string {
+export function getTemplateCMakeLists(
+  project_name: string,
+  header_files: string[],
+  source_files: string[] ): string {
+
   const cmakelists = `
 cmake_minimum_required( VERSION 2.6 )
 project( ${project_name } )

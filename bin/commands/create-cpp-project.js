@@ -18,9 +18,10 @@ Initial Commit.
 `;
 function safeCreateHeaderFile(filename) {
     if (fs.existsSync(`./src/${filename}`)) {
+        console.log("Header file already exist, skipping!");
         return;
     }
-    fs.writeFile(`./src/${filename}`, header_1.getHeader(filename), err => {
+    fs.writeFile(`./src/${filename}`, header_1.getTemplateHeader(filename), err => {
         if (err) {
             console.log(err.message);
             return;
@@ -30,9 +31,10 @@ function safeCreateHeaderFile(filename) {
 }
 function safeCreateSourceFile(filename) {
     if (fs.existsSync(`./src/${filename}`)) {
+        console.log("Source file already exist, skipping!");
         return;
     }
-    fs.writeFile(`./src/${filename}`, source_1.getSource(filename), err => {
+    fs.writeFile(`./src/${filename}`, source_1.getTemplateSource(filename), err => {
         if (err) {
             console.log(err.message);
             return;
@@ -42,7 +44,7 @@ function safeCreateSourceFile(filename) {
 }
 function createCppProject(cmd, options) {
     if (fs.existsSync(options.project)) {
-        console.log(`Folder ${options.project} already exists!`);
+        console.log(`Folder ${options.project} already exists, doing nothing!`);
         return;
     }
     console.log("DM-Tools is generating a new C++ project ...");
@@ -58,30 +60,30 @@ function createCppProject(cmd, options) {
         safeCreateHeaderFile(header_file);
         safeCreateSourceFile(file);
     });
-    fs.writeFile("./src/main.cpp", main_1.getMain(header_files), err => {
+    fs.writeFile("./src/main.cpp", main_1.getTemplateMain(header_files), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created main.cpp file");
-    fs.writeFile("./src/CMakeLists.txt", cmakelists_1.getCMakeLists(options.project, header_files, cmd.cpp), err => {
+    fs.writeFile("./src/CMakeLists.txt", cmakelists_1.getTemplateCMakeLists(options.project, header_files, cmd.cpp), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created CMakefile file");
-    fs.writeFile("./src/test/test.main.cpp", test_main_1.getTestMain(), err => {
+    fs.writeFile("./src/test/test.main.cpp", test_main_1.getTemplateTestMain(), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created test.main.cpp file");
-    fs.writeFile("./src/test/CMakeLists.txt", cmakelists_test_1.getCMakeListsTest(options.project, header_files, cmd.cpp), err => {
+    fs.writeFile("./src/test/CMakeLists.txt", cmakelists_test_1.getTemplateCMakeListsTest(options.project, header_files, cmd.cpp), err => {
         if (err) {
             console.log(err.message);
         }
     });
-    console.log("Created test CMakefile file");
+    console.log("Created Unit Test CMakefile file");
     utils.downloadFileHttps("https://bitbucket.org/rajinder_yadav/micro_test/raw/master/src/include/micro-test.hpp", "./src/test/include/micro-test.hpp", function (err) {
         if (err) {
             console.log(err.message);
@@ -102,12 +104,12 @@ function createCppProject(cmd, options) {
         case "Linux":
             console.log("Generating Makefiles for Linux");
             if (cmd.eclipse) {
-                console.log("Creating Linux Eclipse CDT project files");
                 sh.exec(`cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=${cpp_build_type} ../src`);
+                console.log("Created Linux Eclipse CDT project files");
             }
             else {
-                console.log("Creating Unix Makefiles");
                 sh.exec(`cmake -G "Unix Makefiles" -D CMAKE_BUILD_TYPE=${cpp_build_type} ../src`);
+                console.log("Created Unix Makefiles");
             }
             break;
         case "Darwin":

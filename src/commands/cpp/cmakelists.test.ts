@@ -1,4 +1,7 @@
-export function getCMakeListsTest( test_project_name: string, headers: string[], source: string[] ): string {
+export function getTemplateCMakeListsTest(
+  test_project_name: string,
+  headers: string[],
+  source: string[] ): string {
 
   const header_files = headers.map( v => ` ../${ v }` );
   const source_files = source.map( v => ` ../${ v }` );
@@ -12,7 +15,7 @@ project( test.${test_project_name } )
 #include_directories( "\${PROJECT_SOURCE_DIR}" "\${PROJECT_SOURCE_DIR}/src/include" "\${PROJECT_SOURCE_DIR}/include" "\${ASIO_INCLUDE}" )
 
 # ASIO with C++11
-#add_definitions( "-DASIO_STANDALONE"
+#add_definitions( "-DASIO_STANDALONE" )
 
 # Define boost path using environment var
 #set( BOOST_INCLUDE "$ENV{BOOST_ROOT}/include/" )

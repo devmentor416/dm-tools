@@ -1,1 +1,1 @@
-export declare function getTitle(filename: string): string;
+export declare function getTemplateTitle(filename: string): string;

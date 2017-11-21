@@ -1,13 +1,13 @@
-import { getTitle } from "./title";
+import { getTemplateTitle } from "./title";
 
-export function getMain( header_files: string[] ): string {
+export function getTemplateMain( header_files: string[] ): string {
 
   let headers = "";
   header_files.forEach( v => {
     headers = `${ headers }#include "${ v }"\n`;
   } );
 
-  const main = `${ getTitle( "main.cpp" ) }\n
+  const main = `${ getTemplateTitle( "main.cpp" ) }\n
 #include <iostream>
 
 // Header files you may require.

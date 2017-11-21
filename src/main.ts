@@ -2,7 +2,7 @@
 import * as cmd from "commander";
 import { VERSION } from "./data-types/data-types";
 
-import { createNewProject } from "./commands/create-new-project";
+import { createJSProject } from "./commands/create-js-project";
 import { createCppProject } from "./commands/create-cpp-project";
 
 const options: any = {};
@@ -33,10 +33,9 @@ cmd
 switch ( options.command ) {
   case "new":
     if ( cmd.cpp ) {
-      console.log( "Creating C++ project ..." );
       createCppProject( cmd, options );
     } else {
-      createNewProject( cmd, options );
+      createJSProject( cmd, options );
     }
     break;
   default:

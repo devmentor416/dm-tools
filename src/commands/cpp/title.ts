@@ -1,4 +1,5 @@
-export function getTitle( filename: string ): string {
+export function getTemplateTitle( filename: string ): string {
+
   const options = { year: "numeric", month: "short", day: "numeric" };
   const today = new Intl.DateTimeFormat( "en-US", options ).format( Date.now() );
   const title = `/**

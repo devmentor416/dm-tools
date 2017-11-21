@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const title_1 = require("./title");
-function getTestMain() {
-    const test_main = `${title_1.getTitle("test.main.cpp")}\n
+function getTemplateTestMain() {
+    const test_main = `${title_1.getTemplateTitle("test.main.cpp")}\n
 // Add header to your project here.
 
 // Required headers for Micro Test.
@@ -57,5 +57,5 @@ int main( int argc, char * argv[] )
 }\n`;
     return test_main;
 }
-exports.getTestMain = getTestMain;
+exports.getTemplateTestMain = getTemplateTestMain;
 //# sourceMappingURL=test.main.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getCMakeLists(project_name, header_files, source_files) {
+function getTemplateCMakeLists(project_name, header_files, source_files) {
     const cmakelists = `
 cmake_minimum_required( VERSION 2.6 )
 project( ${project_name} )
@@ -39,5 +39,5 @@ add_subdirectory( test )
 `;
     return cmakelists;
 }
-exports.getCMakeLists = getCMakeLists;
+exports.getTemplateCMakeLists = getTemplateCMakeLists;
 //# sourceMappingURL=cmakelists.js.map

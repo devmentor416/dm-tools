@@ -1,1 +1,1 @@
-export declare function getHeader(filename: string): string;
+export declare function getTemplateHeader(filename: string): string;

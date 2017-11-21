@@ -1,1 +1,1 @@
-export declare function getTestMain(): string;
+export declare function getTemplateTestMain(): string;

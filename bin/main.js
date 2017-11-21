@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const cmd = require("commander");
 const data_types_1 = require("./data-types/data-types");
-const create_new_project_1 = require("./commands/create-new-project");
+const create_js_project_1 = require("./commands/create-js-project");
 const create_cpp_project_1 = require("./commands/create-cpp-project");
 const options = {};
 function source_files(files) {
@@ -30,11 +30,10 @@ cmd
 switch (options.command) {
     case "new":
         if (cmd.cpp) {
-            console.log("Creating C++ project ...");
             create_cpp_project_1.createCppProject(cmd, options);
         }
         else {
-            create_new_project_1.createNewProject(cmd, options);
+            create_js_project_1.createJSProject(cmd, options);
         }
         break;
     default:

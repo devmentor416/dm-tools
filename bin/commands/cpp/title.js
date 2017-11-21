@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getTitle(filename) {
+function getTemplateTitle(filename) {
     const options = { year: "numeric", month: "short", day: "numeric" };
     const today = new Intl.DateTimeFormat("en-US", options).format(Date.now());
     const title = `/**
@@ -24,5 +24,5 @@ function getTitle(filename) {
 *------------------------------------------------------------*/`;
     return title;
 }
-exports.getTitle = getTitle;
+exports.getTemplateTitle = getTemplateTitle;
 //# sourceMappingURL=title.js.map

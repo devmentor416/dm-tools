@@ -1,8 +1,9 @@
-import { getTitle } from "./title";
+import { getTemplateTitle } from "./title";
 
-export function getHeader( filename: string ): string {
+export function getTemplateHeader( filename: string ): string {
+
   const header_guard = `__${ filename.replace( /\./g, "_" ) }_${ Date.now() }__`;
-  const header = `${ getTitle( filename ) }\n
+  const header = `${ getTemplateTitle( filename ) }\n
 #ifndef ${ header_guard }
 #define ${ header_guard }
 
