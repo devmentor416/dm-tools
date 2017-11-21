@@ -26,6 +26,12 @@ cmd
     .action((command, project) => {
     Object.assign(options, { command, project });
 })
+    .on("--help", () => {
+    console.log(`\nDev Mentor DM-Tools
+Create C++, TypeScript and JavaScript projects.\n
+Website: https://www.npmjs.com/package/dm-tools
+    `);
+})
     .parse(process.argv);
 switch (options.command) {
     case "new":

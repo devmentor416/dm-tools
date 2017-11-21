@@ -9,7 +9,7 @@ I wrote Micro Test because I believe writing tests and setting up a test project
 ## Benefits of Micro Test
 
 1. No need to build and link to a separate test library.
-1. No linking or DLL hell.
+1. No linking or ELL hell.
 1. No Complex build process.
 1. No Complex project setup.
 
