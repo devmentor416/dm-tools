@@ -2,6 +2,12 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.0.5
+
+* Cleanup and code refactoring.
+* Updated README.
+* Add C++ project creation.
+
 ## 0.0.3 (2017-11-19)
 
 * Project renamed from TSCLI to DM-Tools.
