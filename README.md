@@ -2,11 +2,50 @@
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
 ![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.0.3-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.0.5-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
 ![Image Logo](img/dm-tools.png)
+<!-- TOC -->
+
+- [Introduction](#introduction)
+- [Project Types](#project-types)
+- [Installing DM-Tools](#installing-dm-tools)
+- [Creating a Project](#creating-a-project)
+- [Running a Node.js program](#running-a-nodejs-program)
+  - [Running and watching during development](#running-and-watching-during-development)
+    - [Terminal One](#terminal-one)
+    - [Terminal Two](#terminal-two)
+    - [Terminal Three](#terminal-three)
+- [Benefits](#benefits)
+- [TypeScript development](#typescript-development)
+  - [Source code](#source-code)
+  - [Building](#building)
+  - [Warning](#warning)
+  - [Library code (Modules)](#library-code-modules)
+  - [Formatting the code](#formatting-the-code)
+  - [Linting](#linting)
+  - [Testing](#testing)
+- [Static Web development](#static-web-development)
+  - [Browsersync Asset fetching](#browsersync-asset-fetching)
+- [Test coverage](#test-coverage)
+- [Create a Node.js JavaScript project](#create-a-nodejs-javascript-project)
+  - [TypeScript Node ES5](#typescript-node-es5)
+- [Building C++ Testable Projects](#building-c-testable-projects)
+  - [Basic Usage](#basic-usage)
+    - [Project "hello_world" Creation](#project-hello_world-creation)
+  - [Building Project](#building-project)
+  - [Running hello_world program](#running-hello_world-program)
+  - [Running the Test Program](#running-the-test-program)
+  - [Micro Test - Testing Your Project](#micro-test---testing-your-project)
+- [Contributors wanted](#contributors-wanted)
+- [TypeScript Coding guideline](#typescript-coding-guideline)
+- [Where to start](#where-to-start)
+
+<!-- /TOC -->
+
+## Introduction
 
 The **DM-Tools** project is in the process of becoming a general purpose CLI project creator for TypeScript and JavaScript code.
 
@@ -286,11 +325,65 @@ Add the following two lines under compilerOptions to `tsconfig.json` and `tsconf
 }
 ```
 
+## Building C++ Testable Projects
+
+DM-Tools can be used to create a C++ project with Unit Testing setup using [Micro Test](https://github.com/rajinder-yadav/micro_test).
+
+The C++ project uses [CMake](https://cmake.org/) to generate cross-platform Makefiles for:
+
+1. Linux
+1. MacOS
+1. Windows
+
+### Basic Usage
+
+Let us go through the steps of creating a simple "hello_world" project.
+
+#### Project "hello_world" Creation
+
+The created project will be found under the **hello_world** folder.
+
+```sh
+cd /tmp
+dm new hello_world --cpp
+```
+
+### Building Project
+
+The Makefile is located under sub-folder build.
+
+```sh
+cd hello_world/build
+make
+```
+
+### Running hello_world program
+
+The executable hello_world will be found in the build folder.
+
+```sh
+./hello_world
+```
+
+### Running the Test Program
+
+The test program is located under build/test/ sub-folder. Initially one failing test is created for you to follow.
+
+```sh
+./test/test.hello_world
+```
+
+### Micro Test - Testing Your Project
+
+DM-Tools creates a test sub-folder under src/ and uses the latest Micro Test header file, it basically pulls it from the Micro Test Git repository.
+
+To learn more about how to write tests using [Micro Test](https://bitbucket.org/rajinder_yadav/micro_test) check out the project site. You will be amazed how simple and fast it is to write test code.
+
 ## Contributors wanted
 
 Feel free to help improve this great tool, before you start please reach out to me to sync up work and make sure your efforts will be the most prodictive.
 
-## Coding guideline
+## TypeScript Coding guideline
 
 Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
 
@@ -302,8 +395,5 @@ Not sure where to get started. Here are two suggested starting points:
 1. Start by looking at open issues to fix.
 1. Look at [Launchpad](https://tree.taiga.io/project/rajinder-yadav-launchpad/kanban?kanban-status=1068326) project tasks for things to help out with.
 
-### Issues
+**Happy Hacking =)**
 
-If you know your way around, look for issues marked, _help wanted_.
-
-If you are someone new to helping out on a Open Source project, look for something really easy to get your feet wet.
