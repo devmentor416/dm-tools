@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import * as cmd from "commander";
 import { VERSION } from "./data-types/data-types";
 
