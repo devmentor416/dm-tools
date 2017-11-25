@@ -47,7 +47,7 @@
 
 ## Introduction
 
-**DM-Tools** is a command-line utility for generating project for the following programming languages.
+**DM-Tools** is a command-line utility for generating a project for the following programming languages.
 
 1. TypeScript
 1. JavaScript
@@ -57,7 +57,7 @@ Focus has been put into encouraging the use of best practices and the best tools
 
 ## Project Types
 
-The following basic project type that can be created using DM-Tools are:
+The following basic project types that can be created using DM-Tools are:
 
 1. Default (TypeScript Node.js with static Website)
 1. TypeScript Node.js
