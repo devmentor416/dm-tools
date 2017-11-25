@@ -2,6 +2,10 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.0.7 (2017-11-25)
+
+* Critical bug fix for C++ project creation.
+
 ## 0.0.6 (2017-11-24)
 
 * Logo update.

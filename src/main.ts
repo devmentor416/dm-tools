@@ -37,7 +37,6 @@ Website: https://www.npmjs.com/package/dm-tools
   } )
   .parse( process.argv );
 
-
 switch ( options.command ) {
   case "new":
     if ( cmd.cpp ) {

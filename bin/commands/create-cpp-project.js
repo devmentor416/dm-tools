@@ -54,19 +54,23 @@ function createCppProject(cmd, options) {
     sh.mkdir("src/include", "src/test", "src/test/include");
     console.log("Created project folders");
     const header_files = [];
-    cmd.cpp.forEach((file) => {
-        const header_file = file.replace(/\.cpp$/i, ".hpp");
-        header_files.push(header_file);
-        safeCreateHeaderFile(header_file);
-        safeCreateSourceFile(file);
-    });
+    let source_files = [];
+    if (cmd.cpp instanceof Array) {
+        source_files = cmd.cpp;
+        cmd.cpp.forEach((file) => {
+            const header_file = file.replace(/\.cpp$/i, ".hpp");
+            header_files.push(header_file);
+            safeCreateHeaderFile(header_file);
+            safeCreateSourceFile(file);
+        });
+    }
     fs.writeFile("./src/main.cpp", main_1.getTemplateMain(header_files), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created main.cpp file");
-    fs.writeFile("./src/CMakeLists.txt", cmakelists_1.getTemplateCMakeLists(options.project, header_files, cmd.cpp), err => {
+    fs.writeFile("./src/CMakeLists.txt", cmakelists_1.getTemplateCMakeLists(options.project, header_files, source_files), err => {
         if (err) {
             console.log(err.message);
         }
@@ -78,7 +82,7 @@ function createCppProject(cmd, options) {
         }
     });
     console.log("Created test.main.cpp file");
-    fs.writeFile("./src/test/CMakeLists.txt", cmakelists_test_1.getTemplateCMakeListsTest(options.project, header_files, cmd.cpp), err => {
+    fs.writeFile("./src/test/CMakeLists.txt", cmakelists_test_1.getTemplateCMakeListsTest(options.project, header_files, source_files), err => {
         if (err) {
             console.log(err.message);
         }
