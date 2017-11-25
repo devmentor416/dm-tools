@@ -2,7 +2,15 @@
 
 All changes to this project will be recorded in this document.
 
-## 0.0.5
+## 0.0.6 (2017-11-24)
+
+* Logo update.
+* Added example NodeJS server code for TypeScript and JavaScript.
+* Corrected a bug with parsing flags for --cpp.
+* Added "use strict" for all source code.
+* Fixed filename type for JavaScript template.
+
+## 0.0.5 (2017-11-22)
 
 * Cleanup and code refactoring.
 * Updated README.

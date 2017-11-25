@@ -1,3 +1,4 @@
+"use strict";
 export function getTemplateTitle( filename: string ): string {
 
   const options = { year: "numeric", month: "short", day: "numeric" };

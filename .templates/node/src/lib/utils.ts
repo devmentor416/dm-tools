@@ -1,3 +1,5 @@
+"use strict";
+
 export const hello = (): string => {
   return "Hello DM-Tools!";
 };

@@ -1,3 +1,4 @@
+"use strict";
 export function getTemplateCMakeListsTest(
   test_project_name: string,
   headers: string[],

@@ -1,4 +1,5 @@
-import * as bunyan from "bunyan";
+"use strict";
+const bunyan = require("bunyan");
 
 const log = bunyan.createLogger( {
   name: "main",
@@ -10,5 +11,4 @@ const log = bunyan.createLogger( {
   ]
 } );
 
-export default log;
-
+exports.info = msg => log.info(msg);

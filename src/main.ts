@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+"use strict";
 import * as cmd from "commander";
 import { VERSION } from "./data-types/data-types";
 
@@ -17,7 +19,7 @@ cmd
   .option( "-t, --type <type>", "project types: ts, node, js" )
   .option( "--e2e", "end to end testing" )
   .option( "-w, --web", "simple static Web setup" )
-  .option( "--cpp [items]", "C++ project", source_files, [] )
+  .option( "--cpp [items]", "C++ project", source_files )
   .option( "-D, --debug", "debug build" )
   .option( "--release", "debug build" )
   .option( "-M, --make", "Unix Makefile build" )

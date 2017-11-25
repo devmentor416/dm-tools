@@ -1,3 +1,4 @@
+"use strict";
 const test = require("ava").test;
 const utils = require("../utils");
 

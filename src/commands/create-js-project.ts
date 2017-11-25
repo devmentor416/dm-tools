@@ -1,3 +1,4 @@
+"use strict";
 import * as sh from "shelljs";
 import * as path from "path";
 import * as fs from "fs";
