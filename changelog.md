@@ -2,6 +2,11 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.0.8
+
+* JavaScript template code cleanup.
+* Readme cleanup.
+
 ## 0.0.7 (2017-11-25)
 
 * Critical bug fix for C++ project creation.
