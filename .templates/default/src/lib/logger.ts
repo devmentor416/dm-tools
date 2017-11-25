@@ -1,3 +1,4 @@
+"use strict";
 import * as bunyan from "bunyan";
 
 const log = bunyan.createLogger( {

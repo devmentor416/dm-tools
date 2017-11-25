@@ -1,3 +1,4 @@
+"use strict";
 export function getTemplateCMakeLists(
   project_name: string,
   header_files: string[],

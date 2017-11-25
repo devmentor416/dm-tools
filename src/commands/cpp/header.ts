@@ -1,3 +1,4 @@
+"use strict";
 import { getTemplateTitle } from "./title";
 
 export function getTemplateHeader( filename: string ): string {

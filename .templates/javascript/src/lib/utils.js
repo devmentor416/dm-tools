@@ -1,3 +1,5 @@
+"use strict";
+
 exports.hello = () => {
   return "Hello DM-Tools!";
 };
