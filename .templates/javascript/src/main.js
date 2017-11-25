@@ -10,7 +10,6 @@
 "use strict";
 const http = require("http");
 const log = require("./lib/logger");
-const Buffer = require("buffer").Buffer;
 
 const SERVER_PORT = 3300;
 
