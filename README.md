@@ -47,21 +47,22 @@
 
 ## Introduction
 
-The **DM-Tools** project is in the process of becoming a general purpose CLI project creator for TypeScript and JavaScript code.
+**DM-Tools** is a command-line utility for generating project for the following programming languages.
 
-Emphasis is put into encouraging the use of best practices and the best tools. I expect things to evolve overtime and settle to something the general practitioner will be happy with.
+1. TypeScript
+1. JavaScript
+1. C++
 
-Currently the **DM-Tools** default project template is being used to solidify concepts and setup.
-
-DM-Tools uses TypeScript and NPM scripts to build the project, I plan to add Webpack support once I am satifisty with the basic project template.
+Focus has been put into encouraging the use of best practices and the best tools.
 
 ## Project Types
 
 The following basic project type that can be created using DM-Tools are:
 
 1. Default (TypeScript Node.js with static Website)
-1. TypeScript Node.js (Zero web)
-1. Puse JavaScript Node.js (ES6, Zero compile wth static Website)
+1. TypeScript Node.js
+1. Pure JavaScript Node.js (ES6, Zero compile with static Website)
+1. C++ with Micro Test
 
 ## Installing DM-Tools
 
@@ -94,9 +95,9 @@ This will perform a clean build and run the demo program from the `build/` folde
 
 You can also continue to watch and run a Node.js based program during development. To do this open three terminals.
 
-* Terminal 1: The build terminal.
-* Terminal 2: Run the compiled Node.js code.
-* Terminal 3: Watch test results.
+- Terminal 1: The build terminal.
+- Terminal 2: Run the compiled Node.js code.
+- Terminal 3: Watch test results.
 
 **Important!**: If you are encounter strange build errors in one of the terminal, it could be due to linting errors or compiler error. This unfortunately does not make it to the terminal since these operations are running through another NPM script. So to quickly see what is failing, from another terminal type, `npm run build`, this will quickly let you see the problem.
 
@@ -132,20 +133,20 @@ There is a delay added before the Node.js program is executed, this is to preven
 
 Here are the benefits you will enjoy right out of the gate:
 
-* Quick start
-* Best practices
-* Build system
-* Code in TypeScript
-* Code TypeScript Modules
-* HTML live edit and preview
-* Error logging
-* Code linting
-* Code formatting
-* Unit testing
-* Code coverage
-* Document generation
-* Git commit hooks
-* Continuous integration (under research)
+- Quick start
+- Best practices
+- Build system
+- Code in TypeScript
+- Code TypeScript Modules
+- HTML live edit and preview
+- Error logging
+- Code linting
+- Code formatting
+- Unit testing
+- Code coverage
+- Document generation
+- Git commit hooks
+- Continuous integration (under research)
 
 ## TypeScript development
 
@@ -159,13 +160,13 @@ All TypeScript code is compiled to _ES5_ JavaScript. The target JavaScript code 
 
 Some of the things you may want to configure:
 
-* Files to compile
-* Folders to include
-* Folders to exclude
-* Target compiled output
-* Source map (Needed for debugging)
-* Module system (Use commonjs for Node)
-* Output file
+- Files to compile
+- Folders to include
+- Folders to exclude
+- Target compiled output
+- Source map (Needed for debugging)
+- Module system (Use commonjs for Node)
+- Output file
 
 Supported compiled targets include: `ES3, ES5, ES6, ES2016, ES2017`.
 
@@ -247,11 +248,11 @@ On how to configure the setup, read the [Browsersync options](https://browsersyn
 
 Basic configurations setting you may be interested in are:
 
-* files
-* server
-* proxy
-* logLevel
-* port
+- files
+- server
+- proxy
+- logLevel
+- port
 
 The default Browsersync UI web address is: `http://localhost:3001/`.
 
@@ -396,4 +397,3 @@ Not sure where to get started. Here are two suggested starting points:
 1. Look at [Launchpad](https://tree.taiga.io/project/rajinder-yadav-launchpad/kanban?kanban-status=1068326) project tasks for things to help out with.
 
 **Happy Hacking =)**
-
