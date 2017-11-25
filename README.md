@@ -315,7 +315,7 @@ npm run dev
 
 ### TypeScript Node ES5
 
-If you need to use ES5 Nodejs support with TypeScript here are the following change you need to make.
+If you need to use ES5 Node.js support with TypeScript here are the following change you need to make.
 
 Add the following two lines under compilerOptions to `tsconfig.json` and `tsconfig.test.json`.
 
@@ -382,7 +382,7 @@ To learn more about how to write tests using [Micro Test](https://bitbucket.org/
 
 ## Contributors wanted
 
-Feel free to help improve this great tool, before you start please reach out to me to sync up work and make sure your efforts will be the most prodictive.
+Feel free to help improve this great tool, before you start please reach out to me to sync up work and make sure your efforts will be the most productive.
 
 ## TypeScript Coding guideline
 
