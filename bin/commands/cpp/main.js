@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const title_1 = require("./title");
-function getTemplateMain(header_files) {
+function getTemplateMain(header_files, options) {
     let headers = "";
     header_files.forEach(v => {
         headers = `${headers}#include "${v}"\n`;
     });
-    const main = `${title_1.getTemplateTitle("main.cpp")}\n
+    const main = `${title_1.getTemplateTitle("main.cpp", options.config)}\n
 #include <iostream>
 
 // Header files you may require.

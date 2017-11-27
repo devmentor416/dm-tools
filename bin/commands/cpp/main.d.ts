@@ -1,1 +1,1 @@
-export declare function getTemplateMain(header_files: string[]): string;
+export declare function getTemplateMain(header_files: string[], options: any): string;

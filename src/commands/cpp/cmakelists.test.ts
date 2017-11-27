@@ -2,13 +2,14 @@
 export function getTemplateCMakeListsTest(
   test_project_name: string,
   headers: string[],
-  source: string[] ): string {
+  source: string[],
+  config: any ): string {
 
   const header_files = headers.map( v => ` ../${ v }` );
   const source_files = source.map( v => ` ../${ v }` );
 
   const cmakelists_test = `
-cmake_minimum_required( VERSION 2.6 )
+cmake_minimum_required( VERSION ${config.project.cmake || "2.6" } )
 project( test.${test_project_name } )
 
 # Define ASIO project root from environment variable

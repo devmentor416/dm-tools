@@ -1,1 +1,1 @@
-export declare function getTemplateTestMain(): string;
+export declare function getTemplateTestMain(options: any): string;

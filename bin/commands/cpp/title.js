@@ -1,20 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getTemplateTitle(filename) {
+function getTemplateTitle(filename, config) {
     const options = { year: "numeric", month: "short", day: "numeric" };
     const today = new Intl.DateTimeFormat("en-US", options).format(Date.now());
+    const year = (new Date()).getFullYear();
+    const author = config.author || "<Full name>";
+    const email = config.email || "your@email.com";
+    const copyholder = config.project.copyholder || author;
+    const license = config.project.license || "GNU Public License (GNU GPL)";
     const title = `/**
 * @file:   ${filename}
 * @brief:  <Short description>
 *
-* @author: <Full name>
+* @author: ${author} <${email}>
 * @date:   ${today}
 *
 * @description
 * <Enter long description>
 *
-* License: GNU Public License (GNU GPL)
-* Copyright (c) <year> <Copyright holders>
+* License: ${license}
+* Copyright (c) ${year} ${copyholder}
 *
 * Notice: This Software is provided as-is without warrant.
 *

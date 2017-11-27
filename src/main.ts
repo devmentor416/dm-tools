@@ -2,15 +2,34 @@
 "use strict";
 import * as cmd from "commander";
 import { VERSION } from "./data-types/data-types";
+import * as fs from "fs";
 
 import { createJSProject } from "./commands/create-js-project";
 import { createCppProject } from "./commands/create-cpp-project";
 
 const options: any = {};
+const config_file = process.env.HOME + "/dmtools.json";
 
 function source_files( files: string ) {
   return files.split( "," );
 }
+
+/* dm-tools configuration schema
+{
+  "author": "Rajinder Yadav",
+  "email": "devguy.ca@gmail.com",
+  "project": {
+    "cmake": 2.6,
+    "copyholder": "Dev Mentor, Rajinder Yadav",
+    "license": "GNU Public License (GNU GPL)"
+  }
+}
+*/
+let config: any = { project: {} };
+if ( fs.existsSync( config_file ) ) {
+  config = JSON.parse( fs.readFileSync( config_file, "utf8" ) );
+}
+Object.assign( options, { config } );
 
 cmd
   .version( `${ VERSION }` )

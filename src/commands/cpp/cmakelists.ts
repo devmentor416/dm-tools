@@ -2,10 +2,11 @@
 export function getTemplateCMakeLists(
   project_name: string,
   header_files: string[],
-  source_files: string[] ): string {
+  source_files: string[],
+  config: any ): string {
 
   const cmakelists = `
-cmake_minimum_required( VERSION 2.6 )
+cmake_minimum_required( VERSION ${config.project.cmake || "2.6" } )
 project( ${project_name } )
 
 # Define ASIO project root from environment variable
