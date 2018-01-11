@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function getTemplateCMakeListsTest(test_project_name, headers, source) {
+function getTemplateCMakeListsTest(test_project_name, headers, source, config) {
     const header_files = headers.map(v => ` ../${v}`);
     const source_files = source.map(v => ` ../${v}`);
     const cmakelists_test = `
-cmake_minimum_required( VERSION 2.6 )
+cmake_minimum_required( VERSION ${config.project.cmake || "2.6"} )
 project( test.${test_project_name} )
 
 # Define ASIO project root from environment variable

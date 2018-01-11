@@ -1,9 +1,9 @@
 "use strict";
 import { getTemplateTitle } from "./title";
 
-export function getTemplateTestMain(): string {
+export function getTemplateTestMain( options: any ): string {
 
-  const test_main = `${ getTemplateTitle( "test.main.cpp" ) }\n
+  const test_main = `${ getTemplateTitle( "test.main.cpp", options.config ) }\n
 // Add header to your project here.
 
 // Required headers for Micro Test.

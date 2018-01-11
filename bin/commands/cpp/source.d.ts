@@ -1,1 +1,1 @@
-export declare function getTemplateSource(filename: string): string;
+export declare function getTemplateSource(filename: string, options: any): string;

@@ -16,12 +16,12 @@ const commit_message = `
 This C++ Project was generated using Dev Mentor Tools (${data_types_1.VERSION}).
 Initial Commit.
 `;
-function safeCreateHeaderFile(filename) {
+function safeCreateHeaderFile(filename, options) {
     if (fs.existsSync(`./src/${filename}`)) {
         console.log("Header file already exist, skipping!");
         return;
     }
-    fs.writeFile(`./src/${filename}`, header_1.getTemplateHeader(filename), err => {
+    fs.writeFile(`./src/${filename}`, header_1.getTemplateHeader(filename, options.config), err => {
         if (err) {
             console.log(err.message);
             return;
@@ -29,12 +29,12 @@ function safeCreateHeaderFile(filename) {
     });
     console.log(`Created Header file: ${filename}`);
 }
-function safeCreateSourceFile(filename) {
+function safeCreateSourceFile(filename, options) {
     if (fs.existsSync(`./src/${filename}`)) {
         console.log("Source file already exist, skipping!");
         return;
     }
-    fs.writeFile(`./src/${filename}`, source_1.getTemplateSource(filename), err => {
+    fs.writeFile(`./src/${filename}`, source_1.getTemplateSource(filename, options.config), err => {
         if (err) {
             console.log(err.message);
             return;
@@ -60,29 +60,29 @@ function createCppProject(cmd, options) {
         cmd.cpp.forEach((file) => {
             const header_file = file.replace(/\.cpp$/i, ".hpp");
             header_files.push(header_file);
-            safeCreateHeaderFile(header_file);
-            safeCreateSourceFile(file);
+            safeCreateHeaderFile(header_file, options);
+            safeCreateSourceFile(file, options);
         });
     }
-    fs.writeFile("./src/main.cpp", main_1.getTemplateMain(header_files), err => {
+    fs.writeFile("./src/main.cpp", main_1.getTemplateMain(header_files, options), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created main.cpp file");
-    fs.writeFile("./src/CMakeLists.txt", cmakelists_1.getTemplateCMakeLists(options.project, header_files, source_files), err => {
+    fs.writeFile("./src/CMakeLists.txt", cmakelists_1.getTemplateCMakeLists(options.project, header_files, source_files, options.config), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created CMakefile file");
-    fs.writeFile("./src/test/test.main.cpp", test_main_1.getTemplateTestMain(), err => {
+    fs.writeFile("./src/test/test.main.cpp", test_main_1.getTemplateTestMain(options), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log("Created test.main.cpp file");
-    fs.writeFile("./src/test/CMakeLists.txt", cmakelists_test_1.getTemplateCMakeListsTest(options.project, header_files, source_files), err => {
+    fs.writeFile("./src/test/CMakeLists.txt", cmakelists_test_1.getTemplateCMakeListsTest(options.project, header_files, source_files, options.config), err => {
         if (err) {
             console.log(err.message);
         }

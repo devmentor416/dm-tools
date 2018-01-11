@@ -3,12 +3,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const cmd = require("commander");
 const data_types_1 = require("./data-types/data-types");
+const fs = require("fs");
 const create_js_project_1 = require("./commands/create-js-project");
 const create_cpp_project_1 = require("./commands/create-cpp-project");
 const options = {};
+const config_file = process.env.HOME + "/dmtools.json";
 function source_files(files) {
     return files.split(",");
 }
+let config = { project: {} };
+if (fs.existsSync(config_file)) {
+    config = JSON.parse(fs.readFileSync(config_file, "utf8"));
+}
+Object.assign(options, { config });
 cmd
     .version(`${data_types_1.VERSION}`)
     .usage("<command> <project> [options...]")
