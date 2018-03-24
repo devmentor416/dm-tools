@@ -1,12 +1,12 @@
-"use strict";
-import * as bunyan from "bunyan";
+'use strict';
+import * as bunyan from 'bunyan';
 
 const log = bunyan.createLogger( {
-  name: "main",
+  name: 'main',
   streams: [
     {
-      level: "info",
-      path: "./logs/main.log"
+      level: 'info',
+      path: './logs/main.log'
     }
   ]
 } );

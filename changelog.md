@@ -2,6 +2,9 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.1.0
+
+
 ## 0.0.8
 
 * DM-Tools now has configuration file support.

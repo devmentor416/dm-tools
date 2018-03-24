@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const title_1 = require("./title");
 function getTemplateHeader(filename, config) {
-    const header_guard = `__${filename.replace(/\./g, "_")}_${Date.now()}__`;
+    const header_guard = `__${filename.replace(/\./g, '_')}_${Date.now()}__`;
     const header = `${title_1.getTemplateTitle(filename, config)}\n
 #ifndef ${header_guard}
 #define ${header_guard}
@@ -13,4 +13,4 @@ function getTemplateHeader(filename, config) {
     return header;
 }
 exports.getTemplateHeader = getTemplateHeader;
-//# sourceMappingURL=header.js.map
+//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/header.js.map

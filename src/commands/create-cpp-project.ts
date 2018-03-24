@@ -1,17 +1,17 @@
-"use strict";
-import * as sh from "shelljs";
-import * as path from "path";
-import * as fs from "fs";
-import * as utils from "../lib/utils";
-import * as os from "os";
+'use strict';
+import * as sh from 'shelljs';
+import * as path from 'path';
+import * as fs from 'fs';
+import * as utils from '../lib/utils';
+import * as os from 'os';
 
-import { getTemplateMain } from "./cpp/main";
-import { getTemplateTestMain } from "./cpp/test-main";
-import { getTemplateCMakeLists } from "./cpp/cmakelists";
-import { getTemplateCMakeListsTest } from "./cpp/cmakelists.test";
-import { getTemplateHeader } from "./cpp/header";
-import { getTemplateSource } from "./cpp/source";
-import { VERSION, GIT } from "../data-types/data-types";
+import { getTemplateMain } from './cpp/main';
+import { getTemplateTestMain } from './cpp/test-main';
+import { getTemplateCMakeLists } from './cpp/cmakelists';
+import { getTemplateCMakeListsTest } from './cpp/cmakelists.test';
+import { getTemplateHeader } from './cpp/header';
+import { getTemplateSource } from './cpp/source';
+import { VERSION, GIT } from '../data-types/data-types';
 
 const commit_message: string = `
 This C++ Project was generated using Dev Mentor Tools (${ VERSION }).
@@ -20,7 +20,7 @@ Initial Commit.
 
 function safeCreateHeaderFile( filename: string, options: any ): void {
   if ( fs.existsSync( `./src/${ filename }` ) ) {
-    console.log( "Header file already exist, skipping!" );
+    console.log( 'Header file already exist, skipping!' );
     return;
   }
 
@@ -35,7 +35,7 @@ function safeCreateHeaderFile( filename: string, options: any ): void {
 
 function safeCreateSourceFile( filename: string, options: any ): void {
   if ( fs.existsSync( `./src/${ filename }` ) ) {
-    console.log( "Source file already exist, skipping!" );
+    console.log( 'Source file already exist, skipping!' );
     return;
   }
 
@@ -55,13 +55,13 @@ export function createCppProject( cmd: any, options: any ): void {
     return;
   }
 
-  console.log( "DM-Tools is generating a new C++ project ..." );
-  sh.cp( "-r", path.resolve( __dirname, "../../.templates/cpp/" ), `${ options.project }` );
+  console.log( 'DM-Tools is generating a new C++ project ...' );
+  sh.cp( '-r', path.resolve( __dirname, '../../.templates/cpp/' ), `${ options.project }` );
 
   sh.pushd( `${ options.project }` );
-  sh.mkdir( "docs", "include", "lib", "src", "build" );
-  sh.mkdir( "src/include", "src/test", "src/test/include" );
-  console.log( "Created project folders" );
+  sh.mkdir( 'docs', 'include', 'lib', 'src', 'build' );
+  sh.mkdir( 'src/include', 'src/test', 'src/test/include' );
+  console.log( 'Created project folders' );
 
   const header_files: string[] = [];
   let source_files: string[] = [];
@@ -69,139 +69,139 @@ export function createCppProject( cmd: any, options: any ): void {
   if ( cmd.cpp instanceof Array ) {
     source_files = cmd.cpp;
     cmd.cpp.forEach( ( file: string ) => {
-      const header_file = file.replace( /\.cpp$/i, ".hpp" );
+      const header_file = file.replace( /\.cpp$/i, '.hpp' );
       header_files.push( header_file );
       safeCreateHeaderFile( header_file, options );
       safeCreateSourceFile( file, options );
     } );
   }
 
-  fs.writeFile( "./src/main.cpp", getTemplateMain( header_files, options ), err => {
+  fs.writeFile( './src/main.cpp', getTemplateMain( header_files, options ), err => {
     if ( err ) {
       console.log( err.message );
     }
   } );
-  console.log( "Created main.cpp file" );
+  console.log( 'Created main.cpp file' );
 
   fs.writeFile(
-    "./src/CMakeLists.txt",
+    './src/CMakeLists.txt',
     getTemplateCMakeLists( options.project, header_files, source_files, options.config ), err => {
       if ( err ) {
         console.log( err.message );
       }
     } );
-  console.log( "Created CMakefile file" );
+  console.log( 'Created CMakefile file' );
 
-  fs.writeFile( "./src/test/test.main.cpp", getTemplateTestMain( options ), err => {
+  fs.writeFile( './src/test/test.main.cpp', getTemplateTestMain( options ), err => {
     if ( err ) {
       console.log( err.message );
     }
   } );
-  console.log( "Created test.main.cpp file" );
+  console.log( 'Created test.main.cpp file' );
 
   fs.writeFile(
-    "./src/test/CMakeLists.txt",
+    './src/test/CMakeLists.txt',
     getTemplateCMakeListsTest( options.project, header_files, source_files, options.config ), err => {
       if ( err ) {
         console.log( err.message );
       }
     } );
-  console.log( "Created Unit Test CMakefile file" );
+  console.log( 'Created Unit Test CMakefile file' );
 
   utils.downloadFileHttps(
-    "https://bitbucket.org/rajinder_yadav/micro_test/raw/master/src/include/micro-test.hpp",
-    "./src/test/include/micro-test.hpp",
+    'https://bitbucket.org/rajinder_yadav/micro_test/raw/master/src/include/micro-test.hpp',
+    './src/test/include/micro-test.hpp',
     function( err: any ) {
       if ( err ) {
         console.log( err.message );
       } else {
-        console.log( "Downloaded Micro Test, the C++ Unit Test Framework" );
+        console.log( 'Downloaded Micro Test, the C++ Unit Test Framework' );
       }
     }
   );
 
-  const cpp_build_type = ( cmd.debug || !cmd.release ) ? "Debug" : "Release";
+  const cpp_build_type = ( cmd.debug || !cmd.release ) ? 'Debug' : 'Release';
   if ( cmd.release ) {
-    console.log( "Release build" );
+    console.log( 'Release build' );
   } else {
-    console.log( "Debug build" );
+    console.log( 'Debug build' );
   }
 
-  sh.pushd( "build" );
+  sh.pushd( 'build' );
   switch ( os.type() ) {
-    case "Linux":
-      console.log( "Generating Makefiles for Linux" );
+    case 'Linux':
+      console.log( 'Generating Makefiles for Linux' );
       if ( cmd.eclipse ) {
         sh.exec( `cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
-        console.log( "Created Linux Eclipse CDT project files" );
+        console.log( 'Created Linux Eclipse CDT project files' );
       } else {
         sh.exec( `cmake -G "Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
-        console.log( "Created Unix Makefiles" );
+        console.log( 'Created Unix Makefiles' );
       }
       break;
 
-    case "Darwin":
-      console.log( "Generating Makefiles for MacOS" );
+    case 'Darwin':
+      console.log( 'Generating Makefiles for MacOS' );
       if ( cmd.eclipse ) {
-        sh.exec( `cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
-        console.log( "Created Eclipse CDT project files" );
+        sh.exec( `cmake -G 'Eclipse CDT4 - Unix Makefiles' -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
+        console.log( 'Created Eclipse CDT project files' );
       } else if ( cmd.xcode ) {
-        sh.exec( `cmake -G "Xcode" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
-        console.log( "Created Xcode project files" );
+        sh.exec( `cmake -G 'Xcode' -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
+        console.log( 'Created Xcode project files' );
       } else {
-        sh.exec( `cmake -G "Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
-        console.log( "Created Unix Makefiles" );
+        sh.exec( `cmake -G 'Unix Makefiles' -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
+        console.log( 'Created Unix Makefiles' );
       }
       break;
 
-    case "Windows_NT":
-      console.log( "Generating Makefiles for Windows" );
+    case 'Windows_NT':
+      console.log( 'Generating Makefiles for Windows' );
       sh.exec( `cmake -G \"NMake Makefiles\" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
-      console.log( "Created VisualStudio project solution" );
+      console.log( 'Created VisualStudio project solution' );
       break;
 
     default:
-      console.log( "WARNING: No Makefiles were created!" );
+      console.log( 'WARNING: No Makefiles were created!' );
   }
   sh.popd();
 
   if ( GIT ) {
-    console.log( "Creating a local Git repository and checked out to a dev branch" );
-    sh.exec( "git init" );
-    sh.exec( "git add -A" );
+    console.log( 'Creating a local Git repository and checked out to a dev branch' );
+    sh.exec( 'git init' );
+    sh.exec( 'git add -A' );
     sh.exec( `git commit -q -m "${ commit_message }"` );
-    sh.exec( "git checkout -b dev" );
+    sh.exec( 'git checkout -b dev' );
   }
 
   // Also need to take into consideration different platforms: Win, MacOS, Linux 32/64.
 
   // Set up end to end testing.
   // if ( !cmd.e2e ) {
-  //   sh.mkdir( "bin_tools" );
+  //   sh.mkdir( 'bin_tools' );
 
   //   // Download Chromedriver.
-  //   utils.downloadFileHttps( "https://chromedriver.storage.googleapis.com/2.33/chromedriver_mac64.zip",
-  //     "./bin_tools/chromedriver_mac64.zip",
+  //   utils.downloadFileHttps( 'https://chromedriver.storage.googleapis.com/2.33/chromedriver_mac64.zip',
+  //     './bin_tools/chromedriver_mac64.zip',
   //     function( err: any ) {
   //       if ( err ) {
   //         console.log( err.message );
   //       } else {
-  //         console.log( "Downloaded Chromedriver." );
+  //         console.log( 'Downloaded Chromedriver.' );
   //         sh.pushd( `${ options.project }/bin_tools` );
-  //         sh.exec( "unzip chromedriver_mac64.zip" );
-  //         sh.rm( "chromedriver_mac64.zip" );
+  //         sh.exec( 'unzip chromedriver_mac64.zip' );
+  //         sh.rm( 'chromedriver_mac64.zip' );
   //         sh.popd();
   //       }
   //     } );
 
   //   // Download standalone selenium-server.
-  //   utils.downloadFileHttp( "http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar",
-  //     "./bin_tools/selenium-server-standalone-3.7.1.jar",
+  //   utils.downloadFileHttp( 'http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar',
+  //     './bin_tools/selenium-server-standalone-3.7.1.jar',
   //     function( err: any ) {
   //       if ( err ) {
   //         console.log( err.message );
   //       } else {
-  //         console.log( "Downloaded Selenium server." );
+  //         console.log( 'Downloaded Selenium server.' );
   //       }
   //     } );
   // }

@@ -1,12 +1,12 @@
-"use strict";
-const bunyan = require("bunyan");
+'use strict';
+const bunyan = require('bunyan');
 
 const log = bunyan.createLogger( {
-  name: "main",
+  name: 'main',
   streams: [
     {
-      level: "info",
-      path: "./logs/main.log"
+      level: 'info',
+      path: './logs/main.log'
     }
   ]
 } );

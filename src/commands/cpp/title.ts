@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 export function getTemplateTitle( filename: string, config: any ): string {
 
-  const options = { year: "numeric", month: "short", day: "numeric" };
-  const today = new Intl.DateTimeFormat( "en-US", options ).format( Date.now() );
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  const today = new Intl.DateTimeFormat( 'en-US', options ).format( Date.now() );
   const year = ( new Date() ).getFullYear();
-  const author = config.author || "<Full name>";
-  const email = config.email || "your@email.com";
+  const author = config.author || '<Full name>';
+  const email = config.email || 'your@email.com';
   const copyholder = config.project.copyholder || author;
-  const license = config.project.license || "GNU Public License (GNU GPL)";
+  const license = config.project.license || 'GNU Public License (GNU GPL)';
   const title = `/**
 * @file:   ${ filename }
 * @brief:  <Short description>

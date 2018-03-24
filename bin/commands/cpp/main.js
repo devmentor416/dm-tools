@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const title_1 = require("./title");
 function getTemplateMain(header_files, options) {
-    let headers = "";
+    let headers = '';
     header_files.forEach(v => {
         headers = `${headers}#include "${v}"\n`;
     });
-    const main = `${title_1.getTemplateTitle("main.cpp", options.config)}\n
+    const main = `${title_1.getTemplateTitle('main.cpp', options.config)}\n
 #include <iostream>
 
 // Header files you may require.
@@ -44,4 +44,4 @@ int main( int argc, char* argv[] )
     return main;
 }
 exports.getTemplateMain = getTemplateMain;
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/main.js.map

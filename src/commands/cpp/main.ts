@@ -1,14 +1,14 @@
-"use strict";
-import { getTemplateTitle } from "./title";
+'use strict';
+import { getTemplateTitle } from './title';
 
 export function getTemplateMain( header_files: string[], options: any ): string {
 
-  let headers = "";
+  let headers = '';
   header_files.forEach( v => {
     headers = `${ headers }#include "${ v }"\n`;
   } );
 
-  const main = `${ getTemplateTitle( "main.cpp", options.config ) }\n
+  const main = `${ getTemplateTitle( 'main.cpp', options.config ) }\n
 #include <iostream>
 
 // Header files you may require.

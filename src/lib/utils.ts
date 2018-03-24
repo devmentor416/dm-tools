@@ -1,10 +1,10 @@
-"use strict";
-import * as https from "https";
-import * as http from "http";
-import * as fs from "fs";
+'use strict';
+import * as https from 'https';
+import * as http from 'http';
+import * as fs from 'fs';
 
 export const stub_test = (): string => {
-  return "Hello DM-Tools!";
+  return 'Hello DM-Tools!';
 };
 
 /** Download a file over HTTPS
@@ -15,11 +15,11 @@ export const stub_test = (): string => {
  */
 export function downloadFileHttps( uri: any, filename: string, cb: any ): void {
   const file = fs.createWriteStream( filename );
-  file.on( "finish", () => {
+  file.on( 'finish', () => {
     // Safe to envoke the callback once file io is completed.
     cb();
   } )
-    .on( "error", ( err: any ) => {
+    .on( 'error', ( err: any ) => {
       // Delete the file async, don't check the result.
       fs.unlinkSync( filename );
       if ( cb ) {
@@ -28,15 +28,15 @@ export function downloadFileHttps( uri: any, filename: string, cb: any ): void {
     } );
 
   /*const request =*/ https.get( uri, response => {
-    response.on( "aborted", ( err: any ) => {
-      file.emit( "error", err );
+    response.on( 'aborted', ( err: any ) => {
+      file.emit( 'error', err );
     } );
 
     const SUCCESS_OK = 200;
     if ( response.statusCode === SUCCESS_OK ) {
       response.pipe( file );
     } else {
-      file.emit( "error", new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
+      file.emit( 'error', new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
     }
   } );
 }
@@ -49,11 +49,11 @@ export function downloadFileHttps( uri: any, filename: string, cb: any ): void {
  */
 export function downloadFileHttp( uri: string, filename: string, cb: any ): void {
   const file = fs.createWriteStream( filename );
-  file.on( "finish", () => {
+  file.on( 'finish', () => {
     // Safe to envoke the callback once file io is completed.
     cb();
   } )
-    .on( "error", ( err: any ) => {
+    .on( 'error', ( err: any ) => {
       // Delete the file async, don't check the result.
       fs.unlinkSync( filename );
       if ( cb ) {
@@ -62,15 +62,15 @@ export function downloadFileHttp( uri: string, filename: string, cb: any ): void
     } );
 
   /*const request =*/ http.get( uri, response => {
-    response.on( "aborted", ( err: any ) => {
-      file.emit( "error", err );
+    response.on( 'aborted', ( err: any ) => {
+      file.emit( 'error', err );
     } );
 
     const SUCCESS_OK = 200;
     if ( response.statusCode === SUCCESS_OK ) {
       response.pipe( file );
     } else {
-      file.emit( "error", new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
+      file.emit( 'error', new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
     }
   } );
 }
