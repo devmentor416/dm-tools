@@ -17,8 +17,8 @@ if (fs.existsSync(config_file)) {
 }
 Object.assign(options, { config });
 cmd
-    .version(`${data_types_1.VERSION}`)
-    .usage('<command> <project> [options...]')
+    .version(`DevMentor Tools Project Generator v${data_types_1.VERSION}`, '-v, --version')
+    .usage('<command> <project> [options...]\n\n     commands: new')
     .arguments('<command> <project>')
     .option('-t, --type <type>', 'project types: ts, node, js')
     .option('--e2e', 'end to end testing')
@@ -52,4 +52,4 @@ switch (options.command) {
     default:
         console.log('Unknown Command, doing nothing!');
 }
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/main.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/main.js.map

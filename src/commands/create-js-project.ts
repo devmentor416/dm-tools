@@ -18,18 +18,31 @@ export function createJSProject( cmd: any, options: any ): void {
     return;
   }
 
-  if ( cmd.type === undefined || cmd.type === 'ts' ) {
-    console.log( 'DM-Tools is generating a new default TypeScript project...' );
-    sh.cp( '-r', path.resolve( __dirname, '../../.templates/default/' ), `${ options.project }` );
-  }
-  else if ( cmd.type === 'node' ) {
-    console.log( 'DM-Tools is generating a TypeScript Node.js project...' );
-    sh.cp( '-r', path.resolve( __dirname, '../../.templates/node/' ), `${ options.project }` );
-  }
-  else if ( cmd.type === 'js' ) {
-    console.log( 'DM-Tools is generating a JavaScript Node.js project...' );
-    sh.cp( '-r', path.resolve( __dirname, '../../.templates/javascript/' ), `${ options.project }` );
-  }
+  switch ( cmd.type ) {
+    case 'ts': {
+      console.log( 'DM-Tools is generating a new TypeScript and static Web project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/typescript/' ), `${ options.project }` );
+      break;
+    }
+
+    case 'node': {
+      console.log( 'DM-Tools is generating a TypeScript Node.js project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/node/' ), `${ options.project }` );
+      break;
+    }
+
+    case 'js': {
+      console.log( 'DM-Tools is generating a JavaScript Node.js project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/javascript/' ), `${ options.project }` );
+      break;
+    }
+
+    default: {
+      console.log( 'DM-Tools is generating a new default TypeScript project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/default/' ), `${ options.project }` );
+    }
+  } // switch
+
 
   sh.pushd( `${ options.project }` );
   sh.mkdir( 'docs', 'logs' );

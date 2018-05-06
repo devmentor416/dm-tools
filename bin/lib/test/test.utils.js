@@ -5,4 +5,4 @@ const utils = require("../utils");
 ava_1.test('Stub test', t => {
     t.is(utils.stub_test(), 'Hello DM-Tools!');
 });
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/lib/test/test.utils.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/lib/test/test.utils.js.map

@@ -30,4 +30,4 @@ function getTemplateTitle(filename, config) {
     return title;
 }
 exports.getTemplateTitle = getTemplateTitle;
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/title.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/title.js.map

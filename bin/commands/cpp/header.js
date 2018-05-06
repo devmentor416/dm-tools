@@ -13,4 +13,4 @@ function getTemplateHeader(filename, config) {
     return header;
 }
 exports.getTemplateHeader = getTemplateHeader;
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/header.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/header.js.map

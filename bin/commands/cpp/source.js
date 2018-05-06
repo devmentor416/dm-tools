@@ -7,4 +7,4 @@ function getTemplateSource(filename, options) {
     return source;
 }
 exports.getTemplateSource = getTemplateSource;
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/source.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/source.js.map

@@ -58,4 +58,4 @@ int main( int argc, char * argv[] )
     return test_main;
 }
 exports.getTemplateTestMain = getTemplateTestMain;
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/test-main.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/test-main.js.map

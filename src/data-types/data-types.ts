@@ -2,7 +2,7 @@
 import * as sh from 'shelljs';
 
 // Update for each release
-export const VERSION = '0.0.8';
+export const VERSION = '0.1.0';
 
 export const YARN = sh.which( 'yarn' );
 export const GIT = sh.which( 'git' );

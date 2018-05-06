@@ -44,4 +44,4 @@ int main( int argc, char* argv[] )
     return main;
 }
 exports.getTemplateMain = getTemplateMain;
-//# sourceMappingURL=/Users/yadav/dev/projects/devmentor-tools/commands/cpp/main.js.map
+//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/main.js.map
