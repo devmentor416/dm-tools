@@ -50,7 +50,7 @@
     "@types/core-js": "^0.9.46",
     "@types/lodash": "^4.14.108",
     "@types/node": "^10.0.4",
-    "@types/shelljs": "^0.7.9",
+    "@types/shelljs": "^0.8.0",
     "ava": "^0.25.0",
     "browser-sync": "^2.24.4",
     "browserify": "^16.2.0",
