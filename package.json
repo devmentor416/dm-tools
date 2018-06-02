@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@types/bunyan": "^1.8.4",
-    "@types/core-js": "^0.9.46",
+    "@types/core-js": "^2.5.0",
     "@types/lodash": "^4.14.108",
     "@types/node": "^10.0.4",
     "@types/shelljs": "^0.7.9",
