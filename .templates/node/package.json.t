@@ -15,7 +15,7 @@
     "lint": "tslint -t codeFrame \"src/**/*.ts\"",
     "clean": "shx rm -rf build",
     "dev": "cross-env NODE_ENV=prod tsc -w",
-    "devwatch": "gazeall build/main.js",
+    "devwatch": "gazeall --delay 350 --run \"node build/main.js\" \"build/**/*\"",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",
@@ -26,7 +26,10 @@
     "prestart": "npm run build",
     "pretest": "cross-env NODE_ENV=test run-s clean build:test",
     "start": "node $npm_package_config_main",
-    "test": "npm run ava:coverage"
+    "test": "npm run ava:coverage",
+    "test:e2e": "cypress open",
+    "testwatch": "gazeall --delay 350 --runs-npm ava \"build/**/*\"",
+    "tsc": "tsc"
   },
   "keywords": [
     "javascript",
@@ -42,32 +45,8 @@
     "url": "https://github.com/<github-user-id>/<project-name>"
   },
   "devDependencies": {
-    "@types/bunyan": "^1.8.4",
-    "@types/core-js": "^0.9.46",
-    "@types/node": "^9.6.0",
-    "ava": "^0.25.0",
-    "browser-sync": "^2.23.6",
-    "browserify": "^16.1.1",
-    "core-js": "^2.5.3",
-    "cross-env": "^5.1.4",
-    "cross-var": "^1.1.0",
-    "gazeall": "^0.3.5",
-    "husky": "^0.14.3",
-    "npm-run-all": "^4.1.2",
-    "nyc": "^11.6.0",
-    "shx": "^0.2.2",
-    "tachyons": "^4.9.1",
-    "tap-summary": "^4.0.0",
-    "tape-run": "^3.0.4",
-    "tslint": "^5.9.1",
-    "typedoc": "^0.11.1",
-    "typescript": "^2.7.2",
-    "typescript-formatter": "^7.1.0"
   },
   "dependencies": {
-    "bunyan": "^1.8.12",
-    "dm-css": "^2.1.1",
-    "pino": "^4.15.0"
   },
   "nyc": {
     "lines": 10,

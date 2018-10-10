@@ -37,29 +37,8 @@
     "url": "https://github.com/<github-user-id>/<project-name>"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "browser-sync": "^2.23.6",
-    "browserify": "^16.1.1",
-    "core-js": "^2.5.3",
-    "cross-env": "^5.1.4",
-    "cross-var": "^1.1.0",
-    "esdoc": "^1.0.4",
-    "esdoc-standard-plugin": "^1.0.0",
-    "eslint": "^4.19.1",
-    "gazeall": "^0.3.5",
-    "husky": "^0.14.3",
-    "npm-run-all": "^4.1.2",
-    "nyc": "^11.6.0",
-    "prettier": "^1.11.1",
-    "shx": "^0.2.2",
-    "tachyons": "^4.9.1",
-    "tap-summary": "^4.0.0",
-    "tape-run": "^3.0.4"
   },
   "dependencies": {
-    "bunyan": "^1.8.12",
-    "dm-css": "^2.1.1",
-    "pino": "^4.15.0"
   },
   "nyc": {
     "lines": 10,
