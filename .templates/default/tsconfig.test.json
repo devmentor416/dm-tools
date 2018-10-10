@@ -9,9 +9,25 @@
      /* Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
     "module": "commonjs",
     /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'. */
-    "target": "es5",
+    "target": "es2018",
     /* Specify library files to be included in the compilation:  */
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2018",
+      "es2017",
+      "dom",
+      "es5",
+      "es6",
+      "es2015.core",
+      "es2015.collection",
+      "es2015.generator",
+      "es2015.iterable",
+      "es2015.promise",
+      "es2015.proxy",
+      "es2015.reflect",
+      "es2015.symbol",
+      "es2015.symbol.wellknown",
+      "esnext.asynciterable"      
+    ],
     /* Unix style end of line */
     "newLine": "LF",
 
