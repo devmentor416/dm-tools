@@ -1,0 +1,17 @@
+
+build/
+dist/
+docs/typedoc/
+log/
+node_modules/
+tmp/
+typings/
+.nyc_output/
+
+*.bak
+*.log
+npm-debug.log*
+yarn-error.log*
+
+.vscode
+.DS_Store
