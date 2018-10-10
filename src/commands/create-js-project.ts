@@ -31,6 +31,18 @@ export function createJSProject( cmd: any, options: any ): void {
       break;
     }
 
+    case 'koa': {
+      console.log( 'DM-Tools is generating a TypeScript Koa project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/koa/' ), `${ options.project }` );
+      break;
+    }
+
+    case 'graphql': {
+      console.log( 'DM-Tools is generating a TypeScript Apollo GraphQL server project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/apollo-graphql-server/' ), `${ options.project }` );
+      break;
+    }
+
     case 'js': {
       console.log( 'DM-Tools is generating a JavaScript Node.js project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/javascript/' ), `${ options.project }` );
