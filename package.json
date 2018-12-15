@@ -51,7 +51,7 @@
     "@types/lodash": "^4.14.108",
     "@types/node": "^10.0.4",
     "@types/shelljs": "^0.7.9",
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "browser-sync": "^2.24.4",
     "browserify": "^16.2.0",
     "core-js": "^2.5.5",
