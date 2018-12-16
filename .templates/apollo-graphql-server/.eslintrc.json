@@ -1,7 +1,5 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
         "es6": true,
         "node": true
     },
@@ -9,6 +7,7 @@
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
+
     },
     "rules": {
         "indent": [
@@ -26,16 +25,6 @@
         "semi": [
             "error",
             "always"
-        ],
-        "no-console": [
-            "error",
-            {
-                "allow": [
-                    "error",
-                    "log",
-                    "warn"
-                ]
-            }
         ]
     }
 }

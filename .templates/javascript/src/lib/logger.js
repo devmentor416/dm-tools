@@ -1,7 +1,7 @@
 'use strict';
-const bunyan = require('bunyan');
+import bunyan from 'bunyan';
 
-const log = bunyan.createLogger( {
+export const log = bunyan.createLogger({
   name: 'main',
   streams: [
     {
@@ -9,6 +9,4 @@ const log = bunyan.createLogger( {
       path: './logs/main.log'
     }
   ]
-} );
-
-exports.info = msg => log.info(msg);
+});

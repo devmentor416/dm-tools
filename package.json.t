@@ -1,6 +1,6 @@
 {
   "name": "dm-tools",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {
@@ -10,7 +10,7 @@
     "doc_folder": "docs/typedoc"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=prod tsc",
+    "build": "cross-env NODE_ENV=production tsc",
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
     "lint": "tslint -t codeFrame \"src/**/*.ts\"",
     "clean": "shx rm -rf bin",

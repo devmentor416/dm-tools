@@ -8,10 +8,10 @@
  * Koa guide        : https://github.com/koajs/koa/blob/master/docs/guide.md
  */
 'use strict';
-import * as Koa from 'koa';
-import * as Cors from '@koa/cors';
-import * as Router from 'koa-better-router';
-import * as KoaBody from 'koa-body';
+import Koa from 'koa';
+import Cors from '@koa/cors';
+import Router from 'koa-better-router';
+import KoaBody from 'koa-body';
 
 import { log } from './lib/logger';
 import { router_v1 } from './api/v1/auth';
@@ -52,7 +52,7 @@ app.use( async ( ctx, next ) => {
 } );
 
 router.get( '/check', ( ctx, next ) => {
-  ctx.response.body = { status: 200., message: 'Server is running' };
+  ctx.response.body = { status: 200, message: 'Server is running' };
   return next();
 } );
 

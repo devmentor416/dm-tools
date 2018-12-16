@@ -12,7 +12,7 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 import log from './lib/logger';
 import { Buffer } from 'buffer';
 
-const SERVER_PORT = 3300;
+const SERVER_PORT = 3000;
 
 log.info( 'Node Server started ...' );
 

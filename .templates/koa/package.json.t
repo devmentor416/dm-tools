@@ -1,35 +1,33 @@
 {
-  "name": "koa-server",
-  "version": "1.0.0",
-  "description": "Authentication REST Server",
-  "main": "src/main.ts",
+  "name": "@dm-tools/demo",
+  "version": "0.1.0",
+  "description": "DM-Tools generated TypeScript demo project",
+  "main": "src/main.js",
   "config": {
-    "main": "build/main.js",
-    "doc_folder": "docs/typedoc"
+    "dev": "build/dev/",
+    "test": "build/test/",
+    "prod": "build/prod/",
+    "doc_folder": "docs/generated"
   },
   "scripts": {
-    "ava": "ava --tap \"build/**/*/test.*.js\"|tap-summary",
-    "ava:coverage": "nyc ava --tap \"build/**/*/test.*.js\"|tap-summary",
-    "build": "cross-env NODE_ENV=prod tsc",
-    "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
-    "lint": "tslint -t codeFrame \"src/**/*.ts\"",
+    "ava": "ava --tap \"build/**/test.*.js\"|tap-summary",
+    "ava:coverage": "nyc ava --tap \"build/**/test.*.js\"|tap-summary",
+    "build": "babel src --out-dir build",
+    "build:dev": "babel -w src --out-dir build",
+    "lint": "eslint ./src/**/*.js",
     "clean": "shx rm -rf build",
-    "dev": "cross-env NODE_ENV=prod tsc -w",
-    "devwatch": "gazeall --delay 350 --run \"node build/main.js\" \"build/**/*.js\"",
-    "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
-    "format": "tsfmt -r --baseDir ./",
-    "node:debug": "node --inspect --debug-brk $npm_package_config_main",
+    "debug": "node --inspect --debug-brk $npm_package_config_dev",
+    "dev": "run-s clean build:dev",
+    "devwatch": "gazeall ./build/main.js",
+    "doc": "esdoc",
+    "format": "prettier --write ./src/**/*.js",
     "prebuild": "run-s format lint clean",
-    "precommit": "run-s format lint",
     "predoc": "shx rm -rf $npm_package_config_doc_folder && shx mkdir -p $npm_package_config_doc_folder",
     "prepush": "npm run test",
     "prestart": "npm run build",
-    "pretest": "cross-env NODE_ENV=test run-s clean build:test",
-    "start": "node $npm_package_config_main",
-    "test": "npm run ava:coverage",
-    "test:e2e": "cypress open",
-    "testwatch": "gazeall --delay 350 --runs-npm ava \"build/**/*\"",
-    "tsc": "tsc"
+    "pretest": "run-s build",
+    "start": "node $npm_package_config_prod",
+    "test": "npm run ava:coverage"
   },
   "keywords": [
     "javascript",
@@ -43,7 +41,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/<github-user-id>/<project-name>"
-  },  
+  },
   "devDependencies": {
   },
   "dependencies": {
@@ -70,5 +68,5 @@
     "cache": true,
     "all": true,
     "check-coverage": true
-  }  
+  }
 }

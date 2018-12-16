@@ -151,4 +151,4 @@ function createCppProject(cmd, options) {
     console.log(`Project ${options.project} created successfully.`);
 }
 exports.createCppProject = createCppProject;
-//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/create-cpp-project.js.map
+//# sourceMappingURL=../../src/commands/create-cpp-project.js.map

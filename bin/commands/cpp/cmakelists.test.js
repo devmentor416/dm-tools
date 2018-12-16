@@ -40,4 +40,4 @@ target_link_libraries( test.${test_project_name} \${LIB_FILES} \${CMAKE_THREAD_L
     return cmakelists_test;
 }
 exports.getTemplateCMakeListsTest = getTemplateCMakeListsTest;
-//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/cmakelists.test.js.map
+//# sourceMappingURL=../../../src/commands/cpp/cmakelists.test.js.map

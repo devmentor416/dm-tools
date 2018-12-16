@@ -2,20 +2,28 @@
 
 All changes to this project will be recorded in this document.
 
-## 0.1.0
+## 0.2.0 (2018-11-17)
 
+* Added Apollo GraphQL server.
+* Using Babel for projects JavaScript, Koa, Apollo.
+* Cleaned up code to use ES2016 import and export keyword and modules.
+* Added Koa template.
 
-## 0.0.8
+## 0.1.9
+
+* Critical bug fixed, ending spawned child process.
+
+## 0.1.8
 
 * DM-Tools now has configuration file support.
 * JavaScript template code cleanup.
 * Readme cleanup.
 
-## 0.0.7 (2017-11-25)
+## 0.1.7 (2017-11-25)
 
 * Critical bug fix for C++ project creation.
 
-## 0.0.6 (2017-11-24)
+## 0.1.6 (2017-11-24)
 
 * Logo update.
 * Added example NodeJS server code for TypeScript and JavaScript.
@@ -23,13 +31,13 @@ All changes to this project will be recorded in this document.
 * Added "use strict" for all source code.
 * Fixed filename type for JavaScript template.
 
-## 0.0.5 (2017-11-22)
+## 0.1.5 (2017-11-22)
 
 * Cleanup and code refactoring.
 * Updated README.
 * Add C++ project creation.
 
-## 0.0.3 (2017-11-19)
+## 0.1.3 (2017-11-19)
 
 * Project renamed from TSCLI to DM-Tools.
 * TypeScript Formatter config updated.

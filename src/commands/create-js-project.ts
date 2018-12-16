@@ -20,38 +20,38 @@ export function createJSProject( cmd: any, options: any ): void {
 
   switch ( cmd.type ) {
     case 'ts': {
-      console.log( 'DM-Tools is generating a new TypeScript and static Web project...' );
+      console.log( 'DM-Tools is generating a new TypeScript and static Web site project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/typescript/' ), `${ options.project }` );
       break;
     }
 
     case 'node': {
-      console.log( 'DM-Tools is generating a TypeScript Node.js project...' );
+      console.log( 'DM-Tools is generating a TypeScript Node.js Server project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/node/' ), `${ options.project }` );
       break;
     }
 
     case 'koa': {
-      console.log( 'DM-Tools is generating a TypeScript Koa project...' );
+      console.log( 'DM-Tools is generating a JavaScript Koa Server project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/koa/' ), `${ options.project }` );
       break;
     }
 
     case 'graphql': {
-      console.log( 'DM-Tools is generating a TypeScript Apollo GraphQL server project...' );
+      console.log( 'DM-Tools is generating a TypeScript Apollo GraphQL Server project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/apollo-graphql-server/' ), `${ options.project }` );
       break;
     }
 
     case 'js': {
-      console.log( 'DM-Tools is generating a JavaScript Node.js project...' );
+      console.log( 'DM-Tools is generating a JavaScript Node.js Server project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/javascript/' ), `${ options.project }` );
       break;
     }
 
     default: {
-      console.log( 'DM-Tools is generating a new default TypeScript project...' );
-      sh.cp( '-r', path.resolve( __dirname, '../../.templates/default/' ), `${ options.project }` );
+      console.log( 'DM-Tools is generating a JavaScript Node.js Server project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/javascript/' ), `${ options.project }` );
     }
   } // switch
 

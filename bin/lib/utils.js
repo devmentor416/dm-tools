@@ -56,4 +56,4 @@ function downloadFileHttp(uri, filename, cb) {
     });
 }
 exports.downloadFileHttp = downloadFileHttp;
-//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/lib/utils.js.map
+//# sourceMappingURL=../../src/lib/utils.js.map

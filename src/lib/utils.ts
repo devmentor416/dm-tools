@@ -28,17 +28,17 @@ export function downloadFileHttps( uri: any, filename: string, cb: any ): void {
     } );
 
   /*const request =*/ https.get( uri, response => {
-    response.on( 'aborted', ( err: any ) => {
-      file.emit( 'error', err );
-    } );
+      response.on( 'aborted', ( err: any ) => {
+        file.emit( 'error', err );
+      } );
 
-    const SUCCESS_OK = 200;
-    if ( response.statusCode === SUCCESS_OK ) {
-      response.pipe( file );
-    } else {
-      file.emit( 'error', new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
-    }
-  } );
+      const SUCCESS_OK = 200;
+      if ( response.statusCode === SUCCESS_OK ) {
+        response.pipe( file );
+      } else {
+        file.emit( 'error', new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
+      }
+    } );
 }
 
 /** Download a file over HTTP
@@ -62,15 +62,15 @@ export function downloadFileHttp( uri: string, filename: string, cb: any ): void
     } );
 
   /*const request =*/ http.get( uri, response => {
-    response.on( 'aborted', ( err: any ) => {
-      file.emit( 'error', err );
-    } );
+      response.on( 'aborted', ( err: any ) => {
+        file.emit( 'error', err );
+      } );
 
-    const SUCCESS_OK = 200;
-    if ( response.statusCode === SUCCESS_OK ) {
-      response.pipe( file );
-    } else {
-      file.emit( 'error', new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
-    }
-  } );
+      const SUCCESS_OK = 200;
+      if ( response.statusCode === SUCCESS_OK ) {
+        response.pipe( file );
+      } else {
+        file.emit( 'error', new Error( `Request Failed!\nStatus Code: ${ response.statusCode }` ) );
+      }
+    } );
 }

@@ -40,4 +40,4 @@ add_subdirectory( test )
     return cmakelists;
 }
 exports.getTemplateCMakeLists = getTemplateCMakeLists;
-//# sourceMappingURL=/home/yadav/dev/projects/devmentor-tools/commands/cpp/cmakelists.js.map
+//# sourceMappingURL=../../../src/commands/cpp/cmakelists.js.map
