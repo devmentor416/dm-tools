@@ -39,9 +39,7 @@
   - [Running hello_world program](#running-hello_world-program)
   - [Running the Test Program](#running-the-test-program)
   - [Micro Test - Testing Your Project](#micro-test---testing-your-project)
-- [Contributors wanted](#contributors-wanted)
-- [TypeScript Coding guideline](#typescript-coding-guideline)
-- [Where to start](#where-to-start)
+- [TypeScript Coding Guideline](#typescript-coding-guideline)
 
 <!-- /TOC -->
 
@@ -50,7 +48,7 @@
 **DM-Tools** is a command-line utility for generating a project for the following programming languages.
 
 1. TypeScript
-1. JavaScript
+1. JavaScript using Babel 7
 1. C++
 
 Focus has been put into encouraging the use of best practices and the best tools.
@@ -60,9 +58,10 @@ Focus has been put into encouraging the use of best practices and the best tools
 The following basic project types that can be created using DM-Tools are:
 
 1. Default (TypeScript Node.js with static Website)
+1. Apollo GraphQL Node.js API Server using Babel 7.
 1. TypeScript Node.js
-1. Pure JavaScript Node.js (ES6, Zero compile with static Website)
-1. C++ with Micro Test
+1. JavaScript Node.js using Babel 7 (ES6, Zero compile with static Website)
+1. C++ with Micro Test using CMake
 
 ## Installing DM-Tools
 
@@ -380,20 +379,8 @@ DM-Tools creates a test sub-folder under src/ and uses the latest Micro Test hea
 
 To learn more about how to write tests using [Micro Test](https://bitbucket.org/rajinder_yadav/micro_test) check out the project site. You will be amazed how simple and fast it is to write test code.
 
-## Contributors wanted
-
-Feel free to help improve this great tool, before you start please reach out to me to sync up work and make sure your efforts will be the most productive.
-
-## TypeScript Coding guideline
+## TypeScript Coding Guideline
 
 Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
-
-## Where to start
-
-Not sure where to get started. Here are two suggested starting points:
-
-1. Read the Coding guideline.
-1. Start by looking at open issues to fix.
-1. Look at [Launchpad](https://tree.taiga.io/project/rajinder-yadav-launchpad/kanban?kanban-status=1068326) project tasks for things to help out with.
 
 **Happy Hacking =)**
