@@ -58,9 +58,10 @@ Focus has been put into encouraging the use of best practices and the best tools
 The following basic project types that can be created using DM-Tools are:
 
 1. Default (TypeScript Node.js with static Website)
-1. Apollo GraphQL Node.js API Server using Babel 7.
+1. Apollo GraphQL API Server using Babel 7
 1. TypeScript Node.js
 1. JavaScript Node.js using Babel 7 (ES6, Zero compile with static Website)
+1. Koa + Node.js API Server using Babel 7 (ES6, Zero compile with static Website)
 1. C++ with Micro Test using CMake
 
 ## Installing DM-Tools
