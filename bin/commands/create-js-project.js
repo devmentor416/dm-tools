@@ -15,13 +15,8 @@ function createJSProject(cmd, options) {
     }
     switch (cmd.type) {
         case 'ts': {
-            console.log('DM-Tools is generating a new TypeScript and static Web site project...');
+            console.log('DM-Tools is generating a new TypeScript Node.js Server, static Web site project...');
             sh.cp('-r', path.resolve(__dirname, '../../.templates/typescript/'), `${options.project}`);
-            break;
-        }
-        case 'express': {
-            console.log('DM-Tools is generating a TypeScript Node.js Server project...');
-            sh.cp('-r', path.resolve(__dirname, '../../.templates/express/'), `${options.project}`);
             break;
         }
         case 'node': {

@@ -1,31 +1,85 @@
 # Dev Mentor Project Creator Tools
 
-Start playing with the demo starter project now, the generated source code is located in the project `src/` sub-folder.
+![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
+![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.3.0-blue.svg)
+![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
-**Important!** If you have Git installed, a Git repository have been created for you along with a development branch **dev** that you have been switched to.
+![Image Logo](img/dm-tools.png)
+<!-- TOC -->
+
+- [Introduction](#introduction)
+- [Project Types](#project-types)
+- [Installing DM-Tools](#installing-dm-tools)
+- [Creating a Project](#creating-a-project)
+- [Running a Node.js program](#running-a-nodejs-program)
+  - [Running and watching during development](#running-and-watching-during-development)
+    - [Terminal One](#terminal-one)
+    - [Terminal Two](#terminal-two)
+    - [Terminal Three](#terminal-three)
+- [Benefits](#benefits)
+- [TypeScript development](#typescript-development)
+  - [Source code](#source-code)
+  - [Building](#building)
+  - [Warning](#warning)
+  - [Library code (Modules)](#library-code-modules)
+  - [Formatting the code](#formatting-the-code)
+  - [Linting](#linting)
+  - [Testing](#testing)
+- [Static Web development](#static-web-development)
+  - [Browsersync Asset fetching](#browsersync-asset-fetching)
+- [Test coverage](#test-coverage)
+- [Create a Node.js JavaScript project](#create-a-nodejs-javascript-project)
+  - [TypeScript Node ES5](#typescript-node-es5)
+- [Building C++ Testable Projects](#building-c-testable-projects)
+  - [Basic Usage](#basic-usage)
+    - [Project "hello_world" Creation](#project-hello_world-creation)
+  - [Building Project](#building-project)
+  - [Running hello_world program](#running-hello_world-program)
+  - [Running the Test Program](#running-the-test-program)
+  - [Micro Test - Testing Your Project](#micro-test---testing-your-project)
+- [TypeScript Coding Guideline](#typescript-coding-guideline)
+
+<!-- /TOC -->
+
+## Introduction
+
+**DM-Tools** is a command-line utility for generating a project for the following programming languages.
+
+1. TypeScript
+1. JavaScript using Babel 7
+1. C++
+
+Focus has been put into encouraging the use of best practices and the best tools.
+
+## Project Types
+
+The following basic project types that can be created using DM-Tools are:
+
+1. Default (TypeScript Node.js with static Website)
+1. Apollo GraphQL API Server using Babel 7
+1. TypeScript Node.js
+1. JavaScript Node.js using Babel 7 (ES6, Zero compile with static Website)
+1. Koa + Node.js API Server using Babel 7 (ES6, Zero compile with static Website)
+1. C++ with Micro Test using CMake
+
+## Installing DM-Tools
 
 ```sh
-cd <project-folder>
+npm install -g dm-tools
 ```
 
-## Benefits
+## Creating a Project
 
-Here are the benefits from the DM-Tools created project.
+Start playing with the demo starter project now, the generated source code is located in the project `src/` sub-folder.
 
-* Quick start
-* Best practices
-* Build system
-* Code in TypeScript
-* Code TypeScript Modules
-* HTML live edit and preview
-* Error logging
-* Code linting
-* Code formatting
-* Unit testing
-* Code coverage
-* Document generation
-* Git commit hooks
-* Continuous integration (under research)
+```sh
+dm new demo
+cd demo
+```
+
+_Note_: If you are using _Yarn_ over _NPM_, continue to work with _Yarn_, the DM-Tools generated project will use Yarn before NPM if it is available on your system.
 
 ## Running a Node.js program
 
@@ -41,9 +95,9 @@ This will perform a clean build and run the demo program from the `build/` folde
 
 You can also continue to watch and run a Node.js based program during development. To do this open three terminals.
 
-* Terminal 1: The build terminal.
-* Terminal 2: Run the compiled Node.js code.
-* Terminal 3: Watch test results.
+- Terminal 1: The build terminal.
+- Terminal 2: Run the compiled Node.js code.
+- Terminal 3: Watch test results.
 
 **Important!**: If you are encounter strange build errors in one of the terminal, it could be due to linting errors or compiler error. This unfortunately does not make it to the terminal since these operations are running through another NPM script. So to quickly see what is failing, from another terminal type, `npm run build`, this will quickly let you see the problem.
 
@@ -75,6 +129,25 @@ npm run testwatch
 
 There is a delay added before the Node.js program is executed, this is to prevent premature re-running of code if multiple files are being copied to the `build/` folder. You can change the delay from the `devwatch` script (see file `package.json`) by altering the value passed using the `--delay-start` switch.
 
+## Benefits
+
+Here are the benefits you will enjoy right out of the gate:
+
+- Quick start
+- Best practices
+- Build system
+- Code in TypeScript
+- Code TypeScript Modules
+- HTML live edit and preview
+- Error logging
+- Code linting
+- Code formatting
+- Unit testing
+- Code coverage
+- Document generation
+- Git commit hooks
+- Continuous integration (under research)
+
 ## TypeScript development
 
 ### Source code
@@ -87,13 +160,13 @@ All TypeScript code is compiled to _ES5_ JavaScript. The target JavaScript code 
 
 Some of the things you may want to configure:
 
-* Files to compile
-* Folders to include
-* Folders to exclude
-* Target compiled output
-* Source map (Needed for debugging)
-* Module system (Use commonjs for Node)
-* Output file
+- Files to compile
+- Folders to include
+- Folders to exclude
+- Target compiled output
+- Source map (Needed for debugging)
+- Module system (Use commonjs for Node)
+- Output file
 
 Supported compiled targets include: `ES3, ES5, ES6, ES2016, ES2017`.
 
@@ -175,11 +248,11 @@ On how to configure the setup, read the [Browsersync options](https://browsersyn
 
 Basic configurations setting you may be interested in are:
 
-* files
-* server
-* proxy
-* logLevel
-* port
+- files
+- server
+- proxy
+- logLevel
+- port
 
 The default Browsersync UI web address is: `http://localhost:3001/`.
 
@@ -209,9 +282,40 @@ Test coverage is done when test is run using `nyc`. The test coverage result is 
 
 To configure the test coverage, make changes to the `nyc` settings found in the file `package.json`.
 
+## Create a Node.js JavaScript project
+
+If you want to develop in plain JavaScript, or develop a ES6 Node.js based project, this is now supported. It is also good for quickly testing out code and not getting slowed down by the compile step.
+
+You will need the latest version of Node.js for ES6 and beyond support, otherwise plain JavaScript will continue to work.
+
+```sh
+dm new demo --type js
+npm install
+```
+
+_Note_: You may also use `-t` which is the short-form for `--type`.
+
+The following NPM commands are supported:
+
+NPM script|Description
+----------|-----------
+lint|Run code through linter (jslint).|
+dev|Run in watch mode.|
+doc|Generate doc files (jsdocs).|
+format|Format the source code.|
+node:debug|Start debugger, requires Chrome.|
+start|Run the Node.js program.|
+test|Run Unit testing (Ava).|
+
+The plain JavaScript generated file has a development mode. It will run the _Entry_ file (`main.js`) using Node.js each time the source code is updated. You can develop and see the output from the _terminal_ to test out code quickly.
+
+```sh
+npm run dev
+```
+
 ### TypeScript Node ES5
 
-If you need to use ES5 Nodejs support with TypeScript here are the following change you need to make.
+If you need to use ES5 Node.js support with TypeScript here are the following change you need to make.
 
 Add the following two lines under compilerOptions to `tsconfig.json` and `tsconfig.test.json`.
 
@@ -222,6 +326,62 @@ Add the following two lines under compilerOptions to `tsconfig.json` and `tsconf
 }
 ```
 
-## Coding guideline
+## Building C++ Testable Projects
+
+DM-Tools can be used to create a C++ project with Unit Testing setup using [Micro Test](https://github.com/rajinder-yadav/micro_test).
+
+The C++ project uses [CMake](https://cmake.org/) to generate cross-platform Makefiles for:
+
+1. Linux
+1. MacOS
+1. Windows
+
+### Basic Usage
+
+Let us go through the steps of creating a simple "hello_world" project.
+
+#### Project "hello_world" Creation
+
+The created project will be found under the **hello_world** folder.
+
+```sh
+cd /tmp
+dm new hello_world --cpp
+```
+
+### Building Project
+
+The Makefile is located under sub-folder build.
+
+```sh
+cd hello_world/build
+make
+```
+
+### Running hello_world program
+
+The executable hello_world will be found in the build folder.
+
+```sh
+./hello_world
+```
+
+### Running the Test Program
+
+The test program is located under build/test/ sub-folder. Initially one failing test is created for you to follow.
+
+```sh
+./test/test.hello_world
+```
+
+### Micro Test - Testing Your Project
+
+DM-Tools creates a test sub-folder under src/ and uses the latest Micro Test header file, it basically pulls it from the Micro Test Git repository.
+
+To learn more about how to write tests using [Micro Test](https://bitbucket.org/rajinder_yadav/micro_test) check out the project site. You will be amazed how simple and fast it is to write test code.
+
+## TypeScript Coding Guideline
 
 Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
+
+**Happy Hacking =)**
