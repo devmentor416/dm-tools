@@ -1,8 +1,6 @@
-
 build/
 dist/
 docs/typedoc/
-log/
 node_modules/
 tmp/
 typings/

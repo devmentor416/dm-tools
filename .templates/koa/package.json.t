@@ -1,7 +1,7 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated demo Koa project",
+  "description": "DM-Tools generated demo Koa server",
   "main": "src/core/main.js",
   "config": {
     "dev": "build/dev/",
@@ -18,7 +18,7 @@
     "clean": "shx rm -rf build",
     "debug": "node --inspect --debug-brk $npm_package_config_dev",
     "dev": "run-s clean build:dev",
-    "devwatch": "gazeall ./build/main.js",
+    "devwatch": "gazeall ./build/core/main.js",
     "doc": "esdoc",
     "format": "prettier --write ./src/**/*.js",
     "prebuild": "run-s format lint clean",
