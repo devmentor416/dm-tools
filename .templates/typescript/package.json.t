@@ -1,7 +1,7 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated TypeScript Node.js demo server",
+  "description": "DM-Tools generated TypeScript Node.js demo server with static Website",
   "main": "src/core/main.ts",
   "config": {
     "main": "build/core/main.js",
