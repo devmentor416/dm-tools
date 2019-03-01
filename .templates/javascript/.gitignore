@@ -1,8 +1,6 @@
-
 build/
 dist/
 docs/jsdoc/
-log/
 node_modules/
 tmp/
 typings/
