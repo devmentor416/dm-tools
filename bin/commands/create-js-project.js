@@ -29,7 +29,7 @@ function createJSProject(cmd, options) {
             sh.cp('-r', path.resolve(__dirname, '../../.templates/koa/'), `${options.project}`);
             break;
         }
-        case 'graphql': {
+        case 'gql': {
             console.log('DM-Tools is generating a TypeScript Apollo GraphQL Server project...');
             sh.cp('-r', path.resolve(__dirname, '../../.templates/apollo-graphql-server/'), `${options.project}`);
             break;
