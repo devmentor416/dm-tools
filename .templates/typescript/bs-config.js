@@ -35,7 +35,6 @@ module.exports = {
         "/node_modules/jquery/dist": "node_modules/jquery/dist",
         "/node_modules/popper.js/dist": "node_modules/popper.js/dist",
         "/node_modules/dm-css/css": "node_modules/dm-css/css"
-      }
     },
     "proxy": false,
     "port": 3000,

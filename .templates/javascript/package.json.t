@@ -2,9 +2,9 @@
   "name": "@dm-tools/demo",
   "version": "0.1.0",
   "description": "DM-Tools generated JavaScript demo project",
-  "main": "src/main.ts",
+  "main": "src/core/main.ts",
   "config": {
-    "main": "src/main.js"
+    "main": "src/core/main.js"
   },
   "scripts": {
     "ava": "ava --tap \"build/**/test.*.js\"|tap-summary",
@@ -15,7 +15,7 @@
     "build:dev": "babel -w src --out-dir build",
     "lint": "eslint \"src/**/*.js\"",
     "dev": "run-s clean build:dev",
-    "devwatch": "gazeall --run \"node build/main.js\" \"build/**/*\"",
+    "devwatch": "gazeall --run \"node build/core/main.js\" \"build/**/*\"",
     "doc": "esdoc",
     "format": "prettier --single-quote --write \"src/**/*.js\"",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",

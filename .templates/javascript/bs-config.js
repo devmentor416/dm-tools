@@ -32,7 +32,8 @@ module.exports = {
       routes: {
         "/node_modules/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
         "/node_modules/jquery/dist": "node_modules/jquery/dist",
-        "/node_modules/popper.js/dist": "node_modules/popper.js/dist"
+        "/node_modules/popper.js/dist": "node_modules/popper.js/dist",
+        "/node_modules/dm-css/css": "node_modules/dm-css/css"
       }
     },
     "proxy": false,
