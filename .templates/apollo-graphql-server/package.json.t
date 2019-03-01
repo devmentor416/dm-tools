@@ -1,8 +1,8 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated TypeScript demo project",
-  "main": "src/main.js",
+  "description": "DM-Tools generated GraphQL demo Server",
+  "main": "src/core/main.js",
   "config": {
     "dev": "build/dev/",
     "test": "build/test/",
@@ -18,7 +18,7 @@
     "clean": "shx rm -rf build",
     "debug": "node --inspect --debug-brk $npm_package_config_dev",
     "dev": "run-s clean build:dev",
-    "devwatch": "gazeall ./build/main.js",
+    "devwatch": "gazeall ./build/core/main.js",
     "doc": "esdoc",
     "format": "prettier --write ./src/**/*.js",
     "prebuild": "run-s format lint clean",

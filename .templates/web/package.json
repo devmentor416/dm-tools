@@ -2,7 +2,7 @@
   "name": "@dm-tools/demo",
   "version": "0.1.0",
   "description": "DM-Tools generated Website demo project",
-  "main": "src/main.ts",
+  "main": "src/index.html",
   "config": {
     "main": "src/main.js"
   },

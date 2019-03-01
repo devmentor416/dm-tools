@@ -1,7 +1,7 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated demo Koa server",
+  "description": "DM-Tools generated demo Koa Server",
   "main": "src/core/main.js",
   "config": {
     "dev": "build/dev/",

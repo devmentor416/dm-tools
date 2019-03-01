@@ -1,6 +1,6 @@
 {
   "name": "dm-tools",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {

@@ -1,7 +1,7 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated JavaScript demo project",
+  "description": "DM-Tools generated JavaScript demo Server",
   "main": "src/core/main.ts",
   "config": {
     "main": "src/core/main.js"
