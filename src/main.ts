@@ -35,7 +35,7 @@ cmd
   .version( `DevMentor Tools Project Generator v${ VERSION }`, '-v, --version' )
   .usage( '<command> <project> [options...]\n\n     commands: new' )
   .arguments( '<command> <project>' )
-  .option( '-t, --type <type>', 'project types: ts, node, js, koa, graphql' )
+  .option( '-t, --type <type>', 'project types: express, graphql, js, koa, node, ts, web' )
   .option( '--e2e', 'end to end testing' )
   .option( '-w, --web', 'simple static Web setup' )
   .option( '--cpp [items]', 'C++ project', source_files )

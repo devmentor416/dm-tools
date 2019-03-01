@@ -1,4 +1,3 @@
-
 /*
  |--------------------------------------------------------------------------
  | Browser-sync config file
@@ -29,7 +28,7 @@ module.exports = {
         "ignoreInitial": true
     },
     "server": {
-      baseDir: "build",
+      baseDir: "src/",
       routes: {
         "/node_modules/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
         "/node_modules/jquery/dist": "node_modules/jquery/dist",
@@ -72,7 +71,7 @@ module.exports = {
     "reloadDebounce": 0,
     "reloadThrottle": 0,
     "plugins": [],
-    "injectChanges": false,
+    "injectChanges": true,
     "startPath": null,
     "minify": true,
     "host": null,

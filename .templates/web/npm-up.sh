@@ -5,8 +5,7 @@
 cp package.json.t package.json
 rm -f package-lock.json
 rm -rf node_modules
-npm i -S bootstrap bunyan dm-css jquery popper.js
-npm i -D @types/bunyan @types/core-js @types/node ava browser-sync browserify core-js cross-env cross-var gazeall husky
-npm i -D npm-run-all nyc shx tap-summary tape-run tslint typedoc typescript typescript-formatter
+npm i -D browser-sync browserify
+npm i -S bootstrap dm-css jquery popper.js
 rm -f package-lock.json
 rm -rf node_modules

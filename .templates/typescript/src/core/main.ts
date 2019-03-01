@@ -1,5 +1,6 @@
 // Example NodeJS API Server
-// Type 'npm start' to start Server.
+// Type 'npm run dev' to compile is watch mode.
+// Type 'npm run devwatch' to run Server.
 
 // Testing API Server
 // curl localhost:3000/test
@@ -9,8 +10,8 @@
 // Log files can be found under the 'logs' directory.
 'use strict';
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import log from './lib/logger';
 import { Buffer } from 'buffer';
+import log from '../utils/logger';
 
 const SERVER_PORT = 3000;
 
@@ -43,7 +44,7 @@ const server = createServer( ( request: IncomingMessage, response: ServerRespons
   if ( method === 'GET' && url === '/test' ) {
     // Process HTTP GET
     message = {
-      length: 18,
+      status: 200,
       message: 'Server is running.'
     };
     const response_data = JSON.stringify( message ) + '\n';
@@ -63,6 +64,7 @@ const server = createServer( ( request: IncomingMessage, response: ServerRespons
         request_data = Buffer.concat( request_body ).toString();
         log.info( `Request data: ${ request_data }` );
         message = {
+          status: ERR_SUCCESS,
           length: request_data.length,
           message: request_data
         };
@@ -79,8 +81,8 @@ const server = createServer( ( request: IncomingMessage, response: ServerRespons
       'Content-type': 'application/json'
     } );
     message = {
-      length: 16,
-      message: 'Unknown request'
+      status: ERR_BAD_REQUEST,
+      message: 'Bad Request'
     };
     const response_data = JSON.stringify( message ) + '\n';
     response.write( response_data );

@@ -1,8 +1,8 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated TypeScript demo project",
-  "main": "src/main.js",
+  "description": "DM-Tools generated demo Koa project",
+  "main": "src/core/main.js",
   "config": {
     "dev": "build/dev/",
     "test": "build/test/",

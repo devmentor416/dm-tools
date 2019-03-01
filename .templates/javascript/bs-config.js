@@ -30,8 +30,9 @@ module.exports = {
     "server": {
       baseDir: "src/",
       routes: {
-        "/node_modules/tachyons/css":"node_modules/tachyons/css",
-        "/node_modules/material-design-lite": "node_modules/material-design-lite"
+        "/node_modules/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
+        "/node_modules/jquery/dist": "node_modules/jquery/dist",
+        "/node_modules/popper.js/dist": "node_modules/popper.js/dist"
       }
     },
     "proxy": false,

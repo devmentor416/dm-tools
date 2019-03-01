@@ -25,6 +25,12 @@ export function createJSProject( cmd: any, options: any ): void {
       break;
     }
 
+    case 'express': {
+      console.log( 'DM-Tools is generating a TypeScript Node.js Server project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/express/' ), `${ options.project }` );
+      break;
+    }
+
     case 'node': {
       console.log( 'DM-Tools is generating a TypeScript Node.js Server project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/node/' ), `${ options.project }` );
@@ -46,6 +52,12 @@ export function createJSProject( cmd: any, options: any ): void {
     case 'js': {
       console.log( 'DM-Tools is generating a JavaScript Node.js Server project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/javascript/' ), `${ options.project }` );
+      break;
+    }
+
+    case 'web': {
+      console.log( 'DM-Tools is generating a Static Website project...' );
+      sh.cp( '-r', path.resolve( __dirname, '../../.templates/web/' ), `${ options.project }` );
       break;
     }
 

@@ -1,10 +1,10 @@
 {
   "name": "@dm-tools/demo",
   "version": "0.1.0",
-  "description": "DM-Tools generated TypeScript demo project",
-  "main": "src/main.ts",
+  "description": "DM-Tools generated TypeScript Node.js demo server",
+  "main": "src/core/main.ts",
   "config": {
-    "main": "build/main.js",
+    "main": "build/core/main.js",
     "doc_folder": "docs/typedoc"
   },
   "scripts": {
@@ -15,7 +15,7 @@
     "lint": "tslint -t codeFrame \"src/**/*.ts\"",
     "clean": "shx rm -rf build",
     "dev": "cross-env NODE_ENV=dev tsc -w",
-    "devwatch": "gazeall --delay 350 --run \"node build/main.js\" \"build/**/*\"",
+    "devwatch": "gazeall --delay 350 --run \"node build/core/main.js\" \"build/**/*\"",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",

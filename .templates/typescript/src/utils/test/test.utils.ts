@@ -1,5 +1,5 @@
 'use strict';
-import { test } from 'ava';
+import test from 'ava';
 import * as utils from '../utils';
 
 test( 'hello', t => {
