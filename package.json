@@ -46,7 +46,7 @@
     "url": "https://github.com/devmentor416/dm-tools"
   },
   "devDependencies": {
-    "@types/bunyan": "^1.8.5",
+    "@types/bunyan": "^1.8.6",
     "@types/core-js": "^2.5.0",
     "@types/node": "^11.10.0",
     "@types/shelljs": "^0.8.3",
