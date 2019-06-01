@@ -50,7 +50,7 @@
     "@types/core-js": "^2.5.0",
     "@types/node": "^11.10.0",
     "@types/shelljs": "^0.8.3",
-    "ava": "^1.2.1",
+    "ava": "^2.0.0",
     "core-js": "^2.6.5",
     "cross-env": "^5.2.0",
     "cross-var": "^1.1.0",
