@@ -37,8 +37,12 @@ const server = createServer( ( request: IncomingMessage, response: ServerRespons
   let message = {};
 
   log.info( `Method: ${ method }, URL: ${ url }` );
+
+  // Enable CORS
   response.writeHead( ERR_SUCCESS, {
-    'Content-type': 'application/json'
+    'Content-type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
   } );
 
   if ( method === 'GET' && url === '/test' ) {
