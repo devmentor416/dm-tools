@@ -8,4 +8,4 @@ rm -rf node_modules
 npm i -S commander shelljs
 npm i -D @types/bunyan @types/core-js @types/node @types/shelljs
 npm i -D ava core-js cross-env cross-var husky
-npm i -D npm-run-all nyc shx tap-summary tape-run tslint typedoc typescript typescript-formatter
+npm i -D npm-run-all nyc shx tslint typedoc typescript typescript-formatter

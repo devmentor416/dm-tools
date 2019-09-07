@@ -1,6 +1,6 @@
 {
   "name": "dm-tools",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {
@@ -23,7 +23,7 @@
     "predoc": "shx rm -rf $npm_package_config_doc_folder && shx mkdir -p $npm_package_config_doc_folder",
     "prepush": "npm run test",
     "pretest": "run-s clean build:test",
-    "test": "nyc ava --tap \"bin/**/*/test.*.js\"|tap-summary"
+    "test": "nyc ava --tap bin/**/*/test.*.js"
   },
   "keywords": [
     "devmentor",

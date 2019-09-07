@@ -2,6 +2,15 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.3.1 (2019-09-07)
+
+* NPM Module updates.
+* CORS added to js and ts Node.js code.
+
+## 0.3.0 (2019-01-03)
+
+* Project refactoring.
+
 ## 0.2.0 (2018-11-17)
 
 * Added Apollo GraphQL server.
