@@ -59,7 +59,7 @@
     "nyc": "^13.3.0",
     "shx": "^0.3.2",
     "tap-summary": "^4.0.0",
-    "tape-run": "^5.0.0",
+    "tape-run": "^7.0.0",
     "tslint": "^5.13.1",
     "typedoc": "^0.14.2",
     "typescript": "^3.3.3333",
