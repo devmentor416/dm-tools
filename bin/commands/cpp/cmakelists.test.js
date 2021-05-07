@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTemplateCMakeListsTest = void 0;
 function getTemplateCMakeListsTest(test_project_name, headers, source, config) {
     const header_files = headers.map(v => ` ../${v}`);
     const source_files = source.map(v => ` ../${v}`);

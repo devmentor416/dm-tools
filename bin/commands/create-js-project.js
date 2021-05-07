@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.createJSProject = void 0;
 const sh = require("shelljs");
 const path = require("path");
 const fs = require("fs");

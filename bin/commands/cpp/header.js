@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTemplateHeader = void 0;
 const title_1 = require("./title");
 function getTemplateHeader(filename, config) {
     const header_guard = `__${filename.replace(/\./g, '_')}_${Date.now()}__`;

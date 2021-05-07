@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTemplateMain = void 0;
 const title_1 = require("./title");
 function getTemplateMain(header_files, options) {
     let headers = '';

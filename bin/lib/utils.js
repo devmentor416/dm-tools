@@ -1,11 +1,13 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.downloadFileHttp = exports.downloadFileHttps = exports.stub_test = void 0;
 const https = require("https");
 const http = require("http");
 const fs = require("fs");
-exports.stub_test = () => {
+const stub_test = () => {
     return 'Hello DM-Tools!';
 };
+exports.stub_test = stub_test;
 function downloadFileHttps(uri, filename, cb) {
     const file = fs.createWriteStream(filename);
     file.on('finish', () => {

@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTemplateCMakeLists = void 0;
 function getTemplateCMakeLists(project_name, header_files, source_files, config) {
     const cmakelists = `
 cmake_minimum_required( VERSION ${config.project.cmake || '2.6'} )

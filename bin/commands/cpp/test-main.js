@@ -1,5 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTemplateTestMain = void 0;
 const title_1 = require("./title");
 function getTemplateTestMain(options) {
     const test_main = `${title_1.getTemplateTitle('test.main.cpp', options.config)}\n
