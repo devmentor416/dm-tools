@@ -13,6 +13,7 @@ coverage/
 *.log
 npm-debug.log*
 yarn-error.log*
+dm-tools-*.tgz
 
 .vscode
 .DS_Store
