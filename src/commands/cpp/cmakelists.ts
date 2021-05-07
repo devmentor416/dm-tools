@@ -6,8 +6,8 @@ export function getTemplateCMakeLists(
   config: any ): string {
 
   const cmakelists = `
-cmake_minimum_required( VERSION ${config.project.cmake || '2.6' } )
-project( ${project_name } )
+cmake_minimum_required( VERSION ${ config.project.cmake || '2.6' } )
+project( ${ project_name } )
 
 # Define ASIO project root from environment variable
 #set( ASIO_INCLUDE "$ENV{ASIO_ROOT}" )
@@ -24,9 +24,9 @@ project( ${project_name } )
 #link_directories( "\${BOOST_LIB}" )
 
 include_directories( "\${PROJECT_SOURCE_DIR}" "\${PROJECT_SOURCE_DIR}/src/include" "\${PROJECT_SOURCE_DIR}/include" )
-set( SOURCE_FILES main.cpp ${source_files.join( ' ' ) } )
-set( HEADER_FILES ${header_files.join( ' ' ) } )
-add_executable( ${project_name } \${SOURCE_FILES} \${HEADER_FILES} )
+set( SOURCE_FILES main.cpp ${ source_files.join( ' ' ) } )
+set( HEADER_FILES ${ header_files.join( ' ' ) } )
+add_executable( ${ project_name } \${SOURCE_FILES} \${HEADER_FILES} )
 
 # C++11 Support, note to add thread support need to link with pthread
 add_definitions( "-std=c++11" )
@@ -37,7 +37,7 @@ add_definitions( "-std=c++11" )
 find_package( Threads )
 set( LIB_FILES pthread )
 #set( LIB_FILES pthread boost_system boost_thread boost_regex boost_date_time boost_serialization )
-target_link_libraries( ${project_name } \${LIB_FILES} \${CMAKE_THREAD_LIBS_INIT} )
+target_link_libraries( ${ project_name } \${LIB_FILES} \${CMAKE_THREAD_LIBS_INIT} )
 
 add_subdirectory( test )
 `;

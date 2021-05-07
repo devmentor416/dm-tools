@@ -1,6 +1,6 @@
 {
   "name": "dm-tools",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {
@@ -17,7 +17,7 @@
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",
     "node:debug": "node --inspect --debug-brk $npm_package_bin_cli",
-    "postbuild": "npm link",
+    "xpostbuild": "npm link",
     "prebuild": "run-s format lint clean",
     "precommit": "run-s format lint",
     "predoc": "shx rm -rf $npm_package_config_doc_folder && shx mkdir -p $npm_package_config_doc_folder",
@@ -47,11 +47,9 @@
   },
   "devDependencies": {
     "@types/bunyan": "^1.8.6",
-    "@types/core-js": "^2.5.2",
     "@types/node": "^12.7.4",
     "@types/shelljs": "^0.8.5",
     "ava": "^2.3.0",
-    "core-js": "^3.2.1",
     "cross-env": "^5.2.1",
     "cross-var": "^1.1.0",
     "husky": "^3.0.5",
@@ -60,12 +58,12 @@
     "shx": "^0.3.2",
     "tslint": "^5.19.0",
     "typedoc": "^0.15.0",
-    "typescript": "^3.6.2",
     "typescript-formatter": "^7.2.2"
   },
   "dependencies": {
-    "commander": "^3.0.1",
-    "shelljs": "^0.8.3"
+    "commander": "^3.0.2",
+    "shelljs": "^0.8.3",
+    "typescript": "^4.2.4"
   },
   "nyc": {
     "lines": 0,

@@ -30,7 +30,7 @@ export function getTemplateMain( header_files: string[], options: any ): string 
 //#include <regex>
 //#include <thread>
 
-${headers }
+${ headers }
 //using namespace std;
 
 using std::clog;

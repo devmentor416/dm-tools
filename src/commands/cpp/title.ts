@@ -1,8 +1,7 @@
 'use strict';
 export function getTemplateTitle( filename: string, config: any ): string {
 
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  const today = new Intl.DateTimeFormat( 'en-US', options ).format( Date.now() );
+  const today = new Intl.DateTimeFormat( 'en-US' ).format( Date.now() );
   const year = ( new Date() ).getFullYear();
   const author = config.author || '<Full name>';
   const email = config.email || 'your@email.com';

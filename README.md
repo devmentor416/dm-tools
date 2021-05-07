@@ -2,8 +2,8 @@
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
 ![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.3.1-blue.svg)
-![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.4.0-blue.svg)
+![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
 ![Image Logo](img/dm-tools.png)
@@ -45,19 +45,23 @@
 
 ## Introduction
 
-**DM-Tools** is a command-line utility for generating a project for the following programming languages.
+__DM-Tools__ is a command-line utility for generating a project for the following programming languages.
 
+1. Basic JavaScript
 1. TypeScript
 1. JavaScript using Babel 7
 1. C++
 
 Focus has been put into encouraging the use of best practices and the best tools.
 
+Version of Node supported: Node v14.16.1+, for version earler you will need to polyfill using "__core-js__".
+
 ## Project Types
 
 The following basic project types that can be created using DM-Tools are:
 
-1. Default (TypeScript Node.js with static Website)
+1. Default (JavaScript Node.js with static Website)
+1. TypeScript Node.js with static Website
 1. Apollo GraphQL API Server using Babel 7
 1. TypeScript Node.js
 1. JavaScript Node.js using Babel 7 (ES6, Zero compile with static Website)
@@ -79,7 +83,7 @@ dm new demo
 cd demo
 ```
 
-_Note_: If you are using _Yarn_ over _NPM_, continue to work with _Yarn_, the DM-Tools generated project will use Yarn before NPM if it is available on your system.
+__Note__: If you are using __Yarn__ over __NPM__, continue to work with __Yarn__, the DM-Tools generated project will use Yarn before NPM if it is available on your system.
 
 ## Running a Node.js program
 
@@ -99,7 +103,7 @@ You can also continue to watch and run a Node.js based program during developmen
 - Terminal 2: Run the compiled Node.js code.
 - Terminal 3: Watch test results.
 
-**Important!**: If you are encounter strange build errors in one of the terminal, it could be due to linting errors or compiler error. This unfortunately does not make it to the terminal since these operations are running through another NPM script. So to quickly see what is failing, from another terminal type, `npm run build`, this will quickly let you see the problem.
+__Important!__: If you are encountering strange build errors in one of the terminal, it could be due to linting errors or compiler error. This unfortunately does not make it to the terminal since these operations are running through another NPM script. So to quickly see what is failing, from another terminal type, `npm run build`, this will quickly let you see the problem.
 
 #### Terminal One
 
@@ -156,7 +160,7 @@ Place all TypeScript source code under the folder, `src/`, they will be picked u
 
 You are free to create addition folders and sub-folders under, `src/`, the compiler will recursively find and compile all TypeScript code.
 
-All TypeScript code is compiled to _ES5_ JavaScript. The target JavaScript code can be changed from the [TypeScript configuration](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file, `tsconfig.json`.
+All TypeScript code is compiled to __ES5__ JavaScript. The target JavaScript code can be changed from the [TypeScript configuration](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file, `tsconfig.json`.
 
 Some of the things you may want to configure:
 
@@ -168,7 +172,7 @@ Some of the things you may want to configure:
 - Module system (Use commonjs for Node)
 - Output file
 
-Supported compiled targets include: `ES3, ES5, ES6, ES2016, ES2017`.
+Supported compiled targets include: `ES3, ES5, ES6, ES2016, ES2017, ES2018, ES2019, ES2020`.
 
 See [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for more details.
 
@@ -196,7 +200,7 @@ It is good practice to format the source code, so it conforms to a uniform struc
 npm run format
 ```
 
-_Note_: When the _DM-Tools_ generated project is built, the source code will be automatically formatted. This will also happen before source code is committed to _Git_.
+__Note__: When the __DM-Tools__ generated project is built, the source code will be automatically formatted. This will also happen before source code is committed to __Git__.
 
 ### Linting
 
@@ -206,19 +210,19 @@ To validate the project TypeScript source code, use the following command:
 npm run lint
 ```
 
-_Note_: The TypeScript source code is run through a linter (_TSLint_) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.
+__Note__: The TypeScript source code is run through a linter (__TSLint__) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.
 
 **Important!**: I have noticed, one in a while the git hooks will continue to fail when there is nothing really wrong. If you suspect this is the case, the easy fix is to delete the `node_modules` folder. Follow it with a `npm install` or simply type `yarn` and then try to commit or push the code again.
 
 ### Testing
 
-Testing is done using _Ava_, the [test methods](https://github.com/avajs/ava#assertions) are simple and easy to learn.
+Testing is done using __Ava__, the [test methods](https://github.com/avajs/ava#assertions) are simple and easy to learn.
 
-_Ava_ makes testing simple. Code is easy to read since it is just JavaScript, this avoids the need to context switch to BDD syntax. Plus anyone who knows JavaScript will be able to write test code immediately.
+__Ava__ makes testing simple. Code is easy to read since it is just JavaScript, this avoids the need to context switch to BDD syntax. Plus anyone who knows JavaScript will be able to write test code immediately.
 
-I firmly believe less time should be put into writing test code and having more time to write production code. Ava delivers on this by keeping the setup and test writing to a bare minimum. I believe _Ava_ is the best option for writing unit test for JavaScript based code.
+I firmly believe less time should be put into writing test code and having more time to write production code. Ava delivers on this by keeping the setup and test writing to a bare minimum. I believe __Ava__ is the best option for writing unit test for JavaScript based code.
 
-The test code should be _co-located_ with the production source code. As a best practice, place tests under a sub-folder called `test/`.
+The test code should be __co-located__ with the production source code. As a best practice, place tests under a sub-folder called `test/`.
 
 Pay attention to how the test source file is named: `test.<file>.ts`. So if you have a file called, `filter.ts`, the test file should be named, `test.filter.ts`.
 
@@ -228,11 +232,11 @@ To run the test, type:
 npm test
 ```
 
-_Note_: Running the test will cause a fresh build to be kicked-off. Once the build finishes, all the unit tests will be run.
+__Note__: Running the test will cause a fresh build to be kicked-off. Once the build finishes, all the unit tests will be run.
 
 ## Static Web development
 
-If you want to hack around with HTML, CSS and try things out quick. Start the project in _web_ mode using the following command:
+If you want to hack around with HTML, CSS and try things out quick. Start the project in __web__ mode using the following command:
 
 ```sh
 npm run web
@@ -240,7 +244,7 @@ npm run web
 
 This will run the build first and then open a web browser on port 3000, and load the HTML page, `index.html` located in the `src/` sub-folder.
 
-Any changes made to `index.html` will automatically update and browser on save. You do not need to keep hitting _refresh_ on the browser.
+Any changes made to `index.html` will automatically update and browser on save. You do not need to keep hitting __refresh__ on the browser.
 
 The website uses lite-server, which is based on Browsersync to run a local development web-server and keeps all browsers listening to it in sync. This means it is possible to have multiple browsers listening to the server.
 
@@ -293,7 +297,7 @@ dm new demo --type js
 npm install
 ```
 
-_Note_: You may also use `-t` which is the short-form for `--type`.
+__Note__: You may also use `-t` which is the short-form for `--type`.
 
 The following NPM commands are supported:
 
@@ -307,7 +311,7 @@ node:debug|Start debugger, requires Chrome.|
 start|Run the Node.js program.|
 test|Run Unit testing (Ava).|
 
-The plain JavaScript generated file has a development mode. It will run the _Entry_ file (`main.js`) using Node.js each time the source code is updated. You can develop and see the output from the _terminal_ to test out code quickly.
+The plain JavaScript generated file has a development mode. It will run the __Entry__ file (`main.js`) using Node.js each time the source code is updated. You can develop and see the output from the __terminal__ to test out code quickly.
 
 ```sh
 npm run dev
@@ -317,12 +321,20 @@ npm run dev
 
 If you need to use ES5 Node.js support with TypeScript here are the following change you need to make.
 
+Make sure you're using Node v14.16.1 or higher.
+
 Add the following two lines under compilerOptions to `tsconfig.json` and `tsconfig.test.json`.
 
 ```js
 "compilerOptions": {
-  "target": "es5",
-  "lib": ["es2015", "dom"]
+  "target": "es2020",
+  "lib": [
+    "es2020",
+    "es2019",
+    "es2018",
+    "es2017",
+    "dom"
+    ]
 }
 ```
 
@@ -342,7 +354,7 @@ Let us go through the steps of creating a simple "hello_world" project.
 
 #### Project "hello_world" Creation
 
-The created project will be found under the **hello_world** folder.
+The created project will be found under the __hello_world__ folder.
 
 ```sh
 cd /tmp
@@ -384,4 +396,4 @@ To learn more about how to write tests using [Micro Test](https://bitbucket.org/
 
 Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
 
-**Happy Hacking =)**
+__Happy Hacking =)__
