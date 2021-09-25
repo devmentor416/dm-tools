@@ -12,7 +12,7 @@
     "ava:coverage": "nyc ava --tap \"build/**/*/test.*.js\"|tap-summary",
     "build": "cross-env NODE_ENV=production tsc",
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
-    "lint": "tslint -t codeFrame \"src/**/*.ts\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "clean": "shx rm -rf build",
     "dev": "cross-env NODE_ENV=dev tsc -w",
     "devwatch": "gazeall --delay 350 --run \"node build/core/main.js\" \"build/**/*\"",

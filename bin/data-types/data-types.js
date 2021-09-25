@@ -21,6 +21,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GIT = exports.YARN = exports.VERSION = void 0;
 const sh = __importStar(require("shelljs"));
-exports.VERSION = '0.4.0';
+exports.VERSION = '0.4.1';
 exports.YARN = sh.which('yarn');
 exports.GIT = sh.which('git');

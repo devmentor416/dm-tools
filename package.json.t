@@ -12,7 +12,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc",
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
-    "lint": "tslint -t codeFrame \"src/**/*.ts\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "clean": "shx rm -rf bin",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",

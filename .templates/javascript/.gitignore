@@ -1,10 +1,15 @@
 build/
 dist/
-docs/jsdoc/
+docs/typedoc/
+docs/project/
+img/svg/
+log/
 node_modules/
 tmp/
 typings/
+.cache
 .nyc_output/
+coverage/
 
 *.bak
 *.log
