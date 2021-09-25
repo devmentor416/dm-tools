@@ -153,7 +153,7 @@ function createCppProject(cmd, options) {
             break;
         case 'Windows_NT':
             console.log('Generating Makefiles for Windows');
-            sh.exec(`cmake -G \"NMake Makefiles\" -D CMAKE_BUILD_TYPE=${cpp_build_type} ../src`);
+            sh.exec(`cmake -G "NMake Makefiles" -D CMAKE_BUILD_TYPE=${cpp_build_type} ../src`);
             console.log('Created VisualStudio project solution');
             break;
         default:

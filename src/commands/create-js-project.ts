@@ -6,7 +6,7 @@ import * as fs from 'fs';
 
 import { VERSION, YARN } from '../data-types/data-types';
 
-const commit_message: string = `
+const commit_message = `
 This Project was generated using Dev Mentor Tools (${ VERSION }).
 Initial Commit.
 `;

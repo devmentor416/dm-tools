@@ -13,7 +13,7 @@ import { getTemplateHeader } from './cpp/header';
 import { getTemplateSource } from './cpp/source';
 import { VERSION, GIT } from '../data-types/data-types';
 
-const commit_message: string = `
+const commit_message = `
 This C++ Project was generated using Dev Mentor Tools (${ VERSION }).
 Initial Commit.
 `;
@@ -156,7 +156,7 @@ export function createCppProject( cmd: any, options: any ): void {
 
     case 'Windows_NT':
       console.log( 'Generating Makefiles for Windows' );
-      sh.exec( `cmake -G \"NMake Makefiles\" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
+      sh.exec( `cmake -G "NMake Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
       console.log( 'Created VisualStudio project solution' );
       break;
 

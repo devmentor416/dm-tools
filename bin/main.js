@@ -24,6 +24,7 @@ const commander_1 = require("commander");
 const data_types_1 = require("./data-types/data-types");
 const fs = __importStar(require("fs"));
 const create_js_project_1 = require("./commands/create-js-project");
+const create_cpp_project_1 = require("./commands/create-cpp-project");
 const options = {};
 const config_file = process.env.HOME + '/dmtools.json';
 function source_files(files) {
@@ -59,4 +60,15 @@ Website: https://www.npmjs.com/package/dm-tools
     `);
 })
     .parse(process.argv);
-(0, create_js_project_1.createJSProject)(cmd.opts(), options);
+switch (options.command) {
+    case 'new':
+        if (cmd.opts().cpp) {
+            (0, create_cpp_project_1.createCppProject)(cmd.opts(), options);
+        }
+        else {
+            (0, create_js_project_1.createJSProject)(cmd.opts(), options);
+        }
+        break;
+    default:
+        console.log('Unknown Command, doing nothing!');
+}
