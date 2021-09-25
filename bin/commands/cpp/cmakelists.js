@@ -41,4 +41,3 @@ add_subdirectory( test )
     return cmakelists;
 }
 exports.getTemplateCMakeLists = getTemplateCMakeLists;
-//# sourceMappingURL=../../../src/commands/cpp/cmakelists.js.map

@@ -1,23 +1,42 @@
 #!/usr/bin/env node
 'use strict';
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const cmd = require("commander");
+const commander_1 = require("commander");
 const data_types_1 = require("./data-types/data-types");
-const fs = require("fs");
+const fs = __importStar(require("fs"));
 const create_js_project_1 = require("./commands/create-js-project");
-const create_cpp_project_1 = require("./commands/create-cpp-project");
 const options = {};
 const config_file = process.env.HOME + '/dmtools.json';
 function source_files(files) {
     return files.split(',');
 }
+const cmd = new commander_1.Command();
 let config = { project: {} };
 if (fs.existsSync(config_file)) {
     config = JSON.parse(fs.readFileSync(config_file, 'utf8'));
 }
 Object.assign(options, { config });
 cmd
-    .version(`DevMentor Tools Project Generator v${data_types_1.VERSION}`, '-v, --version')
+    .version(`DevMentor Tools Project Generator v${data_types_1.VERSION}`, '-v, --version', 'Show current version')
     .usage('<command> <project> [options...]\n\n     commands: new')
     .arguments('<command> <project>')
     .option('-t, --type <type>', 'project types: gql, js, koa, node, ts, web')
@@ -40,16 +59,4 @@ Website: https://www.npmjs.com/package/dm-tools
     `);
 })
     .parse(process.argv);
-switch (options.command) {
-    case 'new':
-        if (cmd.cpp) {
-            create_cpp_project_1.createCppProject(cmd, options);
-        }
-        else {
-            create_js_project_1.createJSProject(cmd, options);
-        }
-        break;
-    default:
-        console.log('Unknown Command, doing nothing!');
-}
-//# sourceMappingURL=../src/main.js.map
+(0, create_js_project_1.createJSProject)(cmd.opts(), options);

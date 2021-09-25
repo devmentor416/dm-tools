@@ -2,6 +2,12 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.4.0 (2021-09-24)
+
+* Updated templates tsconfig files.
+* Updated NPM modules in templates.
+* Fixed code due to Commander update.
+
 ## 0.3.1 (2019-09-07)
 
 * NPM Module updates.

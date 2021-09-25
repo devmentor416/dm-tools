@@ -30,4 +30,3 @@ function getTemplateTitle(filename, config) {
     return title;
 }
 exports.getTemplateTitle = getTemplateTitle;
-//# sourceMappingURL=../../../src/commands/cpp/title.js.map

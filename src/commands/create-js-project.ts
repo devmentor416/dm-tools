@@ -11,14 +11,14 @@ This Project was generated using Dev Mentor Tools (${ VERSION }).
 Initial Commit.
 `;
 
-export function createJSProject( cmd: any, options: any ): void {
+export function createJSProject( flags: any, options: any ): void {
 
   if ( fs.existsSync( options.project ) ) {
     console.log( `Folder ${ options.project } already exists!` );
     return;
   }
 
-  switch ( cmd.type ) {
+  switch ( flags.type ) {
     case 'ts': {
       console.log( 'DM-Tools is generating a new TypeScript Node.js Server, static Web site project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/typescript/' ), `${ options.project }` );
@@ -75,7 +75,7 @@ export function createJSProject( cmd: any, options: any ): void {
     sh.exec( 'npm install' );
   }
 
-  if ( cmd.e2e ) {
+  if ( flags.e2e ) {
     if ( YARN ) {
       sh.exec( 'yarn add cypress -D' );
     } else {
@@ -86,7 +86,7 @@ export function createJSProject( cmd: any, options: any ): void {
   // Also need to take into consideration different platforms: Win, MacOS, Linux 32/64.
 
   // Set up end to end testing.
-  // if ( !cmd.e2e ) {
+  // if ( !flags.e2e ) {
   //   sh.mkdir( 'bin_tools' );
 
   //   // Download Chromedriver.

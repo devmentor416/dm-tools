@@ -23,11 +23,11 @@
     "url": "https://github.com/<github-user-id>/<project-name>"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.14",
+    "browser-sync": "^2.27.5",
     "browserify": "^17.0.0"
   },
   "dependencies": {
-    "bootstrap": "^5.0.0",
+    "bootstrap": "^5.1.1",
     "dm-css": "^2.2.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1"

@@ -3,7 +3,7 @@
 # Run this to install the latest modules and update package.json
 # package.json.t is the template file, make changes there!
 cp package.json.t package.json
-rm -f package-lock.json
+rm -f package-lock.json yarn.lock
 rm -rf node_modules
 npm i -S commander shelljs
 npm i -D @types/bunyan @types/node @types/shelljs

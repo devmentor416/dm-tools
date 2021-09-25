@@ -1,11 +1,30 @@
 'use strict';
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createCppProject = void 0;
-const sh = require("shelljs");
-const path = require("path");
-const fs = require("fs");
-const utils = require("../lib/utils");
-const os = require("os");
+const sh = __importStar(require("shelljs"));
+const path = __importStar(require("path"));
+const fs = __importStar(require("fs"));
+const utils = __importStar(require("../lib/utils"));
+const os = __importStar(require("os"));
 const main_1 = require("./cpp/main");
 const test_main_1 = require("./cpp/test-main");
 const cmakelists_1 = require("./cpp/cmakelists");
@@ -22,7 +41,7 @@ function safeCreateHeaderFile(filename, options) {
         console.log('Header file already exist, skipping!');
         return;
     }
-    fs.writeFile(`./src/${filename}`, header_1.getTemplateHeader(filename, options.config), err => {
+    fs.writeFile(`./src/${filename}`, (0, header_1.getTemplateHeader)(filename, options.config), err => {
         if (err) {
             console.log(err.message);
             return;
@@ -35,7 +54,7 @@ function safeCreateSourceFile(filename, options) {
         console.log('Source file already exist, skipping!');
         return;
     }
-    fs.writeFile(`./src/${filename}`, source_1.getTemplateSource(filename, options.config), err => {
+    fs.writeFile(`./src/${filename}`, (0, source_1.getTemplateSource)(filename, options.config), err => {
         if (err) {
             console.log(err.message);
             return;
@@ -65,25 +84,25 @@ function createCppProject(cmd, options) {
             safeCreateSourceFile(file, options);
         });
     }
-    fs.writeFile('./src/main.cpp', main_1.getTemplateMain(header_files, options), err => {
+    fs.writeFile('./src/main.cpp', (0, main_1.getTemplateMain)(header_files, options), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log('Created main.cpp file');
-    fs.writeFile('./src/CMakeLists.txt', cmakelists_1.getTemplateCMakeLists(options.project, header_files, source_files, options.config), err => {
+    fs.writeFile('./src/CMakeLists.txt', (0, cmakelists_1.getTemplateCMakeLists)(options.project, header_files, source_files, options.config), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log('Created CMakefile file');
-    fs.writeFile('./src/test/test.main.cpp', test_main_1.getTemplateTestMain(options), err => {
+    fs.writeFile('./src/test/test.main.cpp', (0, test_main_1.getTemplateTestMain)(options), err => {
         if (err) {
             console.log(err.message);
         }
     });
     console.log('Created test.main.cpp file');
-    fs.writeFile('./src/test/CMakeLists.txt', cmakelists_test_1.getTemplateCMakeListsTest(options.project, header_files, source_files, options.config), err => {
+    fs.writeFile('./src/test/CMakeLists.txt', (0, cmakelists_test_1.getTemplateCMakeListsTest)(options.project, header_files, source_files, options.config), err => {
         if (err) {
             console.log(err.message);
         }
@@ -152,4 +171,3 @@ function createCppProject(cmd, options) {
     console.log(`Project ${options.project} created successfully.`);
 }
 exports.createCppProject = createCppProject;
-//# sourceMappingURL=../../src/commands/create-cpp-project.js.map

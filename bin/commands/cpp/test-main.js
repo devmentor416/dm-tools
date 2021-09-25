@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTemplateTestMain = void 0;
 const title_1 = require("./title");
 function getTemplateTestMain(options) {
-    const test_main = `${title_1.getTemplateTitle('test.main.cpp', options.config)}\n
+    const test_main = `${(0, title_1.getTemplateTitle)('test.main.cpp', options.config)}\n
 // Add header to your project here.
 
 // Required headers for Micro Test.
@@ -59,4 +59,3 @@ int main( int argc, char * argv[] )
     return test_main;
 }
 exports.getTemplateTestMain = getTemplateTestMain;
-//# sourceMappingURL=../../../src/commands/cpp/test-main.js.map

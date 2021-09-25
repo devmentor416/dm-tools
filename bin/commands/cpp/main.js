@@ -7,7 +7,7 @@ function getTemplateMain(header_files, options) {
     header_files.forEach(v => {
         headers = `${headers}#include "${v}"\n`;
     });
-    const main = `${title_1.getTemplateTitle('main.cpp', options.config)}\n
+    const main = `${(0, title_1.getTemplateTitle)('main.cpp', options.config)}\n
 #include <iostream>
 
 // Header files you may require.
@@ -45,4 +45,3 @@ int main( int argc, char* argv[] )
     return main;
 }
 exports.getTemplateMain = getTemplateMain;
-//# sourceMappingURL=../../../src/commands/cpp/main.js.map

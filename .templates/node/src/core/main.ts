@@ -24,7 +24,7 @@ const server = createServer( ( request: IncomingMessage, response: ServerRespons
   log.info( 'Handling request ...' );
   log.info( `user-agent: ${ user_agent }` );
 
-  const request_body = [];
+  const request_body: any = [];
   let request_data = '';
 
   request.on( 'error', err => {

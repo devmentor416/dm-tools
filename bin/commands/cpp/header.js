@@ -4,7 +4,7 @@ exports.getTemplateHeader = void 0;
 const title_1 = require("./title");
 function getTemplateHeader(filename, config) {
     const header_guard = `__${filename.replace(/\./g, '_')}_${Date.now()}__`;
-    const header = `${title_1.getTemplateTitle(filename, config)}\n
+    const header = `${(0, title_1.getTemplateTitle)(filename, config)}\n
 #ifndef ${header_guard}
 #define ${header_guard}
 
@@ -14,4 +14,3 @@ function getTemplateHeader(filename, config) {
     return header;
 }
 exports.getTemplateHeader = getTemplateHeader;
-//# sourceMappingURL=../../../src/commands/cpp/header.js.map
