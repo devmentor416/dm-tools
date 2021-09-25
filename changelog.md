@@ -2,6 +2,13 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.4.1 (2021-09-24)
+
+* Switched to eslint for TS.
+* Linting code fix.
+* Fix CPP support and added back in.
+* update gitignore files.
+
 ## 0.4.0 (2021-09-24)
 
 * Updated templates tsconfig files.
