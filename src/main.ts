@@ -5,7 +5,7 @@ import { VERSION } from './data-types/data-types';
 import * as fs from 'fs';
 
 import { createJSProject } from './commands/create-js-project';
-// import { createCppProject } from './commands/create-cpp-project';
+import { createCppProject } from './commands/create-cpp-project';
 
 const options: any = {};
 const config_file = process.env.HOME + '/dmtools.json';
@@ -59,16 +59,14 @@ Website: https://www.npmjs.com/package/dm-tools
   } )
   .parse( process.argv );
 
-createJSProject( cmd.opts(), options );
-
-// switch ( options.command ) {
-// case 'new':
-//   if ( options.cpp ) {
-//     createCppProject( options );
-//   } else {
-//     createJSProject( options );
-//   }
-// break;
-//   default:
-// console.log( 'Unknown Command, doing nothing!' );
-// }
+switch ( options.command ) {
+  case 'new':
+    if ( cmd.opts().cpp ) {
+      createCppProject( cmd.opts(), options );
+    } else {
+      createJSProject( cmd.opts(), options );
+    }
+    break;
+  default:
+    console.log( 'Unknown Command, doing nothing!' );
+}
