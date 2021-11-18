@@ -16,7 +16,7 @@ Finally create a zipped package for testing, from the project root folder type:
 
 ```sh
 npm pack
-npm i -g ./dm-tools-0.3.1.tgz
+npm i -g ./dm-tools-0.4.1.tgz
 ```
 
 ## Update project NPM modules
