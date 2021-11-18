@@ -65,8 +65,8 @@ function createJSProject(flags, options) {
             break;
         }
         default: {
-            console.log('DM-Tools is generating a JavaScript Node.js Server project...');
-            sh.cp('-r', path.resolve(__dirname, '../../.templates/javascript/'), `${options.project}`);
+            console.log('DM-Tools is generating a TypeScript project...');
+            sh.cp('-r', path.resolve(__dirname, '../../.templates/default/'), `${options.project}`);
         }
     }
     sh.pushd(`${options.project}`);
@@ -88,6 +88,13 @@ function createJSProject(flags, options) {
         else {
             sh.exec('npm i -D cypress');
         }
+    }
+    try {
+        fs.accessSync('/opt/local/apps/VSCode-linux-x64/bin/code-insiders', fs.constants.F_OK);
+        sh.exec('/opt/local/apps/VSCode-linux-x64/bin/code-insiders .');
+    }
+    catch (err) {
+        console.error('Unable to locate code-insider!');
     }
     sh.popd();
     console.log(`Project ${options.project} created successfully.`);
