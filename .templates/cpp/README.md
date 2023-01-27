@@ -1,414 +1,399 @@
-![Images Sys](https://bytebucket.org/rajinder_yadav/micro_test/raw/aacd4560085fb7a625082246e713587d5c7506c7/sys.png)
+# Dev Mentor Project Creator Tools
 
-# Micro Test For Testing C++ Code
+![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
+![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.4.5-blue.svg)
+![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
-Testing just got a whole lot simpler, faster and fun to get done, you have no more excuse to avoid writing test code. If you're like me, you value your time and want to stay productive. Focused on writing production code and not wrestling a testing framework to write test code.
+![Image Logo](img/dm-tools.png)
+<!-- TOC -->
 
-I wrote Micro Test because I believe writing tests and setting up a test project should be quick and simple.
+- [Introduction](#introduction)
+- [Project Types](#project-types)
+- [Installing DM-Tools](#installing-dm-tools)
+- [Creating a Project](#creating-a-project)
+- [Running a Node.js program](#running-a-nodejs-program)
+  - [Running and watching during development](#running-and-watching-during-development)
+    - [Terminal One](#terminal-one)
+    - [Terminal Two](#terminal-two)
+    - [Terminal Three](#terminal-three)
+- [Benefits](#benefits)
+- [TypeScript development](#typescript-development)
+  - [Source code](#source-code)
+  - [Building](#building)
+  - [Warning](#warning)
+  - [Library code (Modules)](#library-code-modules)
+  - [Formatting the code](#formatting-the-code)
+  - [Linting](#linting)
+  - [Testing](#testing)
+- [Static Web development](#static-web-development)
+  - [Browsersync Asset fetching](#browsersync-asset-fetching)
+- [Test coverage](#test-coverage)
+- [Create a Node.js JavaScript project](#create-a-nodejs-javascript-project)
+  - [TypeScript Node ES5](#typescript-node-es5)
+- [Building C++ Testable Projects](#building-c-testable-projects)
+  - [Basic Usage](#basic-usage)
+    - [Project "hello_world" Creation](#project-hello_world-creation)
+  - [Building Project](#building-project)
+  - [Running hello_world program](#running-hello_world-program)
+  - [Running the Test Program](#running-the-test-program)
+  - [Micro Test - Testing Your Project](#micro-test---testing-your-project)
+- [TypeScript Coding Guideline](#typescript-coding-guideline)
 
-## Benefits of Micro Test
+<!-- /TOC -->
 
-1. No need to build and link to a separate test library.
-1. No linking or ELL hell.
-1. No Complex build process.
-1. No Complex project setup.
+## Introduction
 
-If you can make a "Hello World" program in C++, then you can go straight to _running_ with Micro Test in 5 minutes.
+__DM-Tools__ is a command-line utility for generating a project for the following programming languages.
 
-### Micro Test Community - Getting Help
+1. Basic JavaScript
+1. TypeScript
+1. JavaScript using Babel 7
+1. C++
 
-Have questions, need help?
+Focus has been put into encouraging the use of best practices and the best tools.
 
-Join the Micro Test community at [Dev Mentor](https://devmentor-group.slack.com/messages/C5P2U7RUK/) on Slack.
+Version of Node supported: Node v14.16.1+, for version earler you will need to polyfill using "__core-js__".
 
-## Super Fast Execution
+## Project Types
 
-Micro Test is blazing fast, an order of magnitude faster than other C++ test frameworks, which I consider unnecessarily large and complex.
+The following basic project types that can be created using DM-Tools are:
 
-## Beautiful Test Code
+1. Default (JavaScript Node.js with static Website)
+1. TypeScript Node.js with static Website
+1. Apollo GraphQL API Server using Babel 7
+1. TypeScript Node.js
+1. JavaScript Node.js using Babel 7 (ES6, Zero compile with static Website)
+1. Koa + Node.js API Server using Babel 7 (ES6, Zero compile with static Website)
+1. C++ with Micro Test using CMake
 
-Write beautiful easy to read test code with Micro Test. To get going, all you need is a single include. In fact the entire framework is contained inside a single file less than 100 lines of code!
-
-```C++
-   MicroTest::TestRunner test;
-   test = "Adding negated values should return zero";
-   {
-      // Pass boolean value to test.
-      // Test true condition.
-      test( Add( 5, -5 ) == 0 );
-   }
-   test = "Add values 5 and -3, return sum of 2";
-   {
-      // Alternatively use test helper.
-      test.eq( Add( 5, -3 ), 2 );
-   }
-   test = "Any type of exception throw";
-   {
-      test.ex_any( []
-      {
-         throw ( "BOOM!" );
-      } );
-   }
-   test = "Check exception TestException is thrown";
-   {
-      test.ex<TestException>( []
-      {
-         throw TestException();
-      } );
-   }
-   test = "Exception type int not thrown";
-   {
-      // An exception type int could get thrown, we're testing it will not!
-      test.ex_not<int>( []
-      {
-         // Code that might throw an exception of type int.
-      } );
-   }
-```
-
-## Beautiful Test Summary
-
-This following test output was taken from the sample code provided.
-
-![Test Summary Image](https://bytebucket.org/rajinder_yadav/micro_test/raw/ec86091c1170fdedb104b6af2d1edb63acc16f4c/test-summary.png)
-
-## Capturing Test Output
-
-If the test program is called 'micro_tester', you can redirect the test output to a file using the following command on Linux or Mac:
+## Installing DM-Tools
 
 ```sh
-./micro_tester &> test.log
+npm install -g dm-tools
 ```
 
-## KISS Principle
+## Creating a Project
 
-Micro Test is a very small and lean test framework that is easy to learn and simple to setup. The framework has been intentionally kept simple, however I am always open to feedback and suggestions for improvement.
-
-This project exists for those who need something minimal to get going with testing, without the headache of complexity!
-
-Here are the following steps you need to start testing with 'Micro Test'.
-
-Copy the file **micro-test.hpp** into the root of your test folder.
-
-Include the following header files from the source file of your test project.
-
-```C++
-#include <cstdlib>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <functional>
-
-#include "micro-test.hpp"
-```
-
-Create an instance of **MicroTest::TestRunner**, it's a good idea to use the name **'test'** as it will become very obvious when you see the code examples.
-
-```C++
-MicroTest::TestRunner test;
-```
-
-We will make use of the **test** object in steps 1 and 3 below!
-
-## Test Block
-
-A Test block is a single test you want to perform against a API (function). A test is comprised of 3 items:
-
-1. Test description.
-1. Test block with the test code.
-1. Call test validating method.
-
-```C++
-test = "Description of testing being performed";  // Step 1
-{                                                 // Step 2
-  // Test code goes here.
-  test( <boolean_test_result> );                  // Step 3
-}
-```
-
-## Pass/Fail Testing
-
-As good test writers, we assign a string to object 'test', an instance of MicroTest::TestRunner. This serves two purposes:
-
-1. It's the message displayed during the test run.
-1. It documents the test code block.
-
-```C++
-test = "Add values of 1 and 2, return sum of 3";
-{
-  test( Add( 1, 2 ) == 3 );
-}
-```
-
-Above, in the test call, a boolean value is passed to indicate success or failure of the test execution.
-
-## Equality Test Helpers
-
-There following test helpers are method of MicroTest::TestRunner.
-
-|Method|Operation|Usage|Description|
-|------|---------|-----|-----------|
-|t( r )|Truthy|test.t( r )|Test result is true.|
-|f( r )|Falsely|test.f( r )|Test result is false.|
-|( r )|Pass/Fail|test( a == b )|true is pass, false is fail.|
-|eq( a, b )|a == b|test.eq( 12, a )|Test values are equal.|
-|ne( a, b )|a != b|test.ne( b, -5 )|Test values are not equal.|
-|lt( a, b )|a < b|test.lt( a, b )|Test less than.|
-|gt( a, b )|a > b|test.gt( a, b )|The greater than.|
-|le( a, b )|a <= b|test.le( a, b )|Test less than or equal.|
-|ge( a, b )|a >= b|test.ge( a , b)|Test greater than or equal.|
-
-## String Comparison
-
-Since strings in C++ can come in many forms:
-
-1. Literal string in quotes.
-1. String in a char array.
-1. String as a pointer to char.
-1. C++ std::string object.
-
-When comparing strings, make use of TestRunner::eq and TestRunner::ne helpers.
-
-```C++
-const char * s1 = "Micro Test makes testing fun!";
-std::string s2( "Micro Test makes testing fun!" );
-char s3[100] = "Micro Test makes testing fun!";
-
-test.eq( s1, s2 );
-test.eq( s1, "Micro Test make testing fun!" );
-test.eq( s1, s3 );
-test.eq( s2, s3 );
-```
-
-## Compound Tests
-
-You may have a need to run a battery of tests in a single test block and make sure they all pass, there is a helper to make it simple.
-
-Use **TestRunner::all**(...) for compound testing.
-
-**Test Tip** - This helper is really good for cases when you want to test a call sequence and check the progression of state.
-
-```C++
-test = "Add 3 values 1+2, -5+3, 12+(-12)";
-{
-   // Better way to perform compound tests.
-   test.all(
-      Add( 1, 2 ) == 3,
-      Add( 5, -3 ) == 2,
-      Add( 12, -12 ) == 0
-   );
-}
-```
-
-## Exception Test Helpers
-
-More details on exception testing is provided under section 'Exception Testing'. See also example at top on usage as well as sample provided code.
-
-|Method|Usage|Description|
-|------|-----|-----------|
-|ex<T>|test.ex<MyException>(lambda)|Check exception of type T is thrown.|
-|ex_not<T>|test.ex_not<int>(lambda)|Check exception of type T not thrown.|
-|ex_any|test.ex_any(lambda)|Check any exception is thrown.|
-|ex_none|test.ex_none(lambda)|Check no exception is thrown.|
-
-Below is a discussion on using a lambda function as it relates to exception testing and fixtures.
-
-## Lambda Function
-
-A lambda function is an anonymous function. Currently it is used when testing for exception and when using a fixture. If you don't need either, you can skip this section.
-
-This is the very basic you need to understand about a lambda as it applies to Micro Test. In it's most concise format, it is declared like this:
-
-```C++
-[] { /* Code goes here. */ }
-
-// Using line breaks, the lambda can be written in this style.
-
-[]
-{
-   // Code goes here.
-}
-```
-
-When you see that a function is required for a MicroTest::TestRunner method, you can make use of a simple lambda. The function signature of the lambda is a void argument and void return.
-
-Best practice is to use a lambda right at the test block, this keeps all the test code in the same place. It makes for improved readability and ease of code change because you avoid the need to hunt down external function code.
-
-## Exception Testing
-
-If you would like to check that a function threw a certain type of exception (or not), make use of these template helper function.
-
-```C++
-1. TestRunner::ex<ExceptionType>( Fn );
-2. TestRunner::ex_not<ExceptionType>( Fn );
-3. TestRunner::ex_any( Fn );
-4. TestRunner::ex_none( Fn );
-
-Function signature of Fn is: void func()
-In C++11 for Fn use a lambda function.
-```
-
-```C++
-test = "Check exception gets thrown!";
-{
-  test.ex<ExceptionFoo>( []
-  {
-     // Code that 'should' throw ExceptionFoo.
-  } );
-}
-```
-
-## Adding Test Modes
-
-We all love to see those green passing tests light up, but what we really care about is the failing test. Once you got all passing tests, it's time to switch to (fail mode) seeing only failing test. It's less clutter and when you're refactoring and making changes, you only care about fixing the failing test.
-
-**Speed TIP** - Large tests will execute much faster in fail or summary mode, since the bottleneck is output to the terminal.
-
-To enable mode testing, pass the program argument from main to **MicroTest::TestRunner** constructor.
-
-Make sure main entry point is coded as:
-
-```C++
-int main( int argc, char * argv[] )
-```
-
-Now just modify the test object constructor to:
-
-```C++
-MicroTest::TestRunner test( argc, argv );
-```
-
-You will now have the following _optional_ test modes.
-
-|Option|Test Mode|
-|------|-----------|
-|      |No options passed, show all test results.|
-| -a   |Show all test results.|
-| -f   |Show only failing test results.|
-| -s   |Show only the summary report.|
-| -h   |Show  this usage message.|
-
-**Fail Mode Example**
-
-![Failing Test Images](https://bytebucket.org/rajinder_yadav/micro_test/raw/d10a0c15c07ecac1523b1d899c5d2972f20df4ea/fails-only.png)
-
-## Test Fixtures
-
-A test fixture is something that must be prepared and ready before a test block is executed. We can do this our self, but it would become repetitive and bloat our test code unnecessarily. This is where a test fixture comes.
-
-A fixture is optional, since most test cases can be performed without a fixture.
-
-A fixture will have two stage:
-
-1. A setup stage were code is executed to prepares test artifacts.
-1. A cleanup stage were the setup artifacts are destroyed.
-
-To specify fixtures, make use of the call **TestRunner::fixture( SetupFunc, CleanupFunc )**.
-
-A fixture is declared below, within each function block you provide
-
-```C++
-// Declare variables to be used by the fixture first.
-// Variables must be accessible by the tests and fixture functions.
-MessageQueue mq;
-char * buffer = nullptr;
-
-test.fixture(
-   setup_fixture
-   {
-      mq.create("test-exchange");
-      mq.connect("test-topic");
-      buffer = new char[1000];
-      std::memset(buffer, 0, sizeof buffer);
-   },
-   cleanup_fixture
-   {
-      mq.disconnect();
-      mq.close();
-      delete[] buffer;
-      buffer = nullptr;
-   } );
-```
-
-## Fixture Usage Details
-
-1. Variables must be declared before a fixture declaration.
-1. Variables must be visible to the test using the fixture.
-
-If you're familiar and comfortable with C++11 lambda, you can use '[&]' to replace both 'setup_fixture' and 'cleanup_fixture', both of which are defines to it.
-
-```C++
-test.fixture(
-   [&]
-   {
-      // Put setup code here.
-   },
-   [&]
-   {
-      // Put cleanup code here.
-   } );
-```
-
-## Removing Test Fixture
-
-When you no longer have need for a fixture, to remove it, make the following call.
-
-```C++
-test.fixture();
-```
-
-All subsequent tests will run without a fixture.
-
-## Test Suites
-
-To make use of test suites, it's as simple as separating each test suite in it's own test file. You've already seen how easy it's to create a test project. Just do the same with a new file to group your test as you see fit.
-
-## Building Notes
-
-The Micro Test framework can be used to test C/C++ code, however you will require a C++11 or later compiler to build the Micro Test code, then use existing C or C++ code to test.
-
-You will need CMake to build the sample test project. Step to build the project from the terminal:
-
-Building steps for Linux and MacOS
+Start playing with the demo starter project now, the generated source code is located in the project `src/` sub-folder.
 
 ```sh
-git clone https://rajinder_yadav@bitbucket.org/rajinder_yadav/micro_test.git
-cd micro_test
-mkdir build
-cd build
-cmake -G "Unix Makefiles" -D CMAKE_BUILD_TYPE="Release" ../src
+dm new demo
+cd demo
+```
+
+__Note__: If you are using __Yarn__ over __NPM__, continue to work with __Yarn__, the DM-Tools generated project will use Yarn before NPM if it is available on your system.
+
+## Running a Node.js program
+
+To simply run a Node.js program written in TypeScript you can type:
+
+```sh
+npm start
+```
+
+This will perform a clean build and run the demo program from the `build/` folder. The demo application log will be produced in the `logs/` sub-folder under the project root.
+
+### Running and watching during development
+
+You can also continue to watch and run a Node.js based program during development. To do this open three terminals.
+
+- Terminal 1: The build terminal.
+- Terminal 2: Run the compiled Node.js code.
+- Terminal 3: Watch test results.
+
+__Important!__: If you are encountering strange build errors in one of the terminal, it could be due to linting errors or compiler error. This unfortunately does not make it to the terminal since these operations are running through another NPM script. So to quickly see what is failing, from another terminal type, `npm run build`, this will quickly let you see the problem.
+
+#### Terminal One
+
+This will run the build in watch mode.
+
+```sh
+npm run dev
+```
+
+Wait for the build to complete before issuing the next command.
+
+#### Terminal Two
+
+This will run the Node.js program whenever new files are copied into the `build/` folder from the compiler.
+
+```sh
+npm run devwatch
+```
+
+#### Terminal Three
+
+This runs the unit tests in watch mode when file in the `build/` folder are updated.
+
+```sh
+npm run testwatch
+```
+
+There is a delay added before the Node.js program is executed, this is to prevent premature re-running of code if multiple files are being copied to the `build/` folder. You can change the delay from the `devwatch` script (see file `package.json`) by altering the value passed using the `--delay-start` switch.
+
+## Benefits
+
+Here are the benefits you will enjoy right out of the gate:
+
+- Quick start
+- Best practices
+- Build system
+- Code in TypeScript
+- Code TypeScript Modules
+- HTML live edit and preview
+- Error logging
+- Code linting
+- Code formatting
+- Unit testing
+- Code coverage
+- Document generation
+- Git commit hooks
+- Continuous integration (under research)
+
+## TypeScript development
+
+### Source code
+
+Place all TypeScript source code under the folder, `src/`, they will be picked up from here and compiled to the, `build/` folder under the project root.
+
+You are free to create addition folders and sub-folders under, `src/`, the compiler will recursively find and compile all TypeScript code.
+
+All TypeScript code is compiled to __ES5__ JavaScript. The target JavaScript code can be changed from the [TypeScript configuration](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file, `tsconfig.json`.
+
+Some of the things you may want to configure:
+
+- Files to compile
+- Folders to include
+- Folders to exclude
+- Target compiled output
+- Source map (Needed for debugging)
+- Module system (Use commonjs for Node)
+- Output file
+
+Supported compiled targets include: `ES3, ES5, ES6, ES2016, ES2017, ES2018, ES2019, ES2020`.
+
+See [compiler options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for more details.
+
+### Building
+
+To compile the TypeScript code, use the following command to start the build process:
+
+```sh
+npm run build
+```
+
+### Warning
+
+The `build/` folder and all sub-folders within it will be deleted to insure a clean build is performed each time. Do not place any files you will need later in the `build/` folder.
+
+### Library code (Modules)
+
+Place any module or library source code that you write under the, `src/lib/`, sub-folder. The compiled source code will be output to the, `build/lib/`, sub-folder.
+
+### Formatting the code
+
+It is good practice to format the source code, so it conforms to a uniform structure. Avoid squabbles about style. To format the TypeScript code, type:
+
+```sh
+npm run format
+```
+
+__Note__: When the __DM-Tools__ generated project is built, the source code will be automatically formatted. This will also happen before source code is committed to __Git__.
+
+### Linting
+
+To validate the project TypeScript source code, use the following command:
+
+```sh
+npm run lint
+```
+
+__Note__: The TypeScript source code is run through a linter (__TSLint__) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.
+
+**Important!**: I have noticed, one in a while the git hooks will continue to fail when there is nothing really wrong. If you suspect this is the case, the easy fix is to delete the `node_modules` folder. Follow it with a `npm install` or simply type `yarn` and then try to commit or push the code again.
+
+### Testing
+
+Testing is done using __Ava__, the [test methods](https://github.com/avajs/ava#assertions) are simple and easy to learn.
+
+__Ava__ makes testing simple. Code is easy to read since it is just JavaScript, this avoids the need to context switch to BDD syntax. Plus anyone who knows JavaScript will be able to write test code immediately.
+
+I firmly believe less time should be put into writing test code and having more time to write production code. Ava delivers on this by keeping the setup and test writing to a bare minimum. I believe __Ava__ is the best option for writing unit test for JavaScript based code.
+
+The test code should be __co-located__ with the production source code. As a best practice, place tests under a sub-folder called `test/`.
+
+Pay attention to how the test source file is named: `test.<file>.ts`. So if you have a file called, `filter.ts`, the test file should be named, `test.filter.ts`.
+
+To run the test, type:
+
+```sh
+npm test
+```
+
+__Note__: Running the test will cause a fresh build to be kicked-off. Once the build finishes, all the unit tests will be run.
+
+## Static Web development
+
+If you want to hack around with HTML, CSS and try things out quick. Start the project in __web__ mode using the following command:
+
+```sh
+npm run web
+```
+
+This will run the build first and then open a web browser on port 3000, and load the HTML page, `index.html` located in the `src/` sub-folder.
+
+Any changes made to `index.html` will automatically update and browser on save. You do not need to keep hitting __refresh__ on the browser.
+
+The website uses lite-server, which is based on Browsersync to run a local development web-server and keeps all browsers listening to it in sync. This means it is possible to have multiple browsers listening to the server.
+
+On how to configure the setup, read the [Browsersync options](https://browsersync.io/docs/options).
+
+Basic configurations setting you may be interested in are:
+
+- files
+- server
+- proxy
+- logLevel
+- port
+
+The default Browsersync UI web address is: `http://localhost:3001/`.
+
+### Browsersync Asset fetching
+
+With Browsersync, having to serve addition CSS and JavaScript files, make sure to add their path in routes. Something similar to like this:
+
+```js
+  "server": {
+    baseDir: "src",
+    routes: {
+      "/node_modules/tachyons/css":"node_modules/tachyons/css"
+    }
+```
+
+This will allow including `<script>` assets from the index.html file like this:
+
+```html
+<head>
+  <link rel="stylesheet" href="./node_modules/tachyons/css/tachyons.min.css">
+</head>
+```
+
+## Test coverage
+
+Test coverage is done when test is run using `nyc`. The test coverage result is displayed to the console after the results of the unit tests. A folder called `coverage/` will be created under the project root. It will hold the results of the code coverage from the test run. Of interest to you will be the HTML report. It is a nice way to see what code was covered and what code was not by the unit tests.
+
+To configure the test coverage, make changes to the `nyc` settings found in the file `package.json`.
+
+## Create a Node.js JavaScript project
+
+If you want to develop in plain JavaScript, or develop a ES6 Node.js based project, this is now supported. It is also good for quickly testing out code and not getting slowed down by the compile step.
+
+You will need the latest version of Node.js for ES6 and beyond support, otherwise plain JavaScript will continue to work.
+
+```sh
+dm new demo --type js
+npm install
+```
+
+__Note__: You may also use `-t` which is the short-form for `--type`.
+
+The following NPM commands are supported:
+
+NPM script|Description
+----------|-----------
+lint|Run code through linter (jslint).|
+dev|Run in watch mode.|
+doc|Generate doc files (jsdocs).|
+format|Format the source code.|
+node:debug|Start debugger, requires Chrome.|
+start|Run the Node.js program.|
+test|Run Unit testing (Ava).|
+
+The plain JavaScript generated file has a development mode. It will run the __Entry__ file (`main.js`) using Node.js each time the source code is updated. You can develop and see the output from the __terminal__ to test out code quickly.
+
+```sh
+npm run dev
+```
+
+### TypeScript Node ES5
+
+If you need to use ES5 Node.js support with TypeScript here are the following change you need to make.
+
+Make sure you're using Node v14.16.1 or higher.
+
+Add the following two lines under compilerOptions to `tsconfig.json` and `tsconfig.test.json`.
+
+```js
+"compilerOptions": {
+  "target": "es2020",
+  "lib": [
+    "es2020",
+    "es2019",
+    "es2018",
+    "es2017",
+    "dom"
+    ]
+}
+```
+
+## Building C++ Testable Projects
+
+DM-Tools can be used to create a C++ project with Unit Testing setup using [Micro Test](https://github.com/rajinder-yadav/micro_test).
+
+The C++ project uses [CMake](https://cmake.org/) to generate cross-platform Makefiles for:
+
+1. Linux
+1. MacOS
+1. Windows
+
+### Basic Usage
+
+Let us go through the steps of creating a simple "hello_world" project.
+
+#### Project "hello_world" Creation
+
+The created project will be found under the __hello_world__ folder.
+
+```sh
+cd /tmp
+dm new hello_world --cpp
+```
+
+### Building Project
+
+The Makefile is located under sub-folder build.
+
+```sh
+cd hello_world/build
 make
 ```
 
-Run the sample code.
+### Running hello_world program
+
+The executable hello_world will be found in the build folder.
 
 ```sh
-./micro_tester
+./hello_world
 ```
 
-For Windows change the cmake command above to:
+### Running the Test Program
+
+The test program is located under build/test/ sub-folder. Initially one failing test is created for you to follow.
 
 ```sh
-cmake -G "NMake Makefiles" -D CMAKE_BUILD_TYPE="Release" ../src
+./test/test.hello_world
 ```
 
-## Building With MinGW on Windows
+### Micro Test - Testing Your Project
 
-Building with MinGW (No MSYS)
+DM-Tools creates a test sub-folder under src/ and uses the latest Micro Test header file, it basically pulls it from the Micro Test Git repository.
 
-```sh
-cmake -G "MinGW Makefiles" CMAKE_BUILD_TYPE="Release" ../src
-mingw32-make
-```
+To learn more about how to write tests using [Micro Test](https://bitbucket.org/rajinder_yadav/micro_test) check out the project site. You will be amazed how simple and fast it is to write test code.
 
-Building from MSYS with MinGW
+## TypeScript Coding Guideline
 
-```sh
-cmake -G "MSYS Makefiles" CMAKE_BUILD_TYPE="Release" ../src
-make
-```
+Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
 
-## Thanks for using Micro Test
-
-### Happy Safe Coding :-)
+__Happy Hacking =)__

@@ -2,7 +2,7 @@
 
 Update the version number for the CLI in:
 
-1. Source code
+1. Source code "src/data-types/data-types.ts"
 1. README.md
 1. package.json.t
 

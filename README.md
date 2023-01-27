@@ -2,7 +2,7 @@
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
 ![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.4.1-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.5.0-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
@@ -110,7 +110,7 @@ __Important!__: If you are encountering strange build errors in one of the termi
 This will run the build in watch mode.
 
 ```sh
-npm run dev
+npm run devbuild
 ```
 
 Wait for the build to complete before issuing the next command.
@@ -395,5 +395,17 @@ To learn more about how to write tests using [Micro Test](https://bitbucket.org/
 ## TypeScript Coding Guideline
 
 Read the [coding guideline](https://github.com/devmentor416/devmentor/wiki/Coding-guideline) found in the wiki.
+
+## Debugging
+
+If you get a post or address is use, you might have a background process that didn't shutdown correctly. To shut it down, use the following command to find its process ID and then kill it.
+
+```sh
+lsof -i :PORT
+lsof -i :3000
+
+kill <PIDP>
+kill -9 <PIDP>
+```
 
 __Happy Hacking =)__

@@ -2,6 +2,12 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.5.0 (2021-11-17)
+
+* New default slim TypeScript project.
+* Open project in code-insider.
+* Add concurrently NPM script runner.
+
 ## 0.4.1 (2021-09-24)
 
 * Switched to eslint for TS.

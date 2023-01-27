@@ -7,7 +7,8 @@
     "main": "build/main.js"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev tsc -w",
+    "dev": "concurrently --kill-others npm:devbuild npm:devwatch",
+    "devbuild": "cross-env NODE_ENV=dev tsc -w",
     "devwatch": "gazeall --delay 350 --run \"node build/main.js\" \"build/**/*\"",
     "format": "tsfmt -r --baseDir ./",
     "tsc": "tsc"
