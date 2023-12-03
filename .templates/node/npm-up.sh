@@ -10,5 +10,3 @@ npm i -D @types/bunyan @types/node
 npm i -D ava cross-env cross-var gazeall husky concurrently
 npm i -D npm-run-all nyc shx tachyons tap-summary tape-run typedoc typescript typescript-formatter
 npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
-rm -f package-lock.json
-rm -rf node_modules

@@ -11,5 +11,3 @@ npm i -D cross-var gazeall husky npm-run-all nyc shx shx tap-summary tape-run
 npm i -D esdoc esdoc-standard-plugin eslint prettier
 npm i -S bootstrap dm-css jquery popper.js
 npm i -S bunyan dm-css
-rm -f package-lock.json
-rm -rf node_modules
