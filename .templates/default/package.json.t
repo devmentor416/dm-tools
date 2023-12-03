@@ -7,10 +7,14 @@
     "main": "build/main.js"
   },
   "scripts": {
-    "dev": "concurrently --kill-others npm:devbuild npm:devwatch",
-    "devbuild": "cross-env NODE_ENV=dev tsc -w",
-    "devwatch": "gazeall --delay 350 --run \"node build/main.js\" \"build/**/*\"",
-    "format": "tsfmt -r --baseDir ./",
+    "clean": "shx rm -rf build",
+    "predev": "run-s format clean",
+    "dev": "concurrently \"npm:build\" \"npm:test\"",
+    "prebuild": "run-s format clean",
+    "build": "tsc -p tsconfig.json --sourceMap --outDir build -w",
+    "watch": "gazeall build/main.js",
+    "format": "prettier --write ./src",
+    "test": "mocha -w --recursive build/**/*.test.js",
     "tsc": "tsc"
   },
   "keywords": [

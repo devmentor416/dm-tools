@@ -18,7 +18,7 @@
     "devbuild": "cross-env NODE_ENV=dev tsc -w",
     "devwatch": "gazeall --delay 350 --run \"node build/core/main.js\" \"build/**/*\"",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
-    "format": "tsfmt -r --baseDir ./",
+    "format": "prettier --write ./src",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",
     "prebuild": "run-s format lint clean",
     "precommit": "run-s format lint",
