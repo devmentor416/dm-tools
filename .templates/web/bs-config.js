@@ -1,3 +1,4 @@
+
 /*
  |--------------------------------------------------------------------------
  | Browser-sync config file
@@ -13,29 +14,21 @@
  */
 module.exports = {
     "ui": {
-        "port": 3001,
-        "weinre": {
-            "port": 8080
-        }
+        "port": 3001
     },
     "files": [
-      "src/**/*"
+        "src/**/*",
     ],
     "watchEvents": [
         "change"
     ],
+    "watch": false,
+    "ignore": [],
+    "single": false,
     "watchOptions": {
         "ignoreInitial": true
     },
-    "server": {
-      baseDir: "src/",
-      routes: {
-        "/node_modules/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
-        "/node_modules/jquery/dist": "node_modules/jquery/dist",
-        "/node_modules/popper.js/dist": "node_modules/popper.js/dist",
-        "/node_modules/dm-css/css": "node_modules/dm-css/css"
-      }
-    },
+    "server": ["src", "css", "test", "images", "node_modules"],
     "proxy": false,
     "port": 3000,
     "middleware": false,
@@ -43,6 +36,7 @@ module.exports = {
     "ghostMode": {
         "clicks": true,
         "scroll": true,
+        "location": true,
         "forms": {
             "submit": true,
             "inputs": true,
@@ -50,7 +44,7 @@ module.exports = {
         }
     },
     "logLevel": "info",
-    "logPrefix": "BS",
+    "logPrefix": "Browsersync",
     "logConnections": false,
     "logFileChanges": true,
     "logSnippet": true,
@@ -68,7 +62,7 @@ module.exports = {
     "scrollElements": [],
     "scrollElementMapping": [],
     "reloadDelay": 0,
-    "reloadDebounce": 0,
+    "reloadDebounce": 500,
     "reloadThrottle": 0,
     "plugins": [],
     "injectChanges": true,
@@ -111,5 +105,6 @@ module.exports = {
         "svg": "img",
         "gif": "img",
         "js": "script"
-    }
+    },
+    "injectNotification": false
 };

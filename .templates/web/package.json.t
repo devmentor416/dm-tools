@@ -7,7 +7,12 @@
     "main": "src/main.js"
   },
   "scripts": {
-    "web": "browser-sync start --config bs-config.js"
+    "start": "run-p dev web",
+    "dev": "gazeall -V -s 'prebuild build webrefresh' 'src/**/*'",
+    "web": "browser-sync start --config bs-config.js",
+    "webrefresh": "browser-sync reload",
+    "prebuild": "shx rm -rf css",
+    "build": "sass src/:css/"
   },
   "keywords": [
     "javascript",
