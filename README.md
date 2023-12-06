@@ -110,7 +110,7 @@ __Important!__: If you are encountering strange build errors in one of the termi
 This will run the build in watch mode.
 
 ```sh
-npm run devbuild
+npm run dev
 ```
 
 Wait for the build to complete before issuing the next command.
