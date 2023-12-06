@@ -99,7 +99,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   // Files to be included, missing files will cause an error.
-  // "files": [
+  // "files": [],
   // Filenames or patterns to include, path relative to location of this config file.
   "include": [
     "src/**/*"
