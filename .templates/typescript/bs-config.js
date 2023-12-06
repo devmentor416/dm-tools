@@ -14,35 +14,40 @@
  */
 module.exports = {
     "ui": {
-        "port": 3001,
+        "port": 3031,
         "weinre": {
             "port": 8080
         }
     },
     "files": [
-      "src/**/*"
+        "build/**/*",
+        "src/**/*"
     ],
     "watchEvents": [
         "change"
     ],
+    "watch": true,
+    "ignore": [],
+    "single": false,
     "watchOptions": {
         "ignoreInitial": true
     },
     "server": {
-      baseDir: "build",
-      routes: {
-        "/node_modules/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
-        "/node_modules/jquery/dist": "node_modules/jquery/dist",
-        "/node_modules/popper.js/dist": "node_modules/popper.js/dist",
-        "/node_modules/dm-css/css": "node_modules/dm-css/css"
+        baseDir: "build/src/",
+        routes: {
+            "/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
+            "/dm-css/css": "node_modules/dm-css/css",
+            "/css": "build/src/css"
+        },
     },
     "proxy": false,
-    "port": 3000,
+    "port": 3030,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
         "clicks": true,
         "scroll": true,
+        "location": true,
         "forms": {
             "submit": true,
             "inputs": true,
@@ -68,10 +73,10 @@ module.exports = {
     "scrollElements": [],
     "scrollElementMapping": [],
     "reloadDelay": 0,
-    "reloadDebounce": 0,
+    "reloadDebounce": 500,
     "reloadThrottle": 0,
     "plugins": [],
-    "injectChanges": false,
+    "injectChanges": true,
     "startPath": null,
     "minify": true,
     "host": null,
