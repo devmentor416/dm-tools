@@ -14,23 +14,34 @@
  */
 module.exports = {
     "ui": {
-        "port": 3001
+        "port": 3031,
+        "weinre": {
+            "port": 8080
+        }
     },
     "files": [
-        "src/**/*",
+        "build/**/*",
+        "src/**/*"
     ],
     "watchEvents": [
         "change"
     ],
-    "watch": false,
+    "watch": true,
     "ignore": [],
     "single": false,
     "watchOptions": {
         "ignoreInitial": true
     },
-    "server": ["src", "css", "test", "images", "node_modules"],
+    "server": {
+        baseDir: "build/src/",
+        routes: {
+            "/bootstrap/dist/css": "node_modules/bootstrap/dist/css",
+            "/dm-css/css": "node_modules/dm-css/css",
+            "/css": "build/src/css"
+        },
+    },
     "proxy": false,
-    "port": 3000,
+    "port": 3030,
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
@@ -44,7 +55,7 @@ module.exports = {
         }
     },
     "logLevel": "info",
-    "logPrefix": "Browsersync",
+    "logPrefix": "BS",
     "logConnections": false,
     "logFileChanges": true,
     "logSnippet": true,
@@ -105,6 +116,5 @@ module.exports = {
         "svg": "img",
         "gif": "img",
         "js": "script"
-    },
-    "injectNotification": false
+    }
 };

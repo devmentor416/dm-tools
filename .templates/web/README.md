@@ -2,7 +2,7 @@
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
 ![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.4.5-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.5.0-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
@@ -110,7 +110,7 @@ __Important!__: If you are encountering strange build errors in one of the termi
 This will run the build in watch mode.
 
 ```sh
-npm run devbuild
+npm run dev
 ```
 
 Wait for the build to complete before issuing the next command.

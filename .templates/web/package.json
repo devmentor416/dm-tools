@@ -7,12 +7,14 @@
     "main": "src/main.js"
   },
   "scripts": {
-    "start": "run-p dev web",
-    "dev": "gazeall -V -s 'prebuild build webrefresh' 'src/**/*'",
-    "web": "browser-sync start --config bs-config.js",
+    "web": "run-p webdev webwatch",
+    "webdev": "gazeall -V -s 'webclean webbuild1 webbuild2 sassbuild' 'src/**/*'",
+    "webbuild1": "shx mkdir build",
+    "webbuild2": "shx cp -r src/ build/src/",
+    "webwatch": "browser-sync start --config bs-config.js",
     "webrefresh": "browser-sync reload",
-    "prebuild": "shx rm -rf css",
-    "build": "sass src/:css/"
+    "webclean": "shx rm -rf build",
+    "sassbuild": "sass src/:build/src/css/"
   },
   "keywords": [
     "javascript",
@@ -36,6 +38,6 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.2",
-    "dm-css": "^2.2.1"
+    "dm-css": "^2.3.1"
   }
 }
