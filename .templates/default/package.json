@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "shx rm -rf build",
     "predev": "run-s format clean",
-    "dev": "concurrently \"npm:build\" \"npm:test\"",
+    "dev": "concurrently 'npm:build' 'npm:test'",
     "prebuild": "run-s format clean",
     "build": "tsc -p tsconfig.json --sourceMap --outDir build -w",
     "watch": "gazeall build/main.js",
@@ -33,10 +33,10 @@
   "devDependencies": {
     "@types/chai": "^4.3.11",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.10.2",
+    "@types/node": "^20.10.3",
     "@types/sinon": "^17.0.2",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
-    "@typescript-eslint/parser": "^6.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
     "chai": "^4.3.10",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",

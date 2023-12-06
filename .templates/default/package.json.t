@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "shx rm -rf build",
     "predev": "run-s format clean",
-    "dev": "concurrently \"npm:build\" \"npm:test\"",
+    "dev": "concurrently 'npm:build' 'npm:test'",
     "prebuild": "run-s format clean",
     "build": "tsc -p tsconfig.json --sourceMap --outDir build -w",
     "watch": "gazeall build/main.js",

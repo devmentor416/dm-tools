@@ -10,8 +10,8 @@
     "doc_folder": "docs/generated"
   },
   "scripts": {
-    "ava": "ava --tap \"build/**/test.*.js\"|tap-summary",
-    "ava:coverage": "nyc ava --tap \"build/**/test.*.js\"|tap-summary",
+    "ava": "ava --tap 'build/**/test.*.js'|tap-summary",
+    "ava:coverage": "nyc ava --tap 'build/**/test.*.js'|tap-summary",
     "build": "babel src --out-dir build",
     "build:dev": "babel -w src --out-dir build",
     "lint": "eslint ./src/**/*.js",

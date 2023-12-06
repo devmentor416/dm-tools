@@ -8,15 +8,15 @@
     "doc_folder": "docs/typedoc"
   },
   "scripts": {
-    "ava": "ava --tap \"build/**/*/test.*.js\"|tap-summary",
-    "ava:coverage": "nyc ava --tap \"build/**/*/test.*.js\"|tap-summary",
+    "ava": "ava --tap 'build/**/*/test.*.js'|tap-summary",
+    "ava:coverage": "nyc ava --tap 'build/**/*/test.*.js'|tap-summary",
     "build": "cross-env NODE_ENV=production tsc",
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "clean": "shx rm -rf build",
     "dev": "concurrently --kill-others npm:devbuild npm:devwatch",
     "devbuild": "cross-env NODE_ENV=dev tsc -w",
-    "devwatch": "gazeall --delay 350 --run \"node build/core/main.js\" \"build/**/*\"",
+    "devwatch": "gazeall --delay 350 --run 'node build/core/main.js' 'build/**/*'",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",
@@ -29,7 +29,7 @@
     "start": "node $npm_package_config_main",
     "test": "npm run ava:coverage",
     "test:e2e": "cypress open",
-    "testwatch": "gazeall --delay 350 --runs-npm ava \"build/**/*\"",
+    "testwatch": "gazeall --delay 350 --runs-npm ava 'build/**/*'",
     "tsc": "tsc"
   },
   "keywords": [

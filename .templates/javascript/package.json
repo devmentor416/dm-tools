@@ -7,18 +7,18 @@
     "main": "src/core/main.js"
   },
   "scripts": {
-    "ava": "ava --tap \"build/**/test.*.js\"|tap-summary",
-    "ava:coverage": "nyc ava --tap \"build/**/test.*.js\"|tap-summary",
+    "ava": "ava --tap 'build/**/test.*.js'|tap-summary",
+    "ava:coverage": "nyc ava --tap 'build/**/test.*.js'|tap-summary",
     "clean": "shx rm -rf build",
     "prebuild": "run-s format lint clean",
     "build": "babel src --out-dir build",
     "build:dev": "babel -w src --out-dir build",
-    "lint": "eslint \"src/**/*.js\"",
+    "lint": "eslint 'src/**/*.js'",
     "dev": "concurrently --kill-others npm:devbuild npm:devwatch",
     "devbuild": "run-s clean build:dev",
-    "devwatch": "gazeall --run \"node build/core/main.js\" \"build/**/*\"",
+    "devwatch": "gazeall --run 'node build/core/main.js' 'build/**/*'",
     "doc": "esdoc",
-    "format": "prettier --single-quote --write \"src/**/*.js\"",
+    "format": "prettier --single-quote --write 'src/**/*.js'",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",
     "precommit": "run-s format lint",
     "predoc": "shx rm -rf ./docs/project && shx mkdir -p ./docs/project",
@@ -27,7 +27,7 @@
     "pretest": "run-s clean build",
     "test": "npm run ava:coverage",
     "test:e2e": "cypress open",
-    "testwatch": "gazeall --runs-npm ava \"build/**/*\"",
+    "testwatch": "gazeall --runs-npm ava 'build/**/*'",
     "web": "browser-sync start --config bs-config.js"
   },
   "keywords": [
@@ -48,7 +48,7 @@
     "@babel/core": "^7.23.5",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.23.5",
-    "ava": "^5.3.1",
+    "ava": "^6.0.0",
     "browser-sync": "^2.29.3",
     "browserify": "^17.0.0",
     "concurrently": "^8.2.2",
@@ -92,7 +92,7 @@
   "dependencies": {
     "bootstrap": "^5.3.2",
     "bunyan": "^1.8.15",
-    "dm-css": "^2.2.1",
+    "dm-css": "^2.3.1",
     "jquery": "^3.7.1",
     "popper.js": "^1.16.1"
   }
