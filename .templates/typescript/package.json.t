@@ -16,7 +16,7 @@
     "dev": "gazeall -V --npms 'devbuild devwatch' -w 'src/**/*'",
     "devbuild": "cross-env NODE_ENV=dev tsc",
     "devwatch": "node build/core/main.js",
-    "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
+    "doc": "typedoc --plugin typedoc-plugin-markdown --out $npm_package_config_doc_folder",
     "format": "prettier --write ./src",
     "node:debug": "node --inspect --debug-brk $npm_package_config_main",
     "prebuild": "run-s format clean",
