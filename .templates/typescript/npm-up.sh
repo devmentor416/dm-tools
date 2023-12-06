@@ -7,5 +7,6 @@ rm -f package-lock.json
 rm -rf node_modules
 npm i -S bunyan dm-css bootstrap sass
 npm i -D @types/bunyan @types/node ava browser-sync browserify cross-env cross-var gazeall husky
-npm i -D npm-run-all nyc shx tap-summary tape-run typedoc typescript prettier jest
+npm i -D npm-run-all nyc shx tap-summary tape-run typedoc typescript prettier jest cypress typedoc-plugin-markdown
+
 # npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
