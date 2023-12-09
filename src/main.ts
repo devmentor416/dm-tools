@@ -6,8 +6,13 @@ import * as fs from 'fs';
 
 import { createJSProject } from './commands/create-js-project';
 import { createCppProject } from './commands/create-cpp-project';
+import { Options } from './commands/cpp/types';
 
-const options: any = {};
+const options: Options = {
+  command: '',
+  project: '',
+  config: { author: '', email: '', project: { copyholder: '', license: '', cmake: '' } },
+};
 const config_file = process.env.HOME + '/dmtools.json';
 
 function source_files( files: string ) {
@@ -27,12 +32,11 @@ function source_files( files: string ) {
 */
 const cmd = new Command();
 
-let config: any = { project: {} };
+let config = { project: {} };
 if ( fs.existsSync( config_file ) ) {
   config = JSON.parse( fs.readFileSync( config_file, 'utf8' ) );
 }
 Object.assign( options, { config } );
-
 
 cmd
   .version( `DevMentor Tools Project Generator v${ VERSION }`, '-v, --version', 'Show current version' )
@@ -59,12 +63,29 @@ Website: https://www.npmjs.com/package/dm-tools
   } )
   .parse( process.argv );
 
-switch ( options.command ) {
+const cmd_opts = cmd.opts();
+
+Object.assign( options, {
+  type: cmd_opts.type,
+  e2e: cmd_opts.e2e,
+  web: cmd_opts.web,
+  cpp: cmd_opts.cpp,
+  debug: cmd_opts.debug,
+  release: cmd_opts.release,
+  eclipse: cmd_opts.eclipse,
+  xcode: cmd_opts.xcode,
+  nmake: cmd_opts.nmake,
+  make: cmd_opts.make,
+} );
+
+console.log( `DEBUG> ${ JSON.stringify( options ) }` );
+
+switch ( options[ 'command' ] ) {
   case 'new':
-    if ( cmd.opts().cpp ) {
-      createCppProject( cmd.opts(), options );
+    if ( options?.cpp ) {
+      createCppProject( options );
     } else {
-      createJSProject( cmd.opts(), options );
+      createJSProject( options );
     }
     break;
   default:

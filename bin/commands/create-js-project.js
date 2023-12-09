@@ -32,12 +32,12 @@ const commit_message = `
 This Project was generated using Dev Mentor Tools (${data_types_1.VERSION}).
 Initial Commit.
 `;
-function createJSProject(flags, options) {
+function createJSProject(options) {
     if (fs.existsSync(options.project)) {
         console.log(`Folder ${options.project} already exists!`);
         return;
     }
-    switch (flags.type) {
+    switch (options.type) {
         case 'ts': {
             console.log('DM-Tools is generating a new TypeScript Node.js Server, static Web site project...');
             sh.cp('-r', path.resolve(__dirname, '../../.templates/typescript/'), `${options.project}`);
@@ -85,7 +85,7 @@ function createJSProject(flags, options) {
     else {
         sh.exec('npm install');
     }
-    if (flags.e2e) {
+    if (options.e2e) {
         if (data_types_1.YARN) {
             sh.exec('yarn add cypress -D');
         }
@@ -94,11 +94,14 @@ function createJSProject(flags, options) {
         }
     }
     try {
-        fs.accessSync('/opt/local/apps/VSCode-linux-x64/bin/code-insiders', fs.constants.F_OK);
-        sh.exec('/opt/local/apps/VSCode-linux-x64/bin/code-insiders .');
+        if (process.env.EDITOR) {
+            fs.accessSync(process.env.EDITOR, fs.constants.F_OK);
+            sh.exec(`${process.env.EDITOR} .`);
+        }
     }
     catch (err) {
-        console.error('Unable to locate code-insider!');
+        console.error('Unable to locate an Editor to open.');
+        console.error('Please set Environment var EDITOR to point to the editor to use.');
     }
     sh.popd();
     console.log(`Project ${options.project} created successfully.`);

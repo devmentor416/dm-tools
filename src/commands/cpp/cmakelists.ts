@@ -1,10 +1,13 @@
 'use strict';
+
+import { Config } from './types';
+
 export function getTemplateCMakeLists(
   project_name: string,
   header_files: string[],
   source_files: string[],
-  config: any ): string {
-
+  config: Config
+): string {
   const cmakelists = `
 cmake_minimum_required( VERSION ${ config.project.cmake || '2.6' } )
 project( ${ project_name } )

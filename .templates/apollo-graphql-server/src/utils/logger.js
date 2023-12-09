@@ -6,7 +6,7 @@ export const log = bunyan.createLogger({
   streams: [
     {
       level: 'info',
-      path: './logs/main.log'
-    }
-  ]
+      path: './logs/main.log',
+    },
+  ],
 });

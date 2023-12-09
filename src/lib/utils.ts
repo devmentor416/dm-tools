@@ -2,6 +2,7 @@
 import * as https from 'https';
 import * as http from 'http';
 import * as fs from 'fs';
+import { DownloadCallbackFn } from '../commands/cpp/types';
 
 export const stub_test = (): string => {
   return 'Hello DM-Tools!';
@@ -13,22 +14,24 @@ export const stub_test = (): string => {
  * @param cb {any} - Callback function.
  * @return {void}
  */
-export function downloadFileHttps( uri: any, filename: string, cb: any ): void {
+export function downloadFileHttps( uri: string, filename: string, cb: DownloadCallbackFn ): void {
   const file = fs.createWriteStream( filename );
-  file.on( 'finish', () => {
-    // Safe to envoke the callback once file io is completed.
-    cb();
-  } )
-    .on( 'error', ( err: any ) => {
+  file
+    .on( 'finish', () => {
+      // Safe to envoke the callback once file io is completed.
+      cb();
+    } )
+    .on( 'error', ( err ) => {
       // Delete the file async, don't check the result.
+      console.log( 'DEBUG: ERROR> ', err );
       fs.unlinkSync( filename );
       if ( cb ) {
         cb( err );
       }
     } );
 
-  /*const request =*/ https.get( uri, response => {
-      response.on( 'aborted', ( err: any ) => {
+  /*const request =*/ https.get( uri, ( response ) => {
+      response.on( 'aborted', ( err ) => {
         file.emit( 'error', err );
       } );
 
@@ -47,13 +50,14 @@ export function downloadFileHttps( uri: any, filename: string, cb: any ): void {
  * @param cb {any} - Callback function.
  * @return {void}
  */
-export function downloadFileHttp( uri: string, filename: string, cb: any ): void {
+export function downloadFileHttp( uri: string, filename: string, cb: DownloadCallbackFn ): void {
   const file = fs.createWriteStream( filename );
-  file.on( 'finish', () => {
-    // Safe to envoke the callback once file io is completed.
-    cb();
-  } )
-    .on( 'error', ( err: any ) => {
+  file
+    .on( 'finish', () => {
+      // Safe to envoke the callback once file io is completed.
+      cb();
+    } )
+    .on( 'error', ( err ) => {
       // Delete the file async, don't check the result.
       fs.unlinkSync( filename );
       if ( cb ) {
@@ -61,8 +65,8 @@ export function downloadFileHttp( uri: string, filename: string, cb: any ): void
       }
     } );
 
-  /*const request =*/ http.get( uri, response => {
-      response.on( 'aborted', ( err: any ) => {
+  /*const request =*/ http.get( uri, ( response ) => {
+      response.on( 'aborted', ( err ) => {
         file.emit( 'error', err );
       } );
 

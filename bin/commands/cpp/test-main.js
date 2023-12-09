@@ -7,6 +7,7 @@ function getTemplateTestMain(options) {
 // Add header to your project here.
 
 // Required headers for Micro Test.
+#include <stdint.h>
 #include <cstdlib>
 #include <iostream>
 #include <string>

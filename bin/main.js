@@ -29,7 +29,11 @@ const data_types_1 = require("./data-types/data-types");
 const fs = __importStar(require("fs"));
 const create_js_project_1 = require("./commands/create-js-project");
 const create_cpp_project_1 = require("./commands/create-cpp-project");
-const options = {};
+const options = {
+    command: '',
+    project: '',
+    config: { author: '', email: '', project: { copyholder: '', license: '', cmake: '' } },
+};
 const config_file = process.env.HOME + '/dmtools.json';
 function source_files(files) {
     return files.split(',');
@@ -64,13 +68,27 @@ Website: https://www.npmjs.com/package/dm-tools
     `);
 })
     .parse(process.argv);
-switch (options.command) {
+const cmd_opts = cmd.opts();
+Object.assign(options, {
+    type: cmd_opts.type,
+    e2e: cmd_opts.e2e,
+    web: cmd_opts.web,
+    cpp: cmd_opts.cpp,
+    debug: cmd_opts.debug,
+    release: cmd_opts.release,
+    eclipse: cmd_opts.eclipse,
+    xcode: cmd_opts.xcode,
+    nmake: cmd_opts.nmake,
+    make: cmd_opts.make,
+});
+console.log(`DEBUG> ${JSON.stringify(options)}`);
+switch (options['command']) {
     case 'new':
-        if (cmd.opts().cpp) {
-            (0, create_cpp_project_1.createCppProject)(cmd.opts(), options);
+        if (options?.cpp) {
+            (0, create_cpp_project_1.createCppProject)(options);
         }
         else {
-            (0, create_js_project_1.createJSProject)(cmd.opts(), options);
+            (0, create_js_project_1.createJSProject)(options);
         }
         break;
     default:

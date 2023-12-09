@@ -17,12 +17,12 @@ import { log } from '../utils/logger';
 const books = [
   {
     title: 'Harry Potter and the Chamber of Secrets',
-    author: 'J.K. Rowling'
+    author: 'J.K. Rowling',
   },
   {
     title: 'Jurassic Park',
-    author: 'Michael Crichton'
-  }
+    author: 'Michael Crichton',
+  },
 ];
 
 // Type definitions define the "shape" of your data and specify
@@ -47,8 +47,8 @@ const typeDefs = gql`
 // schema.  We'll retrieve books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books
-  }
+    books: () => books,
+  },
 };
 
 log.info('Starting Apollo Server');

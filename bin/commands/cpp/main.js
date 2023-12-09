@@ -4,7 +4,7 @@ exports.getTemplateMain = void 0;
 const title_1 = require("./title");
 function getTemplateMain(header_files, options) {
     let headers = '';
-    header_files.forEach(v => {
+    header_files.forEach((v) => {
         headers = `${headers}#include "${v}"\n`;
     });
     const main = `${(0, title_1.getTemplateTitle)('main.cpp', options.config)}\n

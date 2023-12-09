@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTemplateTitle = void 0;
 function getTemplateTitle(filename, config) {
     const today = new Intl.DateTimeFormat('en-US').format(Date.now());
-    const year = (new Date()).getFullYear();
+    const year = new Date().getFullYear();
     const author = config.author || '<Full name>';
     const email = config.email || 'your@email.com';
     const copyholder = config.project.copyholder || author;

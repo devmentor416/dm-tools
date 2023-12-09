@@ -5,20 +5,20 @@ import * as fs from 'fs';
 // import * as utils from '../lib/utils';
 
 import { VERSION, YARN } from '../data-types/data-types';
+import { Options } from './cpp/types';
 
 const commit_message = `
 This Project was generated using Dev Mentor Tools (${ VERSION }).
 Initial Commit.
 `;
 
-export function createJSProject( flags: any, options: any ): void {
-
+export function createJSProject( options: Options ): void {
   if ( fs.existsSync( options.project ) ) {
     console.log( `Folder ${ options.project } already exists!` );
     return;
   }
 
-  switch ( flags.type ) {
+  switch ( options.type ) {
     case 'ts': {
       console.log( 'DM-Tools is generating a new TypeScript Node.js Server, static Web site project...' );
       sh.cp( '-r', path.resolve( __dirname, '../../.templates/typescript/' ), `${ options.project }` );
@@ -61,7 +61,6 @@ export function createJSProject( flags: any, options: any ): void {
     }
   } // switch
 
-
   sh.pushd( `${ options.project }` );
   sh.mkdir( 'docs', 'logs' );
   sh.exec( 'git init' );
@@ -75,7 +74,7 @@ export function createJSProject( flags: any, options: any ): void {
     sh.exec( 'npm install' );
   }
 
-  if ( flags.e2e ) {
+  if ( options.e2e ) {
     if ( YARN ) {
       sh.exec( 'yarn add cypress -D' );
     } else {
@@ -92,7 +91,7 @@ export function createJSProject( flags: any, options: any ): void {
   //   // Download Chromedriver.
   //   utils.downloadFileHttps( 'https://chromedriver.storage.googleapis.com/2.33/chromedriver_mac64.zip',
   //     './bin_tools/chromedriver_mac64.zip',
-  //     function( err: any ) {
+  //     function( err ) {
   //       if ( err ) {
   //         console.log( err.message );
   //       } else {
@@ -107,7 +106,7 @@ export function createJSProject( flags: any, options: any ): void {
   //   // Download standalone selenium-server.
   //   utils.downloadFileHttp( 'http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar',
   //     './bin_tools/selenium-server-standalone-3.7.1.jar',
-  //     function( err: any ) {
+  //     function( err ) {
   //       if ( err ) {
   //         console.log( err.message );
   //       } else {
@@ -117,10 +116,14 @@ export function createJSProject( flags: any, options: any ): void {
   // }
 
   try {
-    fs.accessSync( '/opt/local/apps/VSCode-linux-x64/bin/code-insiders', fs.constants.F_OK );
-    sh.exec( '/opt/local/apps/VSCode-linux-x64/bin/code-insiders .' );
+    if ( process.env.EDITOR ) {
+      fs.accessSync( process.env.EDITOR, fs.constants.F_OK );
+      sh.exec( `${ process.env.EDITOR } .` );
+    }
+    // fs.accessSync( '/opt/local/apps/VSCode-linux-x64/bin/code-insiders', fs.constants.F_OK );
   } catch ( err ) {
-    console.error( 'Unable to locate code-insider!' );
+    console.error( 'Unable to locate an Editor to open.' );
+    console.error( 'Please set Environment var EDITOR to point to the editor to use.' );
   }
   sh.popd();
   console.log( `Project ${ options.project } created successfully.` );

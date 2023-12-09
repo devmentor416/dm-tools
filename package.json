@@ -1,6 +1,6 @@
 {
   "name": "dm-tools",
-  "version": "0.5.0",
+  "version": "0.7.0",
   "description": "Dev Mentor Project Creator Tools",
   "main": "src/main.ts",
   "bin": {
@@ -12,16 +12,19 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production tsc",
     "build:test": "cross-env NODE_ENV=test tsc -p ./tsconfig.test.json",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "clean": "shx rm -rf bin",
     "doc": "typedoc --module commonjs --target ES5 --ignoreCompilerErrors --exclude node_modules --out $npm_package_config_doc_folder src",
     "format": "tsfmt -r --baseDir ./",
     "node:debug": "node --inspect --debug-brk $npm_package_bin_cli",
     "postbuild": "npm link",
-    "prebuild": "run-s clean",
+    "prebuild": "run-s format lint clean unlink",
+    "precommit": "run-s format lint",
     "predoc": "shx rm -rf $npm_package_config_doc_folder && shx mkdir -p $npm_package_config_doc_folder",
     "prepush": "npm run test",
     "pretest": "run-s clean build:test",
-    "test": "nyc ava --tap bin/**/*/test.*.js"
+    "test": "nyc ava --tap bin/**/*/test.*.js",
+    "unlink": "npm unlink -g"
   },
   "keywords": [
     "devmentor",
@@ -44,7 +47,7 @@
     "url": "https://github.com/devmentor416/dm-tools"
   },
   "dependencies": {
-    "commander": "^10.0.0",
+    "commander": "^11.1.0",
     "shelljs": "^0.8.5"
   },
   "nyc": {
@@ -71,18 +74,21 @@
     "check-coverage": true
   },
   "devDependencies": {
-    "@types/bunyan": "^1.8.8",
-    "@types/node": "^18.11.18",
-    "@types/shelljs": "^0.8.11",
-    "ava": "^5.1.1",
+    "@types/bunyan": "^1.8.11",
+    "@types/node": "^20.10.4",
+    "@types/shelljs": "^0.8.15",
+    "@typescript-eslint/eslint-plugin": "^6.13.2",
+    "@typescript-eslint/parser": "^6.13.2",
+    "ava": "^6.0.1",
     "cross-env": "^7.0.3",
     "cross-var": "^1.1.0",
+    "eslint": "^8.55.0",
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
     "shx": "^0.3.4",
-    "typedoc": "^0.23.24",
-    "typescript": "^4.9.4",
+    "typedoc": "^0.25.4",
+    "typescript": "^5.3.3",
     "typescript-formatter": "^7.2.2"
   }
 }

@@ -7,3 +7,6 @@ build
 bin
 # don't lint nyc coverage output
 coverage
+
+cypress
+bs-config.js

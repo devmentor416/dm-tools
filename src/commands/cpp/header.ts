@@ -1,8 +1,8 @@
 'use strict';
 import { getTemplateTitle } from './title';
+import { Config } from './types';
 
-export function getTemplateHeader( filename: string, config: any ): string {
-
+export function getTemplateHeader( filename: string, config: Config ): string {
   const header_guard = `__${ filename.replace( /\./g, '_' ) }_${ Date.now() }__`;
   const header = `${ getTemplateTitle( filename, config ) }\n
 #ifndef ${ header_guard }

@@ -1,8 +1,10 @@
 'use strict';
-export function getTemplateTitle( filename: string, config: any ): string {
 
+import { Config } from './types';
+
+export function getTemplateTitle( filename: string, config: Config ): string {
   const today = new Intl.DateTimeFormat( 'en-US' ).format( Date.now() );
-  const year = ( new Date() ).getFullYear();
+  const year = new Date().getFullYear();
   const author = config.author || '<Full name>';
   const email = config.email || 'your@email.com';
   const copyholder = config.project.copyholder || author;

@@ -12,19 +12,20 @@ import { getTemplateCMakeListsTest } from './cpp/cmakelists.test';
 import { getTemplateHeader } from './cpp/header';
 import { getTemplateSource } from './cpp/source';
 import { VERSION, GIT } from '../data-types/data-types';
+import { Options } from './cpp/types';
 
 const commit_message = `
 This C++ Project was generated using Dev Mentor Tools (${ VERSION }).
 Initial Commit.
 `;
 
-function safeCreateHeaderFile( filename: string, options: any ): void {
+function safeCreateHeaderFile( filename: string, options: Options ): void {
   if ( fs.existsSync( `./src/${ filename }` ) ) {
     console.log( 'Header file already exist, skipping!' );
     return;
   }
 
-  fs.writeFile( `./src/${ filename }`, getTemplateHeader( filename, options.config ), err => {
+  fs.writeFile( `./src/${ filename }`, getTemplateHeader( filename, options.config ), ( err ) => {
     if ( err ) {
       console.log( err.message );
       return;
@@ -33,13 +34,13 @@ function safeCreateHeaderFile( filename: string, options: any ): void {
   console.log( `Created Header file: ${ filename }` );
 }
 
-function safeCreateSourceFile( filename: string, options: any ): void {
+function safeCreateSourceFile( filename: string, options: Options ): void {
   if ( fs.existsSync( `./src/${ filename }` ) ) {
     console.log( 'Source file already exist, skipping!' );
     return;
   }
 
-  fs.writeFile( `./src/${ filename }`, getTemplateSource( filename, options.config ), err => {
+  fs.writeFile( `./src/${ filename }`, getTemplateSource( filename, options.config ), ( err ) => {
     if ( err ) {
       console.log( err.message );
       return;
@@ -48,8 +49,7 @@ function safeCreateSourceFile( filename: string, options: any ): void {
   console.log( `Created Source file: ${ filename }` );
 }
 
-export function createCppProject( cmd: any, options: any ): void {
-
+export function createCppProject( options: Options ): void {
   if ( fs.existsSync( options.project ) ) {
     console.log( `Folder ${ options.project } already exists, doing nothing!` );
     return;
@@ -66,9 +66,9 @@ export function createCppProject( cmd: any, options: any ): void {
   const header_files: string[] = [];
   let source_files: string[] = [];
 
-  if ( cmd.cpp instanceof Array ) {
-    source_files = cmd.cpp;
-    cmd.cpp.forEach( ( file: string ) => {
+  if ( options.cpp instanceof Array ) {
+    source_files = options.cpp;
+    options.cpp.forEach( ( file: string ) => {
       const header_file = file.replace( /\.cpp$/i, '.hpp' );
       header_files.push( header_file );
       safeCreateHeaderFile( header_file, options );
@@ -76,7 +76,7 @@ export function createCppProject( cmd: any, options: any ): void {
     } );
   }
 
-  fs.writeFile( './src/main.cpp', getTemplateMain( header_files, options ), err => {
+  fs.writeFile( './src/main.cpp', getTemplateMain( header_files, options ), ( err ) => {
     if ( err ) {
       console.log( err.message );
     }
@@ -85,14 +85,16 @@ export function createCppProject( cmd: any, options: any ): void {
 
   fs.writeFile(
     './src/CMakeLists.txt',
-    getTemplateCMakeLists( options.project, header_files, source_files, options.config ), err => {
+    getTemplateCMakeLists( options.project, header_files, source_files, options.config ),
+    ( err ) => {
       if ( err ) {
         console.log( err.message );
       }
-    } );
+    }
+  );
   console.log( 'Created CMakefile file' );
 
-  fs.writeFile( './src/test/test.main.cpp', getTemplateTestMain( options ), err => {
+  fs.writeFile( './src/test/test.main.cpp', getTemplateTestMain( options ), ( err ) => {
     if ( err ) {
       console.log( err.message );
     }
@@ -101,18 +103,21 @@ export function createCppProject( cmd: any, options: any ): void {
 
   fs.writeFile(
     './src/test/CMakeLists.txt',
-    getTemplateCMakeListsTest( options.project, header_files, source_files, options.config ), err => {
+    getTemplateCMakeListsTest( options.project, header_files, source_files, options.config ),
+    ( err ) => {
       if ( err ) {
         console.log( err.message );
       }
-    } );
+    }
+  );
   console.log( 'Created Unit Test CMakefile file' );
 
   utils.downloadFileHttps(
     'https://bitbucket.org/rajinder_yadav/micro_test/raw/master/src/include/micro-test.hpp',
-    './src/test/include/micro-test.hpp',
-    function( err: any ) {
+    `${ process.cwd() }/src/test/include/micro-test.hpp`,
+    function( err?: { message: string } ) {
       if ( err ) {
+        console.log( 'ERROR> Download failed' );
         console.log( err.message );
       } else {
         console.log( 'Downloaded Micro Test, the C++ Unit Test Framework' );
@@ -120,8 +125,8 @@ export function createCppProject( cmd: any, options: any ): void {
     }
   );
 
-  const cpp_build_type = ( cmd.debug || !cmd.release ) ? 'Debug' : 'Release';
-  if ( cmd.release ) {
+  const cpp_build_type = options.debug || !options.release ? 'Debug' : 'Release';
+  if ( options.release ) {
     console.log( 'Release build' );
   } else {
     console.log( 'Debug build' );
@@ -131,7 +136,7 @@ export function createCppProject( cmd: any, options: any ): void {
   switch ( os.type() ) {
     case 'Linux':
       console.log( 'Generating Makefiles for Linux' );
-      if ( cmd.eclipse ) {
+      if ( options.eclipse ) {
         sh.exec( `cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
         console.log( 'Created Linux Eclipse CDT project files' );
       } else {
@@ -142,10 +147,10 @@ export function createCppProject( cmd: any, options: any ): void {
 
     case 'Darwin':
       console.log( 'Generating Makefiles for MacOS' );
-      if ( cmd.eclipse ) {
+      if ( options.eclipse ) {
         sh.exec( `cmake -G 'Eclipse CDT4 - Unix Makefiles' -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
         console.log( 'Created Eclipse CDT project files' );
-      } else if ( cmd.xcode ) {
+      } else if ( options.xcode ) {
         sh.exec( `cmake -G 'Xcode' -D CMAKE_BUILD_TYPE=${ cpp_build_type } ../src` );
         console.log( 'Created Xcode project files' );
       } else {
@@ -176,13 +181,13 @@ export function createCppProject( cmd: any, options: any ): void {
   // Also need to take into consideration different platforms: Win, MacOS, Linux 32/64.
 
   // Set up end to end testing.
-  // if ( !cmd.e2e ) {
+  // if ( !options.e2e ) {
   //   sh.mkdir( 'bin_tools' );
 
   //   // Download Chromedriver.
   //   utils.downloadFileHttps( 'https://chromedriver.storage.googleapis.com/2.33/chromedriver_mac64.zip',
   //     './bin_tools/chromedriver_mac64.zip',
-  //     function( err: any ) {
+  //     function( err ) {
   //       if ( err ) {
   //         console.log( err.message );
   //       } else {
@@ -197,7 +202,7 @@ export function createCppProject( cmd: any, options: any ): void {
   //   // Download standalone selenium-server.
   //   utils.downloadFileHttp( 'http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar',
   //     './bin_tools/selenium-server-standalone-3.7.1.jar',
-  //     function( err: any ) {
+  //     function( err ) {
   //       if ( err ) {
   //         console.log( err.message );
   //       } else {

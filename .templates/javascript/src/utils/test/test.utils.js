@@ -2,10 +2,10 @@
 import test from 'ava';
 import { hello, goodbye } from '../utils';
 
-test('hello', t => {
+test('hello', (t) => {
   t.is(hello(), 'Hello DM-Tools!');
 });
 
-test('goodbye', t => {
+test('goodbye', (t) => {
   t.is(goodbye(), 'See you later =)');
 });

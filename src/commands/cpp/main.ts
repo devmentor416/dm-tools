@@ -1,10 +1,10 @@
 'use strict';
 import { getTemplateTitle } from './title';
+import { Options } from './types';
 
-export function getTemplateMain( header_files: string[], options: any ): string {
-
+export function getTemplateMain( header_files: string[], options: Options ): string {
   let headers = '';
-  header_files.forEach( v => {
+  header_files.forEach( ( v ) => {
     headers = `${ headers }#include "${ v }"\n`;
   } );
 

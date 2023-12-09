@@ -33,16 +33,18 @@ const stub_test = () => {
 exports.stub_test = stub_test;
 function downloadFileHttps(uri, filename, cb) {
     const file = fs.createWriteStream(filename);
-    file.on('finish', () => {
+    file
+        .on('finish', () => {
         cb();
     })
         .on('error', (err) => {
+        console.log('DEBUG: ERROR> ', err);
         fs.unlinkSync(filename);
         if (cb) {
             cb(err);
         }
     });
-    https.get(uri, response => {
+    https.get(uri, (response) => {
         response.on('aborted', (err) => {
             file.emit('error', err);
         });
@@ -58,7 +60,8 @@ function downloadFileHttps(uri, filename, cb) {
 exports.downloadFileHttps = downloadFileHttps;
 function downloadFileHttp(uri, filename, cb) {
     const file = fs.createWriteStream(filename);
-    file.on('finish', () => {
+    file
+        .on('finish', () => {
         cb();
     })
         .on('error', (err) => {
@@ -67,7 +70,7 @@ function downloadFileHttp(uri, filename, cb) {
             cb(err);
         }
     });
-    http.get(uri, response => {
+    http.get(uri, (response) => {
         response.on('aborted', (err) => {
             file.emit('error', err);
         });

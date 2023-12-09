@@ -6,11 +6,15 @@ Update the version number for the CLI in:
 1. README.md
 1. package.json.t
 
-Next build the project locally.
+Next build the project locally, this will also link it globally to make it avaliable under node_modules.
+
+After the build the dm binary will be available to use. It doesn't need to be installed.
 
 ```sh
 npm run build
 ```
+
+## Alternative
 
 Finally create a zipped package for testing, from the project root folder type:
 

@@ -25,7 +25,7 @@ const server = http.createServer((request, response) => {
   const request_body = [];
   let request_data = '';
 
-  request.on('error', err => {
+  request.on('error', (err) => {
     log.info(err.message);
     log.info(err.stack);
   });
@@ -40,14 +40,15 @@ const server = http.createServer((request, response) => {
   response.writeHead(ERR_SUCCESS, {
     'Content-type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    'Access-Control-Allow-Headers':
+      'Origin, X-Requested-With, Content-Type, Accept',
   });
 
   if (method === 'GET' && url === '/test') {
     // Process HTTP GET
     message = {
       status: ERR_SUCCESS,
-      message: 'Server is running.'
+      message: 'Server is running.',
     };
     const response_data = JSON.stringify(message) + '\n';
     response.write(response_data);
@@ -56,7 +57,7 @@ const server = http.createServer((request, response) => {
   } else if (method === 'POST' && url === '/test') {
     // Process HTTP POST
     request
-      .on('data', chunk => {
+      .on('data', (chunk) => {
         // Capture data
         request_body.push(chunk);
       })
@@ -68,7 +69,7 @@ const server = http.createServer((request, response) => {
         message = {
           status: ERR_SUCCESS,
           length: request_data.length,
-          message: request_data
+          message: request_data,
         };
         log.info('Posting test request.');
         log.info(`Data: ${request_data}`);
@@ -80,11 +81,11 @@ const server = http.createServer((request, response) => {
     // Unknown Client request, send a 400 server error.
     log.info('Server Error: Bad Client request.');
     response.writeHead(ERR_BAD_REQUEST, {
-      'Content-type': 'application/json'
+      'Content-type': 'application/json',
     });
     message = {
       status: ERR_BAD_REQUEST,
-      message: 'Bad Request'
+      message: 'Bad Request',
     };
     const response_data = JSON.stringify(message) + '\n';
     response.write(response_data);
