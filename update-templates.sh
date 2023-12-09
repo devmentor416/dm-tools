@@ -18,7 +18,6 @@ do
     cp ../../README.md .
     ./npm-up.sh
     rm -rf node_modules
-    rm -f package-lock.json
   popd
 done
 
