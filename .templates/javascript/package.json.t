@@ -25,6 +25,7 @@
     "prepush": "npm run test",
     "start": "node $npm_package_config_main",
     "pretest": "run-s clean build",
+    "release": "run-s clean format lint build",
     "test": "npm run ava:coverage",
     "test:e2e": "cypress open",
     "testwatch": "gazeall --runs-npm ava 'build/**/*'",
