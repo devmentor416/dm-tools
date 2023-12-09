@@ -5,7 +5,14 @@
 cp package.json.t package.json
 rm -f package-lock.json
 rm -rf node_modules
-npm i -D @babel/cli @babel/core @babel/preset-env @babel/polyfill
 npm i -D ava cross-env cross-var gazeall npm-run-all nyc shx tap-summary
-npm i -D tape-run eslint esdoc esdoc-standard-plugin prettier concurrently
-npm i -S bcrypt bunyan jsonwebtoken koa koa-better-router koa-body @koa/cors koa-helmet koa-router
+npm i -D typedoc typedoc-plugin-markdown typescript tape-run prettier concurrently
+npm i -S bcrypt bunyan jsonwebtoken koa @koa/router koa-body @koa/cors koa-helmet
+npm i -D @types/bunyan @types/node @types/shelljs @types/koa__cors @types/koa__router
+npm i -D eslint esdoc @typescript-eslint/parser @typescript-eslint/eslint-plugin
+yarn
+
+if [ "$1" = "-" ]; then
+  rm -rf node_modules
+  rm -f package-lock.json yarn.lock
+fi
