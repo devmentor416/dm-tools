@@ -1,8 +1,7 @@
 # Dev Mentor Project Creator Tool
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
-![Dependencies](https://david-dm.org/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.5.0-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.7.0-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
@@ -16,6 +15,7 @@
     3. [Installing DM-Tools](#installing-dm-tools)
     4. [Benefits](#benefits)
     5. [Creating a Project](#creating-a-project)
+        1. [NPM Scripts](#npm-scripts)
     6. [Running a Node.js program](#running-a-nodejs-program)
     7. [Running Tests](#running-tests)
         1. [Developing and watching](#developing-and-watching)
@@ -61,19 +61,23 @@ Version of Node supported: Node v14.16.1+, for version earler you will need to p
 
 The following basic project types that can be created using DM-Tools are:
 
-1. Default (JavaScript Node.js with static Website)
-1. TypeScript Node.js with static Website
-1. Apollo GraphQL API Server using Babel 7
-1. TypeScript Node.js
-1. JavaScript Node.js using Babel 7 (ES6, Zero compile with static Website)
-1. Koa Node.js API Server in TypeScript (ES6, Zero compile with static Website)
-1. C++ with Micro Test using CMake
+Option|Language|Description
+-|-|-
+| |TS|Default (TypeScript Node.js program)
+js|JS|JavaScript Node.js server with static website
+ts|TS|TypeScript Express.js Server (Zero compile with static Website)
+web|HTML Sass |Static Website
+node|TS|TypeScript Node.js Server
+koa|TS|Koa Node.js API Server in TypeScript
+gql|JS|Apollo GraphQL API Server using Babel 7
+cpp|CPP |C++ with Micro Test using CMake
 
 ## Installing DM-Tools
 
 ```sh
 npm install -g dm-tools
 ```
+
 ## Benefits
 
 Here are the benefits you will enjoy right out of the gate:
@@ -104,6 +108,24 @@ cd demo
 
 __Note__: If you are using __Yarn__ over __NPM__, continue to work with __Yarn__, the DM-Tools generated project will use Yarn before NPM if it is available on your system.
 
+### NPM Scripts
+
+The following NPM commands are provided, some are project type dependent.
+
+NPM script|Description
+----------|-----------
+build|Perform a release build|
+dev|Run in watch mode.|
+doc|Generate doc files (jsdocs).|
+format|Format the source code.|
+|lint|Run TypeScript / ES linter|
+node:debug|Start debugger, requires Chrome.|
+start|Run the Node.js program.|
+test|Run Unit test with coverage|
+test:e2e|End to end test with Cypress|
+testwatch|Run Unit testing in watch mode|
+web|Run static web server
+
 ## Running a Node.js program
 
 To simply run a production build of the Node.js program, type:
@@ -116,7 +138,7 @@ This will perform a clean build and run the demo program from the "__build/__" f
 
 ## Running Tests
 
-To run tests with coverage for the TypeScript / Node.js based app, type:
+To run tests with coverage for the TypeScript / Node.js based programs, type:
 
 ```sh
 npm test
@@ -132,7 +154,7 @@ You can run and watch a Node.js based program during development. To do this, op
 npm run dev
 ```
 
-This will kickoff the dev build and a dev watch NPM scripts.
+This will kickoff the "dev build" and "dev watch" NPM scripts.
 
 #### Watching Tests
 
@@ -202,7 +224,7 @@ To validate the project TypeScript source code, use the following command:
 npm run lint
 ```
 
-__Note__: The TypeScript source code is run through a linter (__TSLint__) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.
+__Note__: The TypeScript source code is run through a linter (__ESLint__) before a build and before it is committed to the Git repository. Any errors encountered must be fixed before the Git commit is allowed to proceed.
 
 **Important!**: I have noticed, once in a while the git hooks will continue to fail when there is nothing really wrong. If you suspect this is the case, the easy fix is to delete the "__node_modules__" folder. Follow this with a "__npm install__" or simply type "__yarn__" and then try to commit or push the code again.
 
@@ -228,7 +250,7 @@ __Note__: Running the test will cause a fresh build to be kicked-off. Once the b
 
 ## Static Web development
 
-If you want to hack around with HTML, CSS and try things out quick. Start the project in __web__ mode using the following command:
+If you want to hack around with HTML, Sass and try things out quick. Start the project in __web__ mode using the following command:
 
 ```sh
 npm run web
@@ -262,6 +284,7 @@ With Browsersync, having to serve addition CSS and JavaScript files, make sure t
     routes: {
       "/node_modules/tachyons/css":"node_modules/tachyons/css"
     }
+  },
 ```
 
 This will allow including "__\<script\>__" assets from the index.html file like this:
@@ -290,18 +313,6 @@ npm install
 ```
 
 __Note__: You may also use "__-t__" which is the short-form for "__--type__".
-
-The following NPM commands are supported:
-
-NPM script|Description
-----------|-----------
-lint|Run code through linter (jslint).|
-dev|Run in watch mode.|
-doc|Generate doc files (jsdocs).|
-format|Format the source code.|
-node:debug|Start debugger, requires Chrome.|
-start|Run the Node.js program.|
-test|Run Unit testing (Ava).|
 
 The plain JavaScript generated file has a development mode. It will run the __Entry__ file ("__main.js__") using Node.js each time the source code is updated. You can develop and see the output from the __terminal__ to test out code quickly.
 
