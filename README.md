@@ -11,8 +11,8 @@
 
 1. [Dev Mentor Project Creator Tool](#dev-mentor-project-creator-tool)
     1. [Introduction](#introduction)
-    2. [Build and Debug like a Pro](#build-and-debug-like-a-pro)
-    3. [Configuation: run, debug and build entry files](#configuation-run-debug-and-build-entry-files)
+    2. [No IDE: Build and Debug like a Pro](#no-ide-build-and-debug-like-a-pro)
+    3. [Configuration: run, debug and build entry files](#configuration-run-debug-and-build-entry-files)
     4. [Project Types](#project-types)
     5. [Installing DM-Tools](#installing-dm-tools)
     6. [Benefits](#benefits)
@@ -59,7 +59,7 @@ Focus has been put into encouraging the use of best practices and the best tools
 
 Version of Node supported: Node v14.16.1+, for version earlier you will need to polyfill using "__core-js__".
 
-## Build and Debug like a Pro
+## No IDE: Build and Debug like a Pro
 
 You can easily run and debug any TypeScript, JavaScript, Node.js program with ease. You do not need and IDE to debug! 💪🏽 All you need is a terminal and a browser and you can step through any code.
 
@@ -81,11 +81,13 @@ Brave| `brave://inspect`
 Chrome| `chrome://inspect`
 Edge|`edge://inspect`
 
-Look for an "__inspect__" link under "Remote Target"
+Look for an "__Open dedicated DevTools for Node__" or "__inspect__" link.
 
 ![Brave inspect](/img/brave-inspect.png)
 
-Clicking on the inspect link will popup a browser debug window. You are good to go. ✅ Set breakpoints and step through your code like a pro.
+Clicking on either link will popup a browser debug window. You are good to go. ✅
+
+Set breakpoints 🎯 and step through code like a pro. 😎
 
 ![browser debugger](img/node-browser-debugger.png)
 
@@ -145,20 +147,18 @@ npm install -g dm-tools
 
 Here are the benefits you will enjoy right out of the gate:
 
-- Quick start
-- Best practices
-- Build system
-- Code in TypeScript
-- Code TypeScript Modules
-- HTML live edit and preview
-- Error logging
-- Code linting
-- Code formatting
-- Unit testing
-- Code coverage
-- Document generation
-- Git commit hooks
-- Continuous integration (under research)
+- ✅ Quick start
+- ✅ Build system
+- ✅ Code in TypeScript
+- ✅ Easy no IDE debugging
+- ✅ HTML, CSS & Sass live edit and preview
+- ✅ Error logging
+- ✅ Code linting
+- ✅ Code formatting
+- ✅ Unit testing
+- ✅ Code coverage
+- ✅ Document generation
+- ✅ Git commit hooks
 
 ## Creating a Project
 
@@ -275,9 +275,7 @@ Place any module or library source code that you write under the, "__src/lib/__"
 
 The source code will be automatically formatted during development and production build. This will also happen before source code is committed to __Git__.
 
-
 It is good practice to format the source code, so it conforms to a uniform structure. Avoid squabbles about style. Formatting in run by the NPM script, "__format__".
-
 
 ### Linting
 
