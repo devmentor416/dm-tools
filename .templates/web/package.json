@@ -19,9 +19,12 @@
   "keywords": [
     "javascript",
     "js",
+    "ts",
+    "typescript",
     "nodejs",
-    "html",
-    "web"
+    "web",
+    "css",
+    "sass"
   ],
   "author": "[Fullname] <your-email>",
   "license": "GPL-3.0",
@@ -31,7 +34,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.29.3",
-    "gazeall": "^0.13.4",
+    "gazeall": "^0.13.9",
     "npm-run-all": "^4.1.5",
     "sass": "^1.69.5",
     "shx": "^0.3.4"

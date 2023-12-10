@@ -47,7 +47,9 @@
     "ts",
     "typescript",
     "nodejs",
-    "web"
+    "web",
+    "css",
+    "sass"
   ],
   "author": "[Fullname] <your-email>",
   "license": "GPL-3.0",

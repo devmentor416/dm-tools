@@ -658,10 +658,10 @@ gaze@^1.1.3:
   dependencies:
     globule "^1.0.0"
 
-gazeall@^0.13.4:
-  version "0.13.4"
-  resolved "https://registry.npmjs.org/gazeall/-/gazeall-0.13.4.tgz"
-  integrity sha512-PfwLM/Yt0vHBHUfAzmTUm6Qe+AHGo60iB6kVBQoNWNYV4VyvahbWaeb1WxRp/aN2DwmVErAqt0rSuGZiflPnAQ==
+gazeall@^0.13.9:
+  version "0.13.9"
+  resolved "https://registry.npmjs.org/gazeall/-/gazeall-0.13.9.tgz"
+  integrity sha512-wNOXV+//nur7cvqz/E0SxLNRvfpoc50qbjiF5ul7QlbzNaZlGkJeUOhbG1B97umsuSXV3G0ud8bfSPkfwH7Olw==
   dependencies:
     colors "^1.4.0"
     commander "^11.1.0"
