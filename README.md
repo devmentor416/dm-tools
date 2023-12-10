@@ -148,6 +148,7 @@ npm install -g dm-tools
 Here are the benefits you will enjoy right out of the gate:
 
 - ✅ Quick start
+- ✅ Best practices
 - ✅ Build system
 - ✅ Code in TypeScript
 - ✅ Easy no IDE debugging
