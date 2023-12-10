@@ -1,7 +1,7 @@
 # Dev Mentor Project Creator Tool
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.7.0-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.7.1-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
@@ -11,16 +11,18 @@
 
 1. [Dev Mentor Project Creator Tool](#dev-mentor-project-creator-tool)
     1. [Introduction](#introduction)
-    2. [Project Types](#project-types)
-    3. [Installing DM-Tools](#installing-dm-tools)
-    4. [Benefits](#benefits)
-    5. [Creating a Project](#creating-a-project)
+    2. [No IDE: Build and Debug like a Pro](#no-ide-build-and-debug-like-a-pro)
+    3. [Configuration: run, debug and build entry files](#configuration-run-debug-and-build-entry-files)
+    4. [Project Types](#project-types)
+    5. [Installing DM-Tools](#installing-dm-tools)
+    6. [Benefits](#benefits)
+    7. [Creating a Project](#creating-a-project)
         1. [NPM Scripts](#npm-scripts)
-    6. [Running a Node.js program](#running-a-nodejs-program)
-    7. [Running Tests](#running-tests)
+    8. [Running a Node.js program](#running-a-nodejs-program)
+    9. [Running Tests](#running-tests)
         1. [Developing and watching](#developing-and-watching)
             1. [Watching Tests](#watching-tests)
-    8. [TypeScript development](#typescript-development)
+    10. [TypeScript development](#typescript-development)
         1. [Project structure](#project-structure)
         2. [Building](#building)
         3. [Warning](#warning)
@@ -28,20 +30,20 @@
         5. [Formatting the code](#formatting-the-code)
         6. [Linting](#linting)
         7. [Testing](#testing)
-    9. [Static Web development](#static-web-development)
+    11. [Static Web development](#static-web-development)
         1. [Browsersync Asset fetching](#browsersync-asset-fetching)
-    10. [Test coverage](#test-coverage)
-    11. [Create a Node.js JavaScript project](#create-a-nodejs-javascript-project)
+    12. [Test coverage](#test-coverage)
+    13. [Create a Node.js JavaScript project](#create-a-nodejs-javascript-project)
         1. [TypeScript Node ES5](#typescript-node-es5)
-    12. [Building C++ Testable Projects](#building-c-testable-projects)
+    14. [Building C++ Testable Projects](#building-c-testable-projects)
         1. [Basic Usage](#basic-usage)
             1. [Project "hello_world" Creation](#project-hello_world-creation)
         2. [Building Project](#building-project)
         3. [Running hello_world program](#running-hello_world-program)
         4. [Running the Test Program](#running-the-test-program)
         5. [Micro Test - Testing Your Project](#micro-test---testing-your-project)
-    13. [TypeScript Coding Guideline](#typescript-coding-guideline)
-    14. [Debugging](#debugging)
+    15. [TypeScript Coding Guideline](#typescript-coding-guideline)
+    16. [Debugging](#debugging)
 
 <!-- /code_chunk_output -->
 ## Introduction
@@ -55,7 +57,70 @@ __DM-Tools__ is a command-line utility for generating a project for the followin
 
 Focus has been put into encouraging the use of best practices and the best tools.
 
-Version of Node supported: Node v14.16.1+, for version earler you will need to polyfill using "__core-js__".
+Version of Node supported: Node v14.16.1+, for version earlier you will need to polyfill using "__core-js__".
+
+## No IDE: Build and Debug like a Pro
+
+You can easily run and debug any TypeScript, JavaScript, Node.js program with ease. You do not need and IDE to debug! 💪🏽 All you need is a terminal and a browser and you can step through any code.
+
+It is even possible to debug remotely, for more information, read the [Node Debugging Guide](https://nodejs.org/en/guides/debugging-getting-started).
+
+To get started open a terminal and type:
+
+```sh
+npm run debug
+```
+
+This will start a debug build for TypeScript files then run it using Node.js and immediately break. JavaScript program will run immediately and break.
+
+Next open a browser.
+
+Browser | Debug URL
+-|-
+Brave| `brave://inspect`
+Chrome| `chrome://inspect`
+Edge|`edge://inspect`
+
+Look for an "__Open dedicated DevTools for Node__" or "__inspect__" link.
+
+![Brave inspect](img/brave-inspect.png)
+
+Clicking on either link will popup a browser debug window. You are good to go. ✅
+
+Set breakpoints 🎯 and step through code like a pro. 😎
+
+![browser debugger](img/node-browser-debugger.png)
+
+__NOTE__: TypeScript file(s) will appear in the debugger windows, not transpiled JavaScript files. ❤️
+
+## Configuration: run, debug and build entry files
+
+The generated project haves two entries in package.json file that control:
+
+1. The build entry file.
+1. The run and debug entry file.
+
+Here is sample package.json file:
+
+```json
+{
+  "name": "@dm-tools/demo",
+  "version": "0.1.0",
+  "description": "DM-Tools generated TypeScript Express.js demo Server with static Website",
+  "main": "src/core/main.ts",
+  "config": {
+    "main": "build/core/main.js",
+    "doc_folder": "docs/typedoc"
+  },
+...
+}
+```
+
+The "__main__" property under the root, controls the entry file and location for the TypeScript built.
+
+The property "__config.main__" is where the TypeScript code is compiled to, it points to the entry file to run.
+
+Should you even have a need to rename the entry files, this is where you would do it. For JavaScript projects, you will see duplicate entries both pointing to the run file.
 
 ## Project Types
 
@@ -82,20 +147,19 @@ npm install -g dm-tools
 
 Here are the benefits you will enjoy right out of the gate:
 
-- Quick start
-- Best practices
-- Build system
-- Code in TypeScript
-- Code TypeScript Modules
-- HTML live edit and preview
-- Error logging
-- Code linting
-- Code formatting
-- Unit testing
-- Code coverage
-- Document generation
-- Git commit hooks
-- Continuous integration (under research)
+- ✅ Quick start
+- ✅ Best practices
+- ✅ Build system
+- ✅ Code in TypeScript
+- ✅ Easy no IDE debugging
+- ✅ HTML, CSS & Sass live edit and preview
+- ✅ Error logging
+- ✅ Code linting
+- ✅ Code formatting
+- ✅ Unit testing
+- ✅ Code coverage
+- ✅ Document generation
+- ✅ Git commit hooks
 
 ## Creating a Project
 
@@ -210,11 +274,9 @@ Place any module or library source code that you write under the, "__src/lib/__"
 
 ### Formatting the code
 
-Thje source code will be automatically formatted during development and production build. This will also happen before source code is committed to __Git__.
-
+The source code will be automatically formatted during development and production build. This will also happen before source code is committed to __Git__.
 
 It is good practice to format the source code, so it conforms to a uniform structure. Avoid squabbles about style. Formatting in run by the NPM script, "__format__".
-
 
 ### Linting
 

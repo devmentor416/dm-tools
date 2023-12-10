@@ -2,6 +2,11 @@
 
 All changes to this project will be recorded in this document.
 
+## 0.7.1 (2023-12-09)
+
+- Fix and improved No IDE debugging support.
+- Updated README with improvded debugging section.
+
 ## 0.7.0 (2023-12-09)
 
 - Refresh all template projects.

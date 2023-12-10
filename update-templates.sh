@@ -16,6 +16,8 @@ for folder in ${projects[*]}
 do
   pushd ${folder}
     cp ../../README.md .
+    cp -r ../../img/ .
+    rm ./img/dm-tools.ai
     ./npm-up.sh
     rm -rf node_modules
   popd

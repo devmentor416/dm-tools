@@ -2,8 +2,9 @@
 
 Update the version number for the CLI in:
 
-1. Source code "src/data-types/data-types.ts"
 1. README.md
+1. data-types.ts
+1. package.json
 1. package.json.t
 
 Next build the project locally, this will also link it globally to make it avaliable under node_modules.
@@ -37,4 +38,10 @@ From the project root folder, type:
 
 ```sh
 ./update-templates.sh
+```
+
+## Publish to NPM
+
+```sh
+./publish-npm.sh
 ```

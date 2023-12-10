@@ -1,7 +1,7 @@
 # Dev Mentor Project Creator Tool
 
 ![Travis](https://img.shields.io/travis/devmentor416/dm-tools.svg)
-![Version](https://img.shields.io/badge/dm--tools-0.7.0-blue.svg)
+![Version](https://img.shields.io/badge/dm--tools-0.7.1-blue.svg)
 ![License](https://img.shields.io/badge/license-GPL--4.0-blue.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/devmentor416/dm-tools.svg)](https://greenkeeper.io/)
 
@@ -83,7 +83,7 @@ Edge|`edge://inspect`
 
 Look for an "__Open dedicated DevTools for Node__" or "__inspect__" link.
 
-![Brave inspect](/img/brave-inspect.png)
+![Brave inspect](img/brave-inspect.png)
 
 Clicking on either link will popup a browser debug window. You are good to go. ✅
 
